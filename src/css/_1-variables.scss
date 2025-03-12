@@ -16,9 +16,10 @@ $Blue: #003462;
 $orange: #e95d2c;
 $purple: #9b68cd;
 $lightblue: #4c8bb1;
-$lightgreen:#65bf72;
-$lightgreen2:#c5ceda;
-
+$lightgreen: #65bf72;
+$lightgreen2: #c5ceda;
+$Black: $black;
+$White: $white;
 
 $gradient1: linear-gradient(-45deg, $black 0%, $action2 50%);
 
@@ -28,20 +29,20 @@ $gradientbg1: linear-gradient(
   rgba($lightgreen, 0.2) 99.09%
 );
 $gradientbg2: linear-gradient(
-    104.96deg,
-    rgba($action1, 0.9) 6.9%,
-    rgba($lightblue, 0.9) 99.09%
-  );
+  104.96deg,
+  rgba($action1, 0.9) 6.9%,
+  rgba($lightblue, 0.9) 99.09%
+);
 $gradientbg3: linear-gradient(
-    104.96deg,
-    rgba($lightblue, 0.6) 6.9%,
-    rgba($lightgreen2, 0.6) 99.09%
-  );
+  104.96deg,
+  rgba($lightblue, 0.6) 6.9%,
+  rgba($lightgreen2, 0.6) 99.09%
+);
 $gradientbg4: linear-gradient(
-    104.96deg,
-    rgba($lightblue, 0.75) 6.9%,
-    rgba($purple, 0.75) 99.09%
-  );
+  104.96deg,
+  rgba($lightblue, 0.75) 6.9%,
+  rgba($purple, 0.75) 99.09%
+);
 $font1: "Lato";
 $baseFontSize: 16rem;
 $baseLineHeight: 1.5; // Golden ratio

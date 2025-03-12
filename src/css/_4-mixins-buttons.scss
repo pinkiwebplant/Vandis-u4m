@@ -26,7 +26,8 @@
   }
 }
 
-//
+ 
+
 @mixin buttonSmall {
   @include button;
   padding: 8rem 20rem 7rem 20rem;
@@ -34,7 +35,6 @@
   line-height: 1.2;
 }
 
-//
 @mixin buttonStroked {
   display: inline-block;
   font-family: $font1;

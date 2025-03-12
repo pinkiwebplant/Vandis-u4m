@@ -477,7 +477,6 @@ section[class*="u4m-"] {
   scroll-margin-top: 150px;
 }
 
-
 .reverse-text {
   color: $white;
 
@@ -504,14 +503,6 @@ section[class*="u4m-"] {
 
 .hs-button {
   @include button;
-}
-
-.hs-arrow-btn {
-  @include buttonSecond;
-}
-
-.hs-sec-btn {
-  @include buttonThird;
 }
 
 .reverse-text {
@@ -608,13 +599,6 @@ section[class*="u4m-"] {
   background: $gradientbg4;
 }
 
-:root {
-  --gradient1: #{$gradient1};
-  --gradient2: #{$gradient2};
-  --gradient3: #{$gradient3};
-  --gradient4: #{$gradient4};
-  --gradient5: #{$gradient5};
-}
 .intro_content {
   @include introcenter;
   width: 100%;
@@ -676,4 +660,8 @@ section[class*="u4m-"] {
       justify-content: left;
     }
   }
+}
+
+.green_bg {
+  background-color: $green;
 }
