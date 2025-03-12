@@ -1,0 +1,240 @@
+<!--
+templateType: global_partial
+label: Website header
+-->
+<div class="header-section">
+	<header class="header">
+
+		{% module "header" 
+        path="../../modules/u4m-header-section",
+        offset=0,
+        width=12,
+        logo_section={
+          "logo_field" : {
+            "alt" : "IMMY Logo",
+            "height" : 84,
+            "override_inherited_src" : true,
+            "src" : "{{ get_asset_url('../../templates/images/Logo.png') }}",
+            "suppress_company_name" : true,
+            "width" : 378
+          }
+        },
+        menu=[ {
+          "child_menu" : [ {
+            "enable_menu_title" : false,
+            "menu_group" : [ {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "Professional Services"
+            }, {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "Managed Services"
+            }, {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "Project Management Services"
+            } ]
+          } ],
+          "enable_child_menu" : true,
+          "link_field" : {
+            "no_follow" : false,
+            "open_in_new_tab" : false,
+            "url" : {
+              "href" : "",
+              "type" : "EXTERNAL"
+            }
+          },
+          "menu_text" : "Services"
+        }, {
+          "child_menu" : [ {
+            "enable_menu_title" : true,
+            "menu_group" : [ {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "Resources Library"
+            }, {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "Events"
+            }, {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "Blog/News"
+            }, {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "State Contracts"
+            } ],
+            "menu_title" : "Menu Title"
+          }, {
+            "enable_menu_title" : true,
+            "menu_group" : [ {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "Resources Library"
+            }, {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "Events"
+            }, {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "Blog/News"
+            }, {
+              "link_field_2" : {
+                "no_follow" : false,
+                "open_in_new_tab" : false,
+                "url" : {
+                  "href" : "",
+                  "type" : "EXTERNAL"
+                }
+              },
+              "menu_text" : "State Contracts"
+            } ],
+            "menu_title" : "Menu Title"
+          } ],
+          "enable_child_menu" : true,
+          "link_field" : {
+            "no_follow" : false,
+            "open_in_new_tab" : false,
+            "url" : {
+              "href" : "",
+              "type" : "EXTERNAL"
+            }
+          },
+          "menu_text" : "Solutions"
+        }, {
+          "child_menu" : [ ],
+          "enable_child_menu" : false,
+          "link_field" : {
+            "no_follow" : false,
+            "open_in_new_tab" : false,
+            "url" : {
+              "href" : "",
+              "type" : "EXTERNAL"
+            }
+          },
+          "menu_text" : "Partners"
+        }, {
+          "child_menu" : [ ],
+          "enable_child_menu" : false,
+          "link_field" : {
+            "no_follow" : false,
+            "open_in_new_tab" : false,
+            "url" : {
+              "href" : "",
+              "type" : "EXTERNAL"
+            }
+          },
+          "menu_text" : "Resources"
+        }, {
+          "child_menu" : [ ],
+          "enable_child_menu" : false,
+          "link_field" : {
+            "no_follow" : false,
+            "open_in_new_tab" : false,
+            "url" : {
+              "href" : "",
+              "type" : "EXTERNAL"
+            }
+          },
+          "menu_text" : "Who We Are"
+        } ],
+        top_section={
+          "menu" : [ {
+            "link_field_1" : {
+              "no_follow" : false,
+              "open_in_new_tab" : false,
+              "url" : {
+                "href" : "",
+                "type" : "EXTERNAL"
+              }
+            },
+            "link_text" : "Link"
+          }, {
+            "link_field_1" : {
+              "no_follow" : false,
+              "open_in_new_tab" : false,
+              "url" : {
+                "href" : "",
+                "type" : "EXTERNAL"
+              }
+            },
+            "link_text" : "Link"
+          }, {
+            "link_field_1" : {
+              "no_follow" : false,
+              "open_in_new_tab" : false,
+              "url" : {
+                "href" : "",
+                "type" : "EXTERNAL"
+              }
+            },
+            "link_text" : "Link"
+          } ]
+        }
+      %}
+
+	</header>
+</div>

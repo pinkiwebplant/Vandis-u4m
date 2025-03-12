@@ -1,0 +1,57 @@
+<div class="socialWrap {{name}}">
+	{% for item in module.items %}
+	<div class="cmIcon items-{{loop.index}}">
+		{% if item.select_icon_type == "icon" %}
+		{% set href = item.link_field.url.href %}
+		{% if item.link_field.url.type is equalto "EMAIL_ADDRESS" %}
+		{% set href = "mailto:" + href %}
+		{% endif %}
+		<a
+			 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
+			 href="{{ href }}"
+			 {% else %}
+			 href="{{ href|escape_url }}"
+			 {% endif %}
+			 {% if item.link_field.open_in_new_tab %}
+			 target="_blank"
+			 {% endif %}
+			 {% if item.link_field.rel %}
+			 rel="{{ item.link_field.rel|escape_attr }}"
+			 {% endif %}
+			 >
+			{% icon
+		name="{{ item.icon_field.name }}"
+		style="{{ item.icon_field.type }}"
+		unicode="{{ item.icon_field.unicode }}"
+		icon_set="{{ item.icon_field.icon_set }}"
+	%}
+		</a>
+		{% elif item.select_icon_type == "image" %}
+		{% if item.image_field.src %}
+		{% set href = item.link_field.url.href %}
+		{% if item.link_field.url.type is equalto "EMAIL_ADDRESS" %}
+		{% set href = "mailto:" + href %}
+		{% endif %}
+		<a
+			 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
+			 href="{{ href }}"
+			 {% else %}
+			 href="{{ href|escape_url }}"
+			 {% endif %}
+			 {% if item.link_field.open_in_new_tab %}
+			 target="_blank"
+			 {% endif %}
+			 {% if item.link_field.rel %}
+			 rel="{{ item.link_field.rel|escape_attr }}"
+			 {% endif %}
+			 >
+			{% set loadingAttr = item.image_field.loading != 'disabled' ? 'loading="{{ item.image_field.loading|escape_attr }}"' : '' %}
+			<img src="{{ item.image_field.src|escape_url }}" alt="{{ item.image_field.alt|escape_attr }}" {{ loadingAttr }}>
+			{% set loadingAttr = item.image.loading != 'disabled' ? 'loading="{{ item.image.loading|escape_attr }}"' : '' %}
+			<img src="{{ item.image_field.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }}>
+		</a>
+		{% endif %}
+		{% endif %}
+	</div>
+	{% endfor %}
+</div>

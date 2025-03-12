@@ -1,0 +1,123 @@
+@import "../../css/_module-imports";
+
+$font-family_1: lato;
+
+.header-section {
+  .container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .top-section {
+    background-color: $gray1;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .top-menu {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+      li {
+        margin: 0;
+        padding: 8px 0;
+        a {
+          color: $action1;
+          font-family: $font-family_1;
+          font-size: 16px;
+          font-weight: bold;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+  .main-section {
+    background-color: $white;
+    .container {
+      .main-inner {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        .nav-wrap {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          .nav {
+            .nav-menu-wrapper {
+              ul.menu-items {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                li.menu-item {
+                  margin-bottom: 0;
+                  letter-spacing: normal;
+                  position: relative;
+                  a {
+                    color: $action1;
+                    font-family: $font-family_1;
+                    font-size: 16px;
+                    font-weight: bold;
+                    line-height: 1.5;
+                    padding: 12px 0;
+                  }
+                  ul.sub-menu-wrapper {
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    background-color: $gray1;
+                    padding: 24px;
+                    border-radius: 12px;
+                    min-width: 268px;
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateX(-50%);
+                    box-shadow: 0 4px 24px rgb(0, 0, 0, 0.24);
+                    z-index: 9;
+                    .sub-menu-inner {
+                      display: flex;
+                      flex-wrap: wrap;
+                      width: 100%;
+                      .submenu-items {
+                        li.submenu-item {
+                          margin-bottom: 0;
+                          letter-spacing: normal;
+                          a {
+                            padding: 0;
+                            &:hover {
+                              color: $lightgreen;
+                            }
+                          }
+                          &:not(:last-child) {
+                            margin-bottom: 8px;
+                          }
+                        }
+                        h6 {
+                          margin-bottom: 20px;
+                          color: $action2;
+                        }
+                      }
+                    }
+                  }
+                  &:hover {
+                    > ul.sub-menu-wrapper {
+                      opacity: 1;
+                      visibility: visible;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .site_logo {
+      max-width: 209px;
+    }
+  }
+}

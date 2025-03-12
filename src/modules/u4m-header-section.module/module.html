@@ -1,0 +1,178 @@
+<div class="header-section">
+<div class="top-section">
+	<div class="container">
+		<div class="top-inner row">
+			<div class="top-menu">
+				<ul>
+					{% for item in module.top_section.menu %}
+					<li>
+						{% set href = item.link_field_1.url.href %}
+						{% if item.link_field_1.url.type is equalto "EMAIL_ADDRESS" %}
+						{% set href = "mailto:" + href %}
+						{% endif %}
+						<a
+							 {% if item.link_field_1.url.type is equalto "CALL_TO_ACTION"  %}
+							 href="{{ href }}" 
+							 {% else %}
+							 href="{{ href }}"
+							 {% endif %}
+							 {% if item.link_field_1.open_in_new_tab %}
+							 target="_blank"
+							 {% endif %}
+							 {% if item.link_field_1.rel %}
+							 rel="{{ item.link_field_1.rel|escape_attr }}"
+							 {% endif %}
+							 >
+							{{ item.link_text }}
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="main-section">
+	<div class="container">
+		<div class="main-inner">
+			<div class="site_logo">
+				{% set href = module.logo_section.link_field.url.href %}
+				{% if module.logo_section.link_field.url.type is equalto "EMAIL_ADDRESS" %}
+				{% set href = "mailto:" + href %}
+				{% endif %}
+				<a
+					 {% if module.logo_section.link_field.url.type is equalto "CALL_TO_ACTION"  %}
+					 href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+					 {% else %}
+					 href="{{ href }}"
+					 {% endif %}
+					 {% if module.logo_section.link_field.open_in_new_tab %}
+					 target="_blank"
+					 {% endif %}
+					 {% if module.logo_section.link_field.rel %}
+					 rel="{{ module.logo_section.link_field.rel|escape_attr }}"
+					 {% endif %}
+					 >
+
+					{% set loadingAttr = module.logo_section.logo_field.loading != 'disabled' ? '{{ module.logo_section.logo_field.loading }}' : '' %}
+					{% logo
+	override_inherited_src="{{ module.logo_section.logo_field.override_inherited_src }}"
+	src="{{ module.logo_section.logo_field.src }}"
+	alt="{{ module.logo_section.logo_field.alt }}"
+	width="{{ module.logo_section.logo_field.width }}"
+	height="{{ module.logo_section.logo_field.height }}"
+	loading="{{ loadingAttr }}"
+	suppress_company_name="{{ module.logo_section.logo_field.suppress_company_name }}"
+%}
+
+				</a>
+			</div>
+
+			<div class="nav-wrap">
+
+				<div class="nav">
+
+					<div class="nav-menu-wrapper">
+						<ul class="menu-items">
+							{% for item in module.menu %}
+							<li class="menu-item">
+								{% set href = item.link_field.url.href %}
+								{% if item.link_field.url.type is equalto "EMAIL_ADDRESS" %}
+								{% set href = "mailto:" + href %}
+								{% endif %}
+								<a
+									 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
+									 href="{{ href }}"
+									 {% else %}
+									 href="{{ href }}"
+									 {% endif %}
+									 {% if item.link_field.open_in_new_tab %}
+									 target="_blank"
+									 {% endif %}
+									 {% if item.link_field.rel %}
+									 rel="{{ item.link_field.rel|escape_attr }}"
+									 {% endif %}
+									 >
+									{{ item.menu_text }}
+									{% if item.enable_child_menu %}
+									<span class="dropdown-icon"></span>
+									{% endif %}
+								</a>
+								{% if item.enable_child_menu %}
+								<ul class="sub-menu-wrapper">
+									<div class="sub-menu-inner">
+										{% for item2 in item.child_menu %}
+										<div class="submenu-items">
+											{% if item2.enable_menu_title %}
+											<h6>
+												{{ item2.menu_title }}
+											</h6>
+											{% endif %}
+											{% for item3 in item2.menu_group %}
+											<li class="submenu-item">
+												{% set href = item3.link_field_2.url.href %}
+												{% if item3.link_field_2.url.type is equalto "EMAIL_ADDRESS" %}
+												{% set href = "mailto:" + href %}
+												{% endif %}
+												<a
+													 {% if item3.link_field_2.url.type is equalto "CALL_TO_ACTION"  %}
+													 href="{{ href }}"
+													 {% else %}
+													 href="{{ href }}"
+													 {% endif %}
+													 {% if item3.link_field_2.open_in_new_tab %}
+													 target="_blank"
+													 {% endif %}
+													 {% if item3.link_field_2.rel %}
+													 rel="{{ item3.link_field_2.rel|escape_attr }}"
+													 {% endif %}
+													 >
+													{{ item3.menu_text }}
+												</a>
+											</li>
+											{% endfor %}
+										</div>
+										{% endfor %}
+									</div>
+								</ul>
+								{% endif %}
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+
+
+				</div>
+
+				<div class="header-button">
+					{% if module.button_group.select_button_type == "standard" %}
+					{% set href = module.button_group.button_link.url.href %}
+					{% if module.button_group.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+					{% set href = "mailto:" + href %}
+					{% endif %}
+					<a class="{{ module.button_group.select_button_theme }} button" 
+						 {% if module.button_group.button_link.url.type is equalto "CALL_TO_ACTION"  %}
+						 href="{{ href }}" 
+						 {% else %}
+						 href="{{ href|escape_url }}"
+						 {% endif %}
+						 {% if module.button_group.button_link.open_in_new_tab %}
+						 target="_blank"
+						 {% endif %}
+						 {% if module.button_group.button_link.rel %}
+						 rel="{{ module.button_group.button_link.rel|escape_attr }}"
+						 {% endif %}
+						 >
+						{{ module.button_group.button_text }}
+					</a>
+					{% elif module.button_group.select_button_type == "cta" %}
+					{% cta guid="{{ module.button_group.cta_field }}" %}
+					{% endif %}
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>
