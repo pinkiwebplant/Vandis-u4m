@@ -179,6 +179,24 @@
     "display_width" : null,
     "default" : false
   }, {
+    "id" : "d6c23a96-43ad-6d5c-0cec-9565a2c1ec5b",
+    "name" : "enable_mega_menu",
+    "label" : "Enable Mega Menu",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "menu.enable_child_menu",
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : false
+  }, {
     "id" : "979f9f6c-3b8a-6932-311a-d5d74b4cf777",
     "name" : "child_menu",
     "label" : "Child Menu",

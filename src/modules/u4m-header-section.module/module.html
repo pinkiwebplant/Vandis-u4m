@@ -95,11 +95,14 @@
 									 >
 									{{ item.menu_text }}
 									{% if item.enable_child_menu %}
-									<span class="dropdown-icon"></span>
+									<span class="dropdown-icon"><i class="fa-solid fa-angle-down"></i></span>
 									{% endif %}
 								</a>
 								{% if item.enable_child_menu %}
-								<ul class="sub-menu-wrapper">
+									<span class="child-trigger"><i class="fa-solid fa-angle-down"></i></span>
+								{% endif %}
+								{% if item.enable_child_menu %}
+								<ul class="sub-menu-wrapper {% if item.enable_mega_menu %}enable-mega-menu{% endif %}">
 									<div class="sub-menu-inner">
 										{% for item2 in item.child_menu %}
 										<div class="submenu-items">
@@ -171,6 +174,8 @@
 				</div>
 
 			</div>
+
+			<div class="mobile-trigger"><i></i></div>
 
 		</div>
 	</div>
