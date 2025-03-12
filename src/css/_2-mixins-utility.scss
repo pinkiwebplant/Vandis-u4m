@@ -110,14 +110,19 @@
   float: none;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1240rem;
+  max-width: 1320rem;
   padding-left: 20rem;
   padding-right: 20rem;
 }
 
 @mixin centerSmall {
   @include center;
-  max-width: 900rem;
+  max-width: 940rem;
+}
+
+@mixin introcenter {
+  @include center;
+  max-width: 740rem;
 }
 
 // Links

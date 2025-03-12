@@ -476,3 +476,204 @@ a[href="javascript:;"] {
 section[class*="u4m-"] {
   scroll-margin-top: 150px;
 }
+
+
+.reverse-text {
+  color: $white;
+
+  .themeStyle,
+  .bodystyle2,
+  .bodystyle1,
+  .bodystyle3,
+  .bodystyle4,
+  .bodystyle5,
+  .eyebrow_text,
+  .intro_desc,
+  .intro_title {
+    color: $white;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    color: $white;
+  }
+
+  .arrow-link:not(:hover) {
+    color: $white;
+  }
+}
+
+.hs-button {
+  @include button;
+}
+
+.hs-arrow-btn {
+  @include buttonSecond;
+}
+
+.hs-sec-btn {
+  @include buttonThird;
+}
+
+.reverse-text {
+  .hs-button {
+    background-color: $white;
+    color: $Black;
+
+    &:hover,
+    &:focus {
+      background: rgba($White, 0.8);
+      color: $Black;
+    }
+  }
+
+  .hs-arrow-btn {
+    background-color: transparent;
+    color: $White;
+
+    .icon {
+      svg {
+        fill: $White;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      color: rgba($White, 0.8);
+
+      .icon {
+        svg {
+          fill: rgba($White, 0.8);
+        }
+      }
+    }
+  }
+
+  .hs-sec-btn {
+    border-color: $White;
+    color: $White;
+
+    &:hover,
+    &:focus {
+      background: $White;
+      color: $Black;
+      border-color: $White;
+    }
+  }
+}
+
+.bg_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+
+  &.overlay_img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: overlay;
+  }
+}
+
+.bg_image {
+  background-size: cover;
+  background-position: center;
+}
+
+.dnd_padd {
+  position: relative;
+}
+
+.bg_overlay ~ *:not(.bg_overlay) {
+  position: relative;
+  z-index: 2;
+}
+
+.gradient1 {
+  background: $gradientbg1;
+}
+
+.gradient2 {
+  background: $gradientbg2;
+}
+
+.gradient3 {
+  background: $gradientbg3;
+}
+
+.gradient4 {
+  background: $gradientbg4;
+}
+
+:root {
+  --gradient1: #{$gradient1};
+  --gradient2: #{$gradient2};
+  --gradient3: #{$gradient3};
+  --gradient4: #{$gradient4};
+  --gradient5: #{$gradient5};
+}
+.intro_content {
+  @include introcenter;
+  width: 100%;
+  margin-bottom: 50rem;
+  text-align: center;
+
+  .eyebrow_text {
+    @include eyebrow;
+  }
+
+  .intro_title {
+    margin-top: 0;
+    margin-bottom: 15rem;
+  }
+
+  .intro_btn_wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    margin-top: 30rem;
+  }
+
+  .intro_desc {
+    margin-bottom: 0px;
+
+    p:last-child {
+      margin: 0;
+    }
+  }
+
+  &.right {
+    margin-right: 0;
+    text-align: right;
+
+    .intro_title span {
+      left: auto;
+      right: 0;
+      transform: none;
+    }
+
+    .intro_btn_wrap {
+      justify-content: right;
+    }
+  }
+
+  &.left {
+    text-align: left;
+    margin-left: 0;
+
+    .intro_title span {
+      left: 0;
+      right: auto;
+      transform: none;
+    }
+
+    .intro_btn_wrap {
+      justify-content: left;
+    }
+  }
+}
