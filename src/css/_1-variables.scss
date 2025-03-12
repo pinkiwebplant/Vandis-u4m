@@ -1,18 +1,54 @@
 // Colors - For transparency use rgba($action1, 0.5) = 50% opaque
-$action1: #733BF7;
-$action2: #00a4bd;
-$black: #33475b;
-$white: #fff;
-$gray1: #edf0f2;
-$gray2: #cbd6e2;
-$gray3: #7C98B6;
+$action1: #052a50;
+$action2: #09101a;
+$black: #000000;
+$white: #ffffff;
+$gray1: #ecf1f6;
+$gray2: #dee5ee;
+$gray3: #b5bfcd;
+$darkgray1: #8993a1;
+$darkgray2: #59616d;
+$darkgray3: #353c44;
+$green: #6bc077;
+$Shakespeare: #568fb3;
+$BlueCharcoal: #272a31;
+$Blue: #003462;
+$orange: #e95d2c;
+$purple: #9b68cd;
+$lightblue: #4c8bb1;
+$lightgreen:#65bf72;
+$lightgreen2:#c5ceda;
+
+
 $gradient1: linear-gradient(-45deg, $black 0%, $action2 50%);
-$font1: 'Montserrat';
+
+$gradientbg1: linear-gradient(
+  104.96deg,
+  rgba($lightblue, 0.2) 6.9%,
+  rgba($lightgreen, 0.2) 99.09%
+);
+$gradientbg2: linear-gradient(
+    104.96deg,
+    rgba($action1, 0.9) 6.9%,
+    rgba($lightblue, 0.9) 99.09%
+  );
+$gradientbg3: linear-gradient(
+    104.96deg,
+    rgba($lightblue, 0.6) 6.9%,
+    rgba($lightgreen2, 0.6) 99.09%
+  );
+$gradientbg4: linear-gradient(
+    104.96deg,
+    rgba($lightblue, 0.75) 6.9%,
+    rgba($purple, 0.75) 99.09%
+  );
+$font1: "Lato";
 $baseFontSize: 16rem;
-$baseLineHeight: 1.61803398875; // Golden ratio
+$baseLineHeight: 1.5; // Golden ratio
+
 // Border Radius
 $border1: 4rem;
-$border2: 5rem;
+$border2: 8rem;
 $border3: 10rem;
 // Shadow
 $shadow1: 0rem 1rem 12rem 0 rgba($black, 0.1);
@@ -20,6 +56,6 @@ $shadow2: 0 5rem 25rem 0 rgba($black, 0.2);
 $shadow3: 0 10rem 50rem 0 rgba($black, 0.3);
 $textShadow1: 0 0 4rem rgba($black, 0.3);
 // Animation
-$animation1: .1s ease-in;
-$animation2: .25s ease-in;
+$animation1: 0.1s ease-in;
+$animation2: 0.25s ease-in;
 $animation3: 1s ease-in;

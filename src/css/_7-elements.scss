@@ -20,9 +20,8 @@ body {
   font-family: $font1;
   font-size: $baseFontSize;
   line-height: $baseLineHeight;
-  color: $black;
+  color: $action2;
   font-weight: normal;
-  margin-top: 78rem;
 
   &.hide-header {
     margin-top: 0;
@@ -41,6 +40,7 @@ h4,
 h5,
 h6 {
   font-weight: normal;
+  margin-top: 0;
 }
 
 h1 {
@@ -140,11 +140,11 @@ div.hs_cos_wrapper_widget section.bottom-margin-medium {
   margin-bottom: 100rem;
 
   @include tabletvert {
-    margin-bottom: 75rem
+    margin-bottom: 75rem;
   }
 
   @include phone {
-    margin-bottom: 50rem
+    margin-bottom: 50rem;
   }
 }
 
@@ -220,11 +220,11 @@ div.hs_cos_wrapper_widget section.bottom-padding-medium {
   padding-bottom: 100rem;
 
   @include tabletvert {
-    padding-bottom: 75rem
+    padding-bottom: 75rem;
   }
 
   @include phone {
-    padding-bottom: 50rem
+    padding-bottom: 50rem;
   }
 }
 
@@ -267,7 +267,7 @@ div.video-popup {
 div#hs-eu-cookie-confirmation.hs-cookie-notification-position-bottom.can-use-gradients {
   box-shadow: 2rem -1rem 5rem 0rem rgba(0, 0, 0, 0.05);
   border: 0;
-  background-color: rgba($white, .9);
+  background-color: rgba($white, 0.9);
 
   div#hs-eu-cookie-confirmation-inner {
     background-color: rgba($white, 0);
@@ -302,7 +302,7 @@ p {
 }
 
 a {
-  @include link
+  @include link;
 }
 
 blockquote,
@@ -336,7 +336,7 @@ ol {
 
 li {
   margin-bottom: 5rem;
-  letter-spacing: .5rem;
+  letter-spacing: 0.5rem;
 }
 
 ul ul,
@@ -357,7 +357,7 @@ button {
 
 /* Forms */
 form {
-  margin-bottom: 30rem
+  margin-bottom: 30rem;
 }
 
 ::-webkit-input-placeholder {
@@ -420,11 +420,11 @@ code {
   border-radius: 0;
 }
 
-pre>code {
+pre > code {
   display: block;
   padding: 1rem 15rem;
   white-space: pre;
-  margin-bottom: 30rem
+  margin-bottom: 30rem;
 }
 
 pre {
@@ -456,7 +456,7 @@ td:last-child {
 }
 
 table {
-  margin-bottom: 30rem
+  margin-bottom: 30rem;
 }
 
 table th {
@@ -468,11 +468,11 @@ table td {
   font-size: 14rem;
 }
 
-a[href='javascript:;'] {
+a[href="javascript:;"] {
   cursor: default;
 }
 
 //
-section[class*='u4m-'] {
+section[class*="u4m-"] {
   scroll-margin-top: 150px;
 }

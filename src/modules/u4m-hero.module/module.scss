@@ -52,7 +52,8 @@ section.u4m-hero {
         a {
           @include button;
         }
-        .cta {}
+        .cta {
+        }
         svg {
           max-width: 100rem;
           cursor: pointer;
