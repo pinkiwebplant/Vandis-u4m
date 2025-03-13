@@ -46,13 +46,14 @@ $gradientbg4: linear-gradient(
 $font1: "Lato";
 $baseFontSize: 16rem;
 $baseLineHeight: 1.5; // Golden ratio
+$font2: "Montserrat";
 
 // Border Radius
 $border1: 4rem;
 $border2: 8rem;
-$border3: 10rem;
+$border3: 12rem;
 // Shadow
-$shadow1: 0rem 1rem 12rem 0 rgba($black, 0.1);
+$shadow1: 0px 4px 40px rgba($action1, 0.12);
 $shadow2: 0 5rem 25rem 0 rgba($black, 0.2);
 $shadow3: 0 10rem 50rem 0 rgba($black, 0.3);
 $textShadow1: 0 0 4rem rgba($black, 0.3);

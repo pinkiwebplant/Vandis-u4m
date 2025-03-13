@@ -1,18 +1,19 @@
 // *********************************************************************************************************************************************************************
 @mixin form {
-  background-color: rgba($gray1, 1);
-  padding: 20rem 30rem;
+  background-color: rgba($white, 1);
+  padding: 40rem;
   max-width: 765rem;
   margin: 30rem auto 30rem auto;
   float: none;
   overflow: auto;
-
+  box-shadow: $shadow1;
+  border-radius: $border3;
   @include tablet {
     padding: 20rem;
   }
 
   h3 {
-    @include h6;
+    @include h3;
   }
 
   div.legal-consent-container {
@@ -57,10 +58,10 @@
 
     .hs-form-field {
       > label {
-        font-size: 12rem;
+        font-size: $baseFontSize;
         font-weight: bold;
-        line-height: 1.2;
-        letter-spacing: 1rem;
+        line-height: 1.5;
+        font-family: $font2;
         pointer-events: auto;
       }
     }
@@ -69,14 +70,15 @@
       input[type="text"],
       input[type="number"],
       input[type="tel"],
-      input[type="email"] {
-        border: 1rem solid transparent;
-        border-radius: 4rem;
+      input[type="email"],
+      .hs-input {
+        border: 1rem solid $gray3;
+        border-radius: $border2;
         margin-top: 2rem;
         margin-bottom: 20rem;
         font-size: 16rem; // Note anything below 16rem will trigger the zoom feature on iOS
         background-color: $white;
-        padding: 16rem;
+        padding: 22rem 20rem;
         width: 100%;
         appearance: none;
 
@@ -96,8 +98,6 @@
       }
 
       input select {
-        border: 0;
-        border-radius: 4rem;
         margin-top: 2rem;
         margin-bottom: 20rem;
         font-size: 16rem; // Note anything below 16rem will trigger the zoom feature on iOS
@@ -119,8 +119,6 @@
           no-repeat;
         background-size: 13rem 8rem;
         background-position: 97% 51%;
-        border: 0;
-        border-radius: 4rem;
         margin-top: 2rem;
         margin-bottom: 20rem;
         font-size: 16rem; // Note anything below 16rem will trigger the zoom feature on iOS

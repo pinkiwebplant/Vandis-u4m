@@ -504,7 +504,12 @@ section[class*="u4m-"] {
 .hs-button {
   @include button;
 }
-
+.hs-sec-btn{
+@include secondbutton;
+}
+.hs-arrow-btn{
+  @include arrowbutton;
+}
 .reverse-text {
   .hs-button {
     background-color: $white;
@@ -708,4 +713,9 @@ section[class*="u4m-"] {
 }
 .White_bg {
   background-color: $white;
+}
+.innerContainer {
+  position: relative;
+  border-radius: $border3;
+  overflow: hidden;
 }
