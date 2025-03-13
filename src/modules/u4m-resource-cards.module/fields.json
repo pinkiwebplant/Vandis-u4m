@@ -85,7 +85,7 @@
     "show_emoji_picker" : false,
     "type" : "text",
     "display_width" : null,
-    "default" : "Blog Post Cards"
+    "default" : "Additional Resources"
   }, {
     "id" : "2f10bd6e-cf85-1cf6-5a4f-fa75e1e78238",
     "name" : "include_content",
@@ -198,7 +198,7 @@
       "show_emoji_picker" : false,
       "type" : "text",
       "display_width" : null,
-      "default" : "View All Posts"
+      "default" : "View All Resources"
     }, {
       "id" : "f1ccd7fd-a18d-1262-3c67-476cdf5424cd",
       "name" : "link",
@@ -251,7 +251,7 @@
     "default" : [ {
       "button_type" : "std",
       "button_style" : "hs-arrow-btn",
-      "button_text" : "View All Posts",
+      "button_text" : "View All Resources",
       "link" : {
         "url" : {
           "content_id" : null,
@@ -273,14 +273,14 @@
     "eyebrow_text" : "EYEBROW TEXT",
     "include_heading" : true,
     "heading_size" : "h3",
-    "heading" : "Blog Post Cards",
+    "heading" : "Additional Resources",
     "include_content" : false,
     "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>",
     "include_button" : true,
     "button_group" : [ {
       "button_type" : "std",
       "button_style" : "hs-arrow-btn",
-      "button_text" : "View All Posts",
+      "button_text" : "View All Resources",
       "link" : {
         "url" : {
           "content_id" : null,
@@ -294,18 +294,18 @@
   }
 }, {
   "id" : "b560dc8f-d252-9366-edc5-eb683c15e9b4",
-  "name" : "blog_cards",
-  "label" : "Blog Cards",
+  "name" : "resource",
+  "label" : "Resource",
   "required" : false,
   "locked" : false,
   "children" : [ {
     "id" : "514c5a91-788c-778d-a611-1cbd430d7b3d",
-    "name" : "feed_type",
-    "label" : "Feed Type",
+    "name" : "resource_type",
+    "label" : "Resource Type",
     "required" : false,
     "locked" : false,
     "display" : "select",
-    "choices" : [ [ "recent", "Recent" ], [ "tag", "Tag" ], [ "postbytitle", "Post by Title" ] ],
+    "choices" : [ [ "recent", "Recent" ], [ "category", "Category" ], [ "postbytitle", "Post by Title" ] ],
     "multiple" : false,
     "reordering_enabled" : true,
     "preset" : null,
@@ -313,48 +313,51 @@
     "display_width" : null,
     "default" : "recent"
   }, {
-    "id" : "521c372b-b7fc-c3fa-3804-4f0e9f5a906c",
-    "name" : "select_blog",
-    "label" : "Select Blog",
+    "id" : "e9162009-c149-1b66-5757-87a29db91e66",
+    "name" : "resource_table",
+    "label" : "Resource Table",
     "required" : false,
     "locked" : false,
     "visibility" : {
       "controlling_field" : null,
-      "controlling_field_path" : "blog_cards.feed_type",
-      "controlling_value_regex" : "recent|tag",
+      "controlling_field_path" : "resource.resource_type",
+      "controlling_value_regex" : "recent|category",
       "property" : null,
       "operator" : "MATCHES_REGEX",
       "access" : null
     },
-    "type" : "blog",
-    "display_width" : null
+    "type" : "hubdbtable",
+    "display_width" : null,
+    "default" : 105234052
   }, {
-    "id" : "66eb5e49-8835-37ad-8843-a24ddd9a3a3b",
-    "name" : "select_tag",
-    "label" : "Select Tag",
+    "id" : "5feadd94-183f-9322-6bb7-a30f84007206",
+    "name" : "category_name",
+    "label" : "Category Name",
     "required" : false,
     "locked" : false,
+    "validation_regex" : "",
     "visibility" : {
       "controlling_field" : null,
-      "controlling_field_path" : "blog_cards.feed_type",
-      "controlling_value_regex" : "tag",
+      "controlling_field_path" : "resource.resource_type",
+      "controlling_value_regex" : "category",
       "property" : null,
       "operator" : "EQUAL",
       "access" : null
     },
-    "tag_value" : "NAME",
-    "type" : "tag",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
     "display_width" : null
   }, {
-    "id" : "34d0245d-5686-3f71-e832-a316b8f0e551",
-    "name" : "number_of_posts",
-    "label" : "Number of Posts",
+    "id" : "510aaf58-0fca-bf2d-ac4d-01d7a1aa1a16",
+    "name" : "count",
+    "label" : "Count",
     "required" : false,
     "locked" : false,
     "visibility" : {
       "controlling_field" : null,
-      "controlling_field_path" : "blog_cards.feed_type",
-      "controlling_value_regex" : "recent|tag",
+      "controlling_field_path" : "resource.resource_type",
+      "controlling_value_regex" : "recent|category",
       "property" : null,
       "operator" : "MATCHES_REGEX",
       "access" : null
@@ -363,42 +366,48 @@
     "step" : 1,
     "type" : "number",
     "display_width" : null,
-    "default" : 3
+    "default" : 4
   }, {
-    "id" : "7bc78ecb-3395-e29c-5bac-ebc3d527317c",
-    "name" : "blog_feed",
-    "label" : "Blog Feed",
+    "id" : "fe0ce986-14e9-fe0f-227c-65ea8940ba63",
+    "name" : "resources_items",
+    "label" : "Resources Items",
     "required" : false,
     "locked" : false,
     "occurrence" : {
       "min" : null,
       "max" : null,
       "sorting_label_field" : null,
-      "default" : 3
+      "default" : null
     },
     "visibility" : {
       "controlling_field" : null,
-      "controlling_field_path" : "blog_cards.feed_type",
+      "controlling_field_path" : "resource.resource_type",
       "controlling_value_regex" : "postbytitle",
       "property" : null,
       "operator" : "EQUAL",
       "access" : null
     },
     "children" : [ {
-      "id" : "2df8185d-d9e1-1c31-1bf3-a602c5b783cc",
-      "name" : "select_post",
-      "label" : "Select Post",
+      "id" : "5fe4db48-b8f9-8c2f-b9ee-3050c4e25b1b",
+      "name" : "select_row",
+      "label" : "Select Row",
       "required" : false,
       "locked" : false,
-      "type" : "page",
-      "display_width" : null
+      "table_name_or_id" : "105234052",
+      "columns_to_fetch" : [ "image", "featured", "name", "link", "topic", "description", "type", "read_more_text" ],
+      "display_columns" : [ "name" ],
+      "type" : "hubdbrow",
+      "display_width" : null,
+      "default" : {
+        "id" : null
+      }
     } ],
     "tab" : "CONTENT",
     "expanded" : false,
     "group_occurrence_meta" : null,
     "type" : "group",
     "display_width" : null,
-    "default" : [ { }, { }, { } ]
+    "default" : [ ]
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -406,9 +415,10 @@
   "type" : "group",
   "display_width" : null,
   "default" : {
-    "feed_type" : "recent",
-    "number_of_posts" : 3,
-    "blog_feed" : [ { }, { }, { } ]
+    "resource_type" : "recent",
+    "resource_table" : 105234052,
+    "count" : 4,
+    "resources_items" : [ ]
   }
 }, {
   "id" : "fbc58b2b-b6db-82a2-8422-e7f6861ce34b",

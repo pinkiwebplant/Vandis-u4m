@@ -1,0 +1,25 @@
+@import "../../css/_module-imports";
+
+.socialWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 23px;
+  @include tabletvert {
+    justify-content: center;
+  }
+  .cmIcon {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    a {
+      display: block;
+      font-size: 0;
+      line-height: 0;
+    }
+    svg {
+      color: $action1;
+      fill: $action1;
+    }
+  }
+}

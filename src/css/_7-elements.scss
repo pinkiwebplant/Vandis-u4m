@@ -20,9 +20,9 @@ body {
   font-family: $font1;
   font-size: $baseFontSize;
   line-height: $baseLineHeight;
-  color: $black;
+  color: $action2;
   font-weight: normal;
-  margin-top: 78rem;
+  background-color: $gray1;
 
   &.hide-header {
     margin-top: 0;
@@ -41,6 +41,7 @@ h4,
 h5,
 h6 {
   font-weight: normal;
+  margin-top: 0;
 }
 
 h1 {
@@ -140,11 +141,11 @@ div.hs_cos_wrapper_widget section.bottom-margin-medium {
   margin-bottom: 100rem;
 
   @include tabletvert {
-    margin-bottom: 75rem
+    margin-bottom: 75rem;
   }
 
   @include phone {
-    margin-bottom: 50rem
+    margin-bottom: 50rem;
   }
 }
 
@@ -220,11 +221,11 @@ div.hs_cos_wrapper_widget section.bottom-padding-medium {
   padding-bottom: 100rem;
 
   @include tabletvert {
-    padding-bottom: 75rem
+    padding-bottom: 75rem;
   }
 
   @include phone {
-    padding-bottom: 50rem
+    padding-bottom: 50rem;
   }
 }
 
@@ -267,7 +268,7 @@ div.video-popup {
 div#hs-eu-cookie-confirmation.hs-cookie-notification-position-bottom.can-use-gradients {
   box-shadow: 2rem -1rem 5rem 0rem rgba(0, 0, 0, 0.05);
   border: 0;
-  background-color: rgba($white, .9);
+  background-color: rgba($white, 0.9);
 
   div#hs-eu-cookie-confirmation-inner {
     background-color: rgba($white, 0);
@@ -302,7 +303,7 @@ p {
 }
 
 a {
-  @include link
+  @include link;
 }
 
 blockquote,
@@ -336,7 +337,7 @@ ol {
 
 li {
   margin-bottom: 5rem;
-  letter-spacing: .5rem;
+  letter-spacing: 0.5rem;
 }
 
 ul ul,
@@ -357,7 +358,7 @@ button {
 
 /* Forms */
 form {
-  margin-bottom: 30rem
+  margin-bottom: 30rem;
 }
 
 ::-webkit-input-placeholder {
@@ -420,11 +421,11 @@ code {
   border-radius: 0;
 }
 
-pre>code {
+pre > code {
   display: block;
   padding: 1rem 15rem;
   white-space: pre;
-  margin-bottom: 30rem
+  margin-bottom: 30rem;
 }
 
 pre {
@@ -456,7 +457,7 @@ td:last-child {
 }
 
 table {
-  margin-bottom: 30rem
+  margin-bottom: 30rem;
 }
 
 table th {
@@ -468,11 +469,299 @@ table td {
   font-size: 14rem;
 }
 
-a[href='javascript:;'] {
+a[href="javascript:;"] {
   cursor: default;
 }
 
 //
-section[class*='u4m-'] {
+section[class*="u4m-"] {
   scroll-margin-top: 150px;
+}
+
+.reverse-text {
+  color: $white;
+
+  .themeStyle,
+  .bodystyle2,
+  .bodystyle1,
+  .bodystyle3,
+  .bodystyle4,
+  .bodystyle5,
+  .eyebrow_text,
+  .intro_desc,
+  .intro_title {
+    color: $white;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    color: $white;
+  }
+
+  .arrow-link:not(:hover) {
+    color: $white;
+  }
+}
+
+.hs-button {
+  @include button;
+}
+.hs-sec-btn {
+  @include secondbutton;
+}
+.hs-arrow-btn {
+  @include arrowbutton;
+}
+.reverse-text {
+  .hs-button {
+    background-color: $white;
+    color: $Black;
+
+    &:hover,
+    &:focus {
+      background: rgba($White, 0.8);
+      color: $Black;
+    }
+  }
+
+  .hs-arrow-btn {
+    background-color: transparent;
+    color: $White;
+
+    .icon {
+      svg {
+        fill: $White;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      color: rgba($White, 0.8);
+
+      .icon {
+        svg {
+          fill: rgba($White, 0.8);
+        }
+      }
+    }
+  }
+
+  .hs-sec-btn {
+    border-color: $White;
+    color: $White;
+
+    &:hover,
+    &:focus {
+      background: $White;
+      color: $Black;
+      border-color: $White;
+    }
+  }
+}
+
+.bg_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+
+  &.overlay_img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: overlay;
+  }
+}
+
+.bg_image {
+  background-size: cover;
+  background-position: center;
+}
+
+.dnd_padd {
+  position: relative;
+}
+
+.bg_overlay ~ *:not(.bg_overlay) {
+  position: relative;
+  z-index: 2;
+}
+
+.gradient1 {
+  background: $gradientbg1;
+}
+
+.gradient2 {
+  background: $gradientbg2;
+}
+
+.gradient3 {
+  background: $gradientbg3;
+}
+
+.gradient4 {
+  background: $gradientbg4;
+}
+
+.intro_content {
+  @include introcenter;
+  width: 100%;
+  margin-bottom: 40rem;
+  text-align: center;
+
+  .eyebrow_text {
+    @include eyebrow;
+  }
+
+  .intro_title {
+    margin-top: 0;
+    margin-bottom: 16rem;
+  }
+
+  .intro_btn_wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20rem;
+  }
+
+  .intro_desc {
+    margin-bottom: 0px;
+
+    p:last-child {
+      margin: 0;
+    }
+  }
+
+  &.right {
+    margin-right: 0;
+    text-align: right;
+
+    .intro_title span {
+      left: auto;
+      right: 0;
+      transform: none;
+    }
+
+    .intro_btn_wrap {
+      justify-content: right;
+    }
+  }
+
+  &.left {
+    text-align: left;
+    margin-left: 0;
+
+    .intro_title span {
+      left: 0;
+      right: auto;
+      transform: none;
+    }
+
+    .intro_btn_wrap {
+      justify-content: left;
+    }
+  }
+}
+
+.green_bg {
+  background-color: $green;
+}
+.shakespeare_bg {
+  background-color: $Shakespeare;
+}
+
+.black_bg {
+  background-color: $BlueCharcoal;
+}
+
+.lightblue_bg {
+  background-color: $lightblue;
+}
+
+.Blue_bg {
+  background-color: $Blue;
+}
+.orange_bg {
+  background-color: $orange;
+}
+.Purple_bg {
+  background-color: $purple;
+}
+.Gray_bg {
+  background-color: $gray1;
+}
+.lightgray_bg {
+  background-color: $gray2;
+}
+.solitudegray_bg {
+  background-color: $gray3;
+}
+.darkgray_bg {
+  background-color: $darkgray1;
+}
+
+.shuttlegray_bg {
+  background-color: $darkgray2;
+}
+
+.bluishgray_bg {
+  background-color: $darkgray3;
+}
+.White_bg {
+  background-color: $white;
+}
+.innerContainer {
+  position: relative;
+  border-radius: $border3;
+  overflow: hidden;
+}
+.topIntro .intro_content {
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: 60rem;
+  @include tabletvert {
+    text-align: left;
+  }
+  .intro__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    column-gap: 20px;
+    @include tabletvert {
+      flex-direction: column;
+    }
+    .intro_title {
+      margin-bottom: 0;
+    }
+    .intro_btn_wrap {
+      min-width: 150px;
+      text-align: right;
+      margin-top: 0;
+      justify-content: flex-end;
+      @include tabletvert {
+        justify-content: flex-start;
+      }
+      .btn_item a {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.cardItems {
+  gap: 24px;
+  .cmCol3 {
+    width: calc((100% - 48px) / 3);
+    @include tabvert {
+      width: calc((100% - 24px) / 2);
+    }
+    @include tabletvert {
+      width: 100%;
+    }
+  }
 }

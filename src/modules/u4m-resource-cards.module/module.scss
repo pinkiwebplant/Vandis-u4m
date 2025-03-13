@@ -1,9 +1,12 @@
 @import "../../css/_module-imports";
-.u4m-post-cards {
+.u4m-resource-cards {
   .CardWrap {
     .cardItem {
       .itemInr {
         @include blogpostCard;
+        .itemCnWrap .itemTags {
+          margin-bottom: 16rem;
+        }
       }
     }
   }
