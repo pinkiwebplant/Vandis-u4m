@@ -1,0 +1,53 @@
+{% set moduleName = 'u4m-resource-cards' %}
+{% set moduleExtraName = 'topIntro' %}
+{% include "../partials/u4-module-includes.html" %}
+
+{{ macros.introGroup(module.intro_content, module.module_settings) }} 
+
+{% set table = module.resource.resource_table %}
+{% set count = module.resource.count %}
+{% set recent_query = 'orderBy=hs_created_at&limit=' ~ count %}
+{% set category = module.resource.category_name %}
+{% set category_query = 'orderBy=-hs_created_at&topic__in=' ~ category ~ '&limit=' ~ count %}
+
+
+{% if module.resource.resource_type == "recent" %}
+{% set data = hubdb_table_rows(table,recent_query) %}
+{% elif module.resource.resource_type == "category" %}
+{% set data = hubdb_table_rows(table,category_query) %}
+{% endif %}
+ 
+
+<div class="postCardsWrap">
+	<div class="CardWrap">
+		<div class="flex_row cardItems">
+
+			{% if module.resource.resource_type == "recent" ||  module.resource.resource_type == "category" %} 
+				{% for row in data %}
+				{{ macros.hubDBCards(row)}}
+				{% endfor %}
+				{% elif module.resource.resource_type == 'postbytitle' %}
+				{% for item in module.resource.resources_items %}
+				{% set row = item.select_row.columns %}
+				{% if row %}
+					{{ macros.hubDBCards(row)}}
+				{% endif %}
+				{% endfor %}
+				{% endif %}
+			 
+		</div>
+	</div>
+
+</div>
+
+  
+
+
+ 
+
+
+</div>
+</div>
+</section>
+
+ 
