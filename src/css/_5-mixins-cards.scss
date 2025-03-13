@@ -309,3 +309,34 @@
     margin: 0 0 20px;
   }
 }
+
+@mixin blogpostCard {
+  border-radius: $border3;
+  overflow: hidden;
+  .itemImgin {
+    min-height: 225px;
+    display: block;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .itemCnWrap {
+    background: $white;
+    padding: 40rem 24rem;
+    .itemMeta {
+      @include b5;
+      margin-bottom: 16rem;
+    }
+    .itemTitle {
+      margin-bottom: 24rem;
+    }
+    .itemTags {
+      @include eyebrow;
+      background-color: rgba($lightblue, 0.1);
+      margin-bottom: 0;
+      a {
+        color: inherit;
+      }
+    }
+  }
+}

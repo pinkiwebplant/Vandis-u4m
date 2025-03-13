@@ -22,6 +22,7 @@ body {
   line-height: $baseLineHeight;
   color: $action2;
   font-weight: normal;
+  background-color: $gray1;
 
   &.hide-header {
     margin-top: 0;
@@ -504,10 +505,10 @@ section[class*="u4m-"] {
 .hs-button {
   @include button;
 }
-.hs-sec-btn{
-@include secondbutton;
+.hs-sec-btn {
+  @include secondbutton;
 }
-.hs-arrow-btn{
+.hs-arrow-btn {
   @include arrowbutton;
 }
 .reverse-text {
@@ -607,7 +608,7 @@ section[class*="u4m-"] {
 .intro_content {
   @include introcenter;
   width: 100%;
-  margin-bottom: 50rem;
+  margin-bottom: 40rem;
   text-align: center;
 
   .eyebrow_text {
@@ -616,7 +617,7 @@ section[class*="u4m-"] {
 
   .intro_title {
     margin-top: 0;
-    margin-bottom: 15rem;
+    margin-bottom: 16rem;
   }
 
   .intro_btn_wrap {
@@ -625,7 +626,7 @@ section[class*="u4m-"] {
     flex-wrap: wrap;
     gap: 20px;
     align-items: center;
-    margin-top: 30rem;
+    margin-top: 20rem;
   }
 
   .intro_desc {
@@ -718,4 +719,49 @@ section[class*="u4m-"] {
   position: relative;
   border-radius: $border3;
   overflow: hidden;
+}
+.topIntro .intro_content {
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: 60rem;
+  @include tabletvert {
+    text-align: left;
+  }
+  .intro__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    column-gap: 20px;
+    @include tabletvert {
+      flex-direction: column;
+    }
+    .intro_title {
+      margin-bottom: 0;
+    }
+    .intro_btn_wrap {
+      min-width: 150px;
+      text-align: right;
+      margin-top: 0;
+      justify-content: flex-end;
+      @include tabletvert {
+        justify-content: flex-start;
+      }
+      .btn_item a {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.cardItems {
+  gap: 24px;
+  .cmCol3 {
+    width: calc((100% - 48px) / 3);
+    @include tabvert {
+      width: calc((100% - 24px) / 2);
+    }
+    @include tabletvert {
+      width: 100%;
+    }
+  }
 }
