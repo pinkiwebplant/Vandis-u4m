@@ -1,0 +1,80 @@
+{% set moduleName = 'u4m-team-cards' %}
+{% include "../partials/u4-module-includes.html" %}
+
+{{ macros.introGroup(module.intro_content, module.module_settings) }} 
+
+<div class="cmTeamCards">
+		<div class="flex-row cardItems">
+			{% for item in module.cards %}
+			<div class="cmCol3 cmcardItem">
+				<div class="itemInner">
+					<div class="imgWrap">
+						<img src="{{ item.author_image.src }}" alt="{{ item.author_image.alt }}" {{ loadingAttr }}>
+					</div>
+					<div class="contentWrap">
+					<div class="cmContent">
+						<h5 class="cmName">
+							{{ item.first_name }} {{ item.last_name }}
+						</h5>
+						<h6 class="cmTitle">
+							{{ item.title }}
+						</h6>
+						<div class="cmBioCnt">
+							{{ item.bio_excerpt }}
+						</div>
+					</div>
+						<div class="bioAndShare">
+							{% if item.enable_full_bio %}
+							<div class="cmBioBtn">
+								{{ item.bio_text }}
+								<span class="rightArrow">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+										<path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/>
+									</svg>
+								</span>
+							</div>
+							{% endif %}
+							{% if item.enable_social_share %}
+							<div class="cmShareWrap">
+								{% for item2 in item.social_items %}
+								<div class="cmItem cmItem_{{loop.index}}">
+									<a class="cmItemLink" href="{{ item2.link }}" target="_blank">
+										{% if item2.select_icon_type == "img" %}
+										<img src="{{ item2.image.src }}" alt="{{ item2.image.alt }}" {{ loadingAttr }}>
+										{% elif item2.select_icon_type == "icon" %}
+										{% icon
+										name="{{ item2.icon.name }}"
+										style="{{ item2.icon.type }}"
+										unicode="{{ item2.icon.unicode }}"
+										icon_set="{{ item2.icon.icon_set }}"
+									%}
+										{% endif %}
+									</a>
+								</div>
+								{% endfor %}
+							</div>
+							{% endif %}
+
+						</div>
+					</div>
+					
+				</div>
+				</div>
+			
+			{% endfor %}
+			</div>
+</div>
+
+
+</div>
+</div>
+</section>
+
+{% for item in module.cards %}
+<div class="cmTeamPopup">
+
+</div>
+
+{% endfor %}
+
+

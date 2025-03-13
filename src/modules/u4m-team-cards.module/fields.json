@@ -65,7 +65,7 @@
     "preset" : null,
     "type" : "choice",
     "display_width" : null,
-    "default" : "h3"
+    "default" : "h2"
   }, {
     "id" : "c7aa6b72-58e0-4caa-9b63-4da765e70069",
     "name" : "heading",
@@ -85,7 +85,7 @@
     "show_emoji_picker" : false,
     "type" : "text",
     "display_width" : null,
-    "default" : "Accordion Module"
+    "default" : "Team Cards"
   }, {
     "id" : "2f10bd6e-cf85-1cf6-5a4f-fa75e1e78238",
     "name" : "include_content",
@@ -285,8 +285,8 @@
     "include_eyebrow_text" : true,
     "eyebrow_text" : "EYEBROW TEXT",
     "include_heading" : true,
-    "heading_size" : "h3",
-    "heading" : "Accordion Module",
+    "heading_size" : "h2",
+    "heading" : "Team Cards",
     "include_content" : true,
     "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>",
     "include_button" : false,
@@ -319,19 +319,64 @@
     } ]
   }
 }, {
-  "id" : "068a1157-81d7-8a75-3278-b1795057197d",
-  "name" : "accordion_items",
-  "label" : "Accordion Items",
+  "id" : "4d0023f7-ee5d-4d07-f537-af168ca2578b",
+  "name" : "cards",
+  "label" : "Cards",
   "required" : false,
   "locked" : false,
   "occurrence" : {
     "min" : null,
     "max" : null,
-    "sorting_label_field" : "301d3758-5358-3074-d670-9f89668ab2b3",
-    "default" : 4
+    "sorting_label_field" : null,
+    "default" : 6
   },
   "children" : [ {
-    "id" : "301d3758-5358-3074-d670-9f89668ab2b3",
+    "id" : "fb5a3d2a-fa56-3217-fcba-3ccecefd90c5",
+    "name" : "author_image",
+    "label" : "Author Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/team-Image.png",
+      "alt" : "Author Image",
+      "loading" : "lazy",
+      "width" : 723,
+      "height" : 723,
+      "max_width" : 723,
+      "max_height" : 723
+    }
+  }, {
+    "id" : "d5761819-5d04-0ac2-0a36-16942e56792d",
+    "name" : "first_name",
+    "label" : "First Name",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "First Name"
+  }, {
+    "id" : "31ddc776-0dd7-5465-0a2e-37f001b5116f",
+    "name" : "last_name",
+    "label" : "Last Name",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Last Name"
+  }, {
+    "id" : "010167d1-9204-648f-a51a-d697570c89dc",
     "name" : "title",
     "label" : "Title",
     "required" : false,
@@ -341,16 +386,188 @@
     "show_emoji_picker" : false,
     "type" : "text",
     "display_width" : null,
-    "default" : "Title of Accordion Slide Here"
+    "default" : "Position Title Goes Here"
   }, {
-    "id" : "77992966-d8e1-8833-5bcc-43420044d212",
-    "name" : "content",
-    "label" : "Content",
+    "id" : "f3038e65-1c53-fe38-f442-4c1cc4397ef0",
+    "name" : "bio_excerpt",
+    "label" : "Bio excerpt",
     "required" : false,
     "locked" : false,
     "type" : "richtext",
     "display_width" : null,
-    "default" : "<p>Quisque accumsan sed sapien non blandit. Nunc malesuada urna non malesuada mattis. Donec ut justo felis. Integer posuere aliquet libero id porta. Ut ac interdum leo. Maecenas porttitor urna risus, sed tincidunt dui mollis eu. Duis congue ornare lacus in dapibus. Sed eget odio mattis, molestie eros sit amet, maximus est.</p>"
+    "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  }, {
+    "id" : "9c5a25df-e9a2-57b3-3faf-02dc80189af1",
+    "name" : "enable_full_bio",
+    "label" : "Enable Full Bio",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : true
+  }, {
+    "id" : "e19d6b0b-a871-c6a9-9a13-4ea530bbb20c",
+    "name" : "bio_text",
+    "label" : "Bio Text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "cards.enable_full_bio",
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "View Bio"
+  }, {
+    "id" : "197ee56e-872f-4157-7f60-7b949ce8e129",
+    "name" : "enable_social_share",
+    "label" : "Enable Social Share",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : true
+  }, {
+    "id" : "87628df6-bc1d-3deb-a601-54d693afebc9",
+    "name" : "social_items",
+    "label" : "Social Items",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : 2
+    },
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "cards.enable_social_share",
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "children" : [ {
+      "id" : "4800ff5e-b172-7b72-c0f4-b1632955ab7e",
+      "name" : "select_icon_type",
+      "label" : "Select Icon Type",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "img", "Image" ], [ "icon", "Icon" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "icon"
+    }, {
+      "id" : "484cf7db-e86f-ba0a-85e0-2cd808a25336",
+      "name" : "image",
+      "label" : "Image",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "cards.social_items.select_icon_type",
+        "controlling_value_regex" : "img",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "responsive" : true,
+      "resizable" : false,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      }
+    }, {
+      "id" : "0c249299-6337-bdfd-f43f-9c89b192897b",
+      "name" : "icon",
+      "label" : "Icon",
+      "required" : false,
+      "locked" : false,
+      "icon_set" : "fontawesome-6.4.2",
+      "type" : "icon",
+      "display_width" : null,
+      "default" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      }
+    }, {
+      "id" : "63b221ef-0221-1764-b405-d147e93afe29",
+      "name" : "link",
+      "label" : "Link",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "https://x.com/"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -358,17 +575,335 @@
   "type" : "group",
   "display_width" : null,
   "default" : [ {
-    "title" : "Title of Accordion Slide Here",
-    "content" : "<p>Quisque accumsan sed sapien non blandit. Nunc malesuada urna non malesuada mattis. Donec ut justo felis. Integer posuere aliquet libero id porta. Ut ac interdum leo. Maecenas porttitor urna risus, sed tincidunt dui mollis eu. Duis congue ornare lacus in dapibus. Sed eget odio mattis, molestie eros sit amet, maximus est.</p>"
+    "author_image" : {
+      "size_type" : "auto",
+      "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/team-Image.png",
+      "alt" : "Author Image",
+      "loading" : "lazy",
+      "width" : 723,
+      "height" : 723,
+      "max_width" : 723,
+      "max_height" : 723
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
   }, {
-    "title" : "Title of Accordion Slide Here",
-    "content" : "<p>Quisque accumsan sed sapien non blandit. Nunc malesuada urna non malesuada mattis. Donec ut justo felis. Integer posuere aliquet libero id porta. Ut ac interdum leo. Maecenas porttitor urna risus, sed tincidunt dui mollis eu. Duis congue ornare lacus in dapibus. Sed eget odio mattis, molestie eros sit amet, maximus est.</p>"
+    "author_image" : {
+      "size_type" : "auto",
+      "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/team-Image.png",
+      "alt" : "Author Image",
+      "loading" : "lazy",
+      "width" : 723,
+      "height" : 723,
+      "max_width" : 723,
+      "max_height" : 723
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
   }, {
-    "title" : "Title of Accordion Slide Here",
-    "content" : "<p>Quisque accumsan sed sapien non blandit. Nunc malesuada urna non malesuada mattis. Donec ut justo felis. Integer posuere aliquet libero id porta. Ut ac interdum leo. Maecenas porttitor urna risus, sed tincidunt dui mollis eu. Duis congue ornare lacus in dapibus. Sed eget odio mattis, molestie eros sit amet, maximus est.</p>"
+    "author_image" : {
+      "size_type" : "auto",
+      "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/team-Image.png",
+      "alt" : "Author Image",
+      "loading" : "lazy",
+      "width" : 723,
+      "height" : 723,
+      "max_width" : 723,
+      "max_height" : 723
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
   }, {
-    "title" : "Title of Accordion Slide Here",
-    "content" : "<p>Quisque accumsan sed sapien non blandit. Nunc malesuada urna non malesuada mattis. Donec ut justo felis. Integer posuere aliquet libero id porta. Ut ac interdum leo. Maecenas porttitor urna risus, sed tincidunt dui mollis eu. Duis congue ornare lacus in dapibus. Sed eget odio mattis, molestie eros sit amet, maximus est.</p>"
+    "author_image" : {
+      "size_type" : "auto",
+      "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/team-Image.png",
+      "alt" : "Author Image",
+      "loading" : "lazy",
+      "width" : 723,
+      "height" : 723,
+      "max_width" : 723,
+      "max_height" : 723
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
+  }, {
+    "author_image" : {
+      "size_type" : "auto",
+      "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/team-Image.png",
+      "alt" : "Author Image",
+      "loading" : "lazy",
+      "width" : 723,
+      "height" : 723,
+      "max_width" : 723,
+      "max_height" : 723
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
+  }, {
+    "author_image" : {
+      "size_type" : "auto",
+      "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/team-Image.png",
+      "alt" : "Author Image",
+      "loading" : "lazy",
+      "width" : 723,
+      "height" : 723,
+      "max_width" : 723,
+      "max_height" : 723
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
   } ]
 }, {
   "id" : "fbc58b2b-b6db-82a2-8422-e7f6861ce34b",
@@ -402,132 +937,6 @@
     "step" : 1,
     "type" : "number",
     "display_width" : null
-  }, {
-    "id" : "d65f1522-4f97-53c5-0dd6-b6a128017c01",
-    "name" : "background_settings",
-    "label" : "Accordion Background Settings",
-    "required" : false,
-    "locked" : false,
-    "children" : [ {
-      "id" : "ca7dfc12-edc2-7a1c-080c-806ca3864d49",
-      "name" : "item_settings",
-      "label" : "Item Settings",
-      "required" : false,
-      "locked" : false,
-      "children" : [ {
-        "id" : "684d0009-76b7-ce76-1cc1-6b440ba36a30",
-        "name" : "custom_color",
-        "label" : "Background Color",
-        "required" : false,
-        "locked" : false,
-        "type" : "color",
-        "display_width" : null,
-        "default" : {
-          "color" : "#FFFFFF",
-          "opacity" : 100
-        }
-      }, {
-        "id" : "3e519bb2-4baa-5ab4-150c-cb68e465d5f2",
-        "name" : "content_color",
-        "label" : "Content Color",
-        "required" : false,
-        "locked" : false,
-        "type" : "color",
-        "display_width" : null,
-        "default" : {
-          "color" : "#09101A",
-          "opacity" : 100
-        }
-      } ],
-      "tab" : "CONTENT",
-      "expanded" : false,
-      "group_occurrence_meta" : null,
-      "type" : "group",
-      "display_width" : null,
-      "default" : {
-        "custom_color" : {
-          "color" : "#FFFFFF",
-          "opacity" : 100
-        },
-        "content_color" : {
-          "color" : "#09101A",
-          "opacity" : 100
-        }
-      }
-    }, {
-      "id" : "33ff966e-f930-da93-e44a-2d267b1c0541",
-      "name" : "active_items_settings",
-      "label" : "Active Items Settings",
-      "required" : false,
-      "locked" : false,
-      "children" : [ {
-        "id" : "f9201962-526a-9375-45da-30e0a7bd832b",
-        "name" : "custom_active_color",
-        "label" : "Background Color",
-        "required" : false,
-        "locked" : false,
-        "type" : "color",
-        "display_width" : null,
-        "default" : {
-          "color" : "#4C8BB1",
-          "opacity" : 100
-        }
-      }, {
-        "id" : "6ecd07ab-a4df-5232-229f-ea47a1fd4dd5",
-        "name" : "content_color",
-        "label" : "Content Color",
-        "required" : false,
-        "locked" : false,
-        "type" : "color",
-        "display_width" : null,
-        "default" : {
-          "color" : "#FFFFFF",
-          "opacity" : 100
-        }
-      } ],
-      "tab" : "CONTENT",
-      "expanded" : false,
-      "group_occurrence_meta" : null,
-      "type" : "group",
-      "display_width" : null,
-      "default" : {
-        "custom_active_color" : {
-          "color" : "#4C8BB1",
-          "opacity" : 100
-        },
-        "content_color" : {
-          "color" : "#FFFFFF",
-          "opacity" : 100
-        }
-      }
-    } ],
-    "tab" : "CONTENT",
-    "expanded" : true,
-    "group_occurrence_meta" : null,
-    "type" : "group",
-    "display_width" : null,
-    "default" : {
-      "item_settings" : {
-        "custom_color" : {
-          "color" : "#FFFFFF",
-          "opacity" : 100
-        },
-        "content_color" : {
-          "color" : "#09101A",
-          "opacity" : 100
-        }
-      },
-      "active_items_settings" : {
-        "custom_active_color" : {
-          "color" : "#4C8BB1",
-          "opacity" : 100
-        },
-        "content_color" : {
-          "color" : "#FFFFFF",
-          "opacity" : 100
-        }
-      }
-    }
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -535,29 +944,7 @@
   "type" : "group",
   "display_width" : null,
   "default" : {
-    "intro_content_alignment" : "center",
-    "background_settings" : {
-      "item_settings" : {
-        "custom_color" : {
-          "color" : "#FFFFFF",
-          "opacity" : 100
-        },
-        "content_color" : {
-          "color" : "#09101A",
-          "opacity" : 100
-        }
-      },
-      "active_items_settings" : {
-        "custom_active_color" : {
-          "color" : "#4C8BB1",
-          "opacity" : 100
-        },
-        "content_color" : {
-          "color" : "#FFFFFF",
-          "opacity" : 100
-        }
-      }
-    }
+    "intro_content_alignment" : "center"
   }
 }, {
   "id" : "module_overrides",
@@ -575,7 +962,7 @@
     "display" : "checkbox",
     "type" : "boolean",
     "display_width" : null,
-    "default" : true
+    "default" : false
   }, {
     "id" : "module_overrides.section_id",
     "name" : "section_id",
@@ -1129,7 +1516,7 @@
         "preset" : null,
         "type" : "choice",
         "display_width" : null,
-        "default" : "lightgray_bg"
+        "default" : "Blue_bg"
       }, {
         "id" : "002f4981-6d70-e80d-300e-1e3d95ada81b",
         "name" : "custom_color",
@@ -1233,7 +1620,7 @@
           "opacity" : null
         },
         "opacity" : 0.5,
-        "select_color" : "lightgray_bg",
+        "select_color" : "Blue_bg",
         "custom_color" : {
           "color" : null,
           "opacity" : null
@@ -1281,7 +1668,7 @@
           "opacity" : null
         },
         "opacity" : 0.5,
-        "select_color" : "lightgray_bg",
+        "select_color" : "Blue_bg",
         "custom_color" : {
           "color" : null,
           "opacity" : null
@@ -1342,7 +1729,7 @@
       "preset" : null,
       "type" : "choice",
       "display_width" : null,
-      "default" : "color"
+      "default" : ""
     }, {
       "id" : "5d97321e-e326-2d30-8757-51608da05ea6",
       "name" : "background_image",
@@ -1470,7 +1857,7 @@
       "preset" : null,
       "type" : "choice",
       "display_width" : null,
-      "default" : "lightgray_bg"
+      "default" : "Blue_bg"
     }, {
       "id" : "0f1d99f5-31a8-7b34-766a-1f40497d8b7c",
       "name" : "custom_color",
@@ -1574,7 +1961,7 @@
     "type" : "group",
     "display_width" : null,
     "default" : {
-      "background_type" : "color",
+      "background_type" : "",
       "background_image" : {
         "size_type" : "auto",
         "src" : "",
@@ -1588,7 +1975,7 @@
         "opacity" : null
       },
       "opacity" : 0.5,
-      "select_color" : "lightgray_bg",
+      "select_color" : "Blue_bg",
       "custom_color" : {
         "color" : null,
         "opacity" : null
@@ -1653,7 +2040,7 @@
   "type" : "group",
   "display_width" : null,
   "default" : {
-    "enable_overrides" : true,
+    "enable_overrides" : false,
     "top_margin" : "top-margin-none",
     "custom_top_margin" : 100,
     "custom_top_margin_mobile" : 50,
@@ -1693,7 +2080,7 @@
           "opacity" : null
         },
         "opacity" : 0.5,
-        "select_color" : "lightgray_bg",
+        "select_color" : "Blue_bg",
         "custom_color" : {
           "color" : null,
           "opacity" : null
@@ -1711,7 +2098,7 @@
     },
     "reverse_text" : false,
     "background_settings" : {
-      "background_type" : "color",
+      "background_type" : "",
       "background_image" : {
         "size_type" : "auto",
         "src" : "",
@@ -1725,7 +2112,7 @@
         "opacity" : null
       },
       "opacity" : 0.5,
-      "select_color" : "lightgray_bg",
+      "select_color" : "Blue_bg",
       "custom_color" : {
         "color" : null,
         "opacity" : null

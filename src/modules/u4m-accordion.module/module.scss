@@ -1,70 +1,78 @@
 @import "../../css/_module-imports";
 
 section.u4m-accordion {
-  .intro {
-    @include center;
-    max-width: 768rem;
-    text-align: center;
-
-    h2 {
-      @include h2;
-    }
-
-    p {
-      @include b2;
-    }
-  }
-
   .accordions {
-    @include center;
-    margin: 50rem auto;
+    margin: 0 auto;
+    max-width: 1000rem;
 
-    details {
-      border-top: 1rem solid $gray2;
+    .items {
       transition: background-color 0.2s;
       cursor: pointer;
+      border-radius: 12px;
+      padding: 20rem;
 
-      summary {
-        @include b2;
-        font-weight: bold;
-        margin: 0;
-        padding: 20rem 40rem 20rem 20rem;
-        position: relative;
-        list-style: none; // detail uses list style for summary, like ul > li
-
-        &:after {
-          content: "+";
-          font-size: 30rem;
-          font-weight: normal;
-          line-height: 1;
-          position: absolute;
-          right: 5%;
-          top: 50%;
-          transform: translateY(-50%);
-          transition: transform 0.2s ease-in-out;
-        }
+      &:not(:last-child) {
+        margin-bottom: 20rem;
       }
 
-      // open = 'active' state
-      &[open] {
-        summary {
-          &:after {
-            transform: translateY(-50%) rotate(45deg);
+      &.active {
+        .title {
+          .cmMinusIcon {
+            display: block;
+          }
+
+          .cmPlusIcon {
+            display: none;
           }
         }
       }
 
-      &:hover {
-        background-color: $gray1;
+
+      .title {
+        font-size: 20rem;
+        font-weight: 400;
+        margin: 0;
+        position: relative;
+        list-style: none;
+        padding-right: 25rem;
+
+        .cmMinusIcon {
+          display: none;
+        }
+
+        .cmIconWrap {
+          display: flex;
+          position: absolute;
+          justify-content: center;
+          align-items: center;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+
+          svg {
+            color: currentColor;
+            fill: currentColor;
+          }
+        }
+
       }
 
-      &:last-child {
-        border-bottom: 1rem solid $gray2;
+
+      .cmInnerContent {
+        transition: all 0.3s ease;
+        overflow: hidden;
+        height: 0;
+        padding-top: 12rem;
+
+        p:last-of-type {
+          margin-bottom: 0;
+        }
+
+        &[style*="display: block"] {
+          height: auto;
+        }
       }
 
-      div {
-        padding: 20rem;
-      }
     }
   }
 }
