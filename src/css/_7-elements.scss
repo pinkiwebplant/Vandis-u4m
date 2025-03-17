@@ -418,7 +418,7 @@ code {
   border-radius: 0;
 }
 
-pre > code {
+pre>code {
   display: block;
   padding: 1rem 15rem;
   white-space: pre;
@@ -502,12 +502,15 @@ section[class*="u4m-"] {
 .hs-button {
   @include button;
 }
+
 .hs-sec-btn {
   @include secondbutton;
 }
+
 .hs-arrow-btn {
   @include arrowbutton;
 }
+
 .reverse-text {
   .hs-button {
     background-color: $white;
@@ -527,6 +530,7 @@ section[class*="u4m-"] {
     .icon {
       svg {
         fill: $White;
+
         path {
           fill: currentColor;
         }
@@ -585,7 +589,7 @@ section[class*="u4m-"] {
   position: relative;
 }
 
-.bg_overlay ~ *:not(.bg_overlay) {
+.bg_overlay~*:not(.bg_overlay) {
   position: relative;
   z-index: 2;
 }
@@ -672,6 +676,7 @@ section[class*="u4m-"] {
 .green_bg {
   background-color: $green;
 }
+
 .shakespeare_bg {
   background-color: $Shakespeare;
 }
@@ -687,21 +692,27 @@ section[class*="u4m-"] {
 .Blue_bg {
   background-color: $Blue;
 }
+
 .orange_bg {
   background-color: $orange;
 }
+
 .Purple_bg {
   background-color: $purple;
 }
+
 .Gray_bg {
   background-color: $gray1;
 }
+
 .lightgray_bg {
   background-color: $gray2;
 }
+
 .solitudegray_bg {
   background-color: $gray3;
 }
+
 .darkgray_bg {
   background-color: $darkgray1;
 }
@@ -713,40 +724,106 @@ section[class*="u4m-"] {
 .bluishgray_bg {
   background-color: $darkgray3;
 }
+
 .White_bg {
   background-color: $white;
 }
+
+.green_clr {
+  box-shadow: 24px 24px 0px $green;
+}
+
+.shakespeare_clr {
+  box-shadow: 24px 24px 0px $Shakespeare;
+}
+
+.black_clr {
+  box-shadow: 24px 24px 0px $BlueCharcoal;
+}
+
+.lightblue_clr {
+  box-shadow: 24px 24px 0px $lightblue;
+}
+
+.Blue_clr {
+  box-shadow: 24px 24px 0px $Blue;
+}
+
+.orange_clr {
+  box-shadow: 24px 24px 0px $orange;
+}
+
+.Purple_clr {
+  box-shadow: 24px 24px 0px $purple;
+}
+
+.Gray_clr {
+  box-shadow: 24px 24px 0px $gray1;
+}
+
+.lightgray_clr {
+  box-shadow: 24px 24px 0px $gray2;
+}
+
+.solitudegray_clr {
+  box-shadow: 24px 24px 0px $gray3;
+}
+
+.darkgray_clr {
+  box-shadow: 24px 24px 0px $darkgray1;
+}
+
+.shuttlegray_clr {
+  box-shadow: 24px 24px 0px $darkgray2;
+}
+
+.bluishgray_clr {
+  box-shadow: 24px 24px 0px $darkgray3;
+}
+
+.White_clr {
+  box-shadow: 24px 24px 0px $white;
+}
+
 .innerContainer {
   position: relative;
   border-radius: $border3;
   overflow: hidden;
 }
+
 .topIntro .intro_content {
   max-width: 100%;
   padding: 0;
   margin-bottom: 60rem;
+
   @include tabletvert {
     text-align: left;
   }
+
   .intro__inner {
     display: flex;
     justify-content: space-between;
     gap: 20px;
     column-gap: 20px;
+
     @include tabletvert {
       flex-direction: column;
     }
+
     .intro_title {
       margin-bottom: 0;
     }
+
     .intro_btn_wrap {
       min-width: 150px;
       text-align: right;
       margin-top: 0;
       justify-content: flex-end;
+
       @include tabletvert {
         justify-content: flex-start;
       }
+
       .btn_item a {
         margin: 0;
       }
@@ -756,11 +833,14 @@ section[class*="u4m-"] {
 
 .cardItems {
   gap: 24px;
+
   .cmCol3 {
     width: calc((100% - 48px) / 3);
+
     @include tabvert {
       width: calc((100% - 24px) / 2);
     }
+
     @include tabletvert {
       width: 100%;
     }
