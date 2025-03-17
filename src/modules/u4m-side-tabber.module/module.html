@@ -1,0 +1,95 @@
+{% set moduleName = 'u4m-side-tabber' %}
+{% include "../partials/u4-module-includes.html" %}
+
+{{ macros.introGroup(module.intro_content, module.module_settings) }} 
+
+
+
+<div class="sideTabber">
+	<div class="TabberInr">
+		<div class="row">
+			<div class="tab-section">
+				{% for item in module.tabber %}
+				<div class="tab-item {% if loop.first %}acc-open{% endif %}" data-id="tab{{ loop.index }}">
+					<div class="tab-ttl">
+						<div class="tab-inner">
+							{% if item.tab_title %}
+							<h5 class="slider_tab_title">
+								{{ item.tab_title }}
+								<span class="plus"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M6.37894 7.61255C6.16963 7.82837 5.83035 7.82837 5.62104 7.61255L0.156971 1.97832C-0.0523238 1.7625 -0.0523238 1.41264 0.156971 1.19682L0.409621 0.936279C0.618916 0.720459 0.958252 0.720459 1.16755 0.936279L5.99999 5.91922L10.8325 0.936279C11.0418 0.720459 11.381 0.720459 11.5903 0.936279L11.843 1.19682C12.0523 1.41264 12.0523 1.7625 11.843 1.97832L6.37894 7.61255Z" fill="#052A50"/>
+									</svg>
+								</span> 
+							</h5>
+							{% endif %} 
+							{% if item.tab_description %}
+							<div class="content">
+								{{ item.tab_description }}
+							</div>
+							{% endif %} 
+						</div>
+						<div class="toggle_content">
+							<div class="mobile_cnnt tab-content-section">
+								<div class="cnt-item " data-src="tab{{ loop.index }}"> 
+									<div class="tabbercntInr">
+										<div class="tabber-cnt">
+											{% if item.content_section.heading %}
+											<h3>{{ item.content_section.heading }}</h3>
+											{% endif %}
+											{% if item.content_section.content %}
+											<div class="cnt">
+												{{ item.content_section.content }}
+											</div>
+											{% endif %}
+										</div>
+										<div class="tabber-btn">
+											{{ macros.buttonGroup(item.content_section.button_group) }}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="tab-content-section">
+				{% for item in module.tabber %}
+				<div class="cnt-item {% if loop.first %}acc-open{% endif %}" data-src="tab{{ loop.index }}">
+					<div class="tabbercntInr">
+						<div class="tabber-cnt">
+							{% if item.content_section.heading %}
+							<h3>{{ item.content_section.heading }}</h3>
+							{% endif %}
+							{% if item.content_section.content %}
+							<div class="cnt">
+								{{ item.content_section.content }}
+							</div>
+							{% endif %}
+						</div>
+						<div class="tabber-btn">
+							{{ macros.buttonGroup(item.content_section.button_group) }}
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+</div> 
+
+</div>
+</div>
+</section>
+
+
+
+<style>
+	.{{ name }}.u4m-side-tabber .tab-content-section .cnt-item.acc-open,
+	.{{ name }}.u4m-side-tabber .sideTabber .TabberInr .row .tab-section .tab-item.acc-open .tab-ttl{
+		background-color:{{ module.module_settings.active_tab_background_color.rgba }};
+		color:{{ module.module_settings.active_tab_content_color.rgba }};
+	}
+	
+</style>
