@@ -298,9 +298,6 @@ div#hs-eu-cookie-confirmation.hs-cookie-notification-position-bottom.can-use-gra
 }
 
 // default p size
-p {
-  @include b3;
-}
 
 a {
   @include link;
@@ -530,6 +527,9 @@ section[class*="u4m-"] {
     .icon {
       svg {
         fill: $White;
+        path {
+          fill: currentColor;
+        }
       }
     }
 
@@ -548,6 +548,7 @@ section[class*="u4m-"] {
   .hs-sec-btn {
     border-color: $White;
     color: $White;
+    background-color: transparent;
 
     &:hover,
     &:focus {
