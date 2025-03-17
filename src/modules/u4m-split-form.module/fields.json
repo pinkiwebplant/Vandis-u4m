@@ -33,7 +33,7 @@
     "show_emoji_picker" : false,
     "type" : "text",
     "display_width" : null,
-    "default" : "EYEBROW TEXT"
+    "default" : "Vandis Network and Connectivity Solutions"
   }, {
     "id" : "e1a83e2f-f82a-c168-4ab5-d2e59735e581",
     "name" : "include_heading",
@@ -65,7 +65,7 @@
     "preset" : null,
     "type" : "choice",
     "display_width" : null,
-    "default" : "h2"
+    "default" : "h1"
   }, {
     "id" : "c7aa6b72-58e0-4caa-9b63-4da765e70069",
     "name" : "heading",
@@ -85,7 +85,7 @@
     "show_emoji_picker" : false,
     "type" : "text",
     "display_width" : null,
-    "default" : "Our Solutions"
+    "default" : "Adopting SASE: A Strategic Approach to NextGen Network Architecture"
   }, {
     "id" : "2f10bd6e-cf85-1cf6-5a4f-fa75e1e78238",
     "name" : "include_content",
@@ -112,7 +112,7 @@
     },
     "type" : "richtext",
     "display_width" : null,
-    "default" : "<p>Introductory subtext, like “a range of IT services tailored to meet unique client needs, emphasizing flexibility and customization.” Y do eiusmod tempor incididunt ut labore et dolore magna.</p>"
+    "default" : "<p>An independent report by Channelbytes, Inc., sponsored by Vandis and HPE Aruba Networking</p>"
   }, {
     "id" : "4a517c8a-8c15-a721-dca5-db7b58a8c2a7",
     "name" : "include_button",
@@ -275,6 +275,110 @@
         "no_follow" : false
       }
     } ]
+  }, {
+    "id" : "c9af5668-fd63-76b6-cf60-3d430a19198e",
+    "name" : "include_partnership",
+    "label" : "Include Partnership",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : true
+  }, {
+    "id" : "34d02be8-11bb-5f01-4874-dba79515463d",
+    "name" : "partnership",
+    "label" : "Partnership",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "intro_content.include_partnership",
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "children" : [ {
+      "id" : "e4c5adb2-82c8-801f-7fb6-7e00031f7938",
+      "name" : "partnership_text",
+      "label" : "Partnership Text",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "In partnership with "
+    }, {
+      "id" : "7e2bda57-fe40-73bd-4905-13966282f6a5",
+      "name" : "image",
+      "label" : "Image",
+      "required" : false,
+      "locked" : false,
+      "responsive" : true,
+      "resizable" : false,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "",
+        "alt" : null,
+        "loading" : "lazy"
+      }
+    }, {
+      "id" : "c5e12a23-0575-6d4f-73a9-c78dddc103b1",
+      "name" : "link",
+      "label" : "Link",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "intro_content.partnership.image",
+        "controlling_value_regex" : null,
+        "property" : null,
+        "operator" : "NOT_EMPTY",
+        "access" : null
+      },
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "partnership_text" : "In partnership with ",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "",
+        "alt" : null,
+        "loading" : "lazy"
+      },
+      "link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -283,12 +387,12 @@
   "display_width" : null,
   "default" : {
     "include_eyebrow_text" : true,
-    "eyebrow_text" : "EYEBROW TEXT",
+    "eyebrow_text" : "Vandis Network and Connectivity Solutions",
     "include_heading" : true,
-    "heading_size" : "h2",
-    "heading" : "Our Solutions",
+    "heading_size" : "h1",
+    "heading" : "Adopting SASE: A Strategic Approach to NextGen Network Architecture",
     "include_content" : true,
-    "content" : "<p>Introductory subtext, like “a range of IT services tailored to meet unique client needs, emphasizing flexibility and customization.” Y do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+    "content" : "<p>An independent report by Channelbytes, Inc., sponsored by Vandis and HPE Aruba Networking</p>",
     "include_button" : false,
     "button_group" : [ {
       "button_type" : "std",
@@ -316,23 +420,153 @@
         "open_in_new_tab" : false,
         "no_follow" : false
       }
-    } ]
+    } ],
+    "include_partnership" : true,
+    "partnership" : {
+      "partnership_text" : "In partnership with ",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "",
+        "alt" : null,
+        "loading" : "lazy"
+      },
+      "link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
   }
 }, {
-  "id" : "5cb0aa32-2ed6-f3a4-febe-005d3558db15",
-  "name" : "content",
-  "label" : "Content",
+  "id" : "15bf8dcb-47ac-6cb9-0a4a-0956f6bfd5df",
+  "name" : "left_section",
+  "label" : "Left Section",
   "required" : false,
   "locked" : false,
   "children" : [ {
-    "id" : "dce91e31-36a0-2038-c125-11637547bd49",
+    "id" : "bbbe0d58-fce5-7967-8d83-9762d9ea80a8",
     "name" : "content",
     "label" : "Content",
     "required" : false,
     "locked" : false,
     "type" : "richtext",
+    "display_width" : null
+  }, {
+    "id" : "f635eec3-635d-8a6d-8b35-266987ef3201",
+    "name" : "include_features",
+    "label" : "Include Features",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
     "display_width" : null,
-    "default" : "<p>Introductory subtext, like “a range of IT services tailored to meet unique client needs, emphasizing flexibility and customization.” Y do eiusmod tempor incididunt ut labore et dolore magna.</p>"
+    "default" : true
+  }, {
+    "id" : "2b03ce69-9b00-ae81-39d7-b30278df0c87",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "left_section.include_features",
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Download the Technology Playbook now to learn:"
+  }, {
+    "id" : "a0f64fb6-c50a-560b-08ab-3521c6d3fa2f",
+    "name" : "feature_items",
+    "label" : "Feature Items",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : 4
+    },
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "left_section.include_features",
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "children" : [ {
+      "id" : "70b875ef-e640-8899-9774-c5b170ccac11",
+      "name" : "text",
+      "label" : "Text",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ {
+      "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    }, {
+      "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    }, {
+      "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    }, {
+      "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    } ]
+  }, {
+    "id" : "100884ae-998a-6ab9-930c-93acf2119103",
+    "name" : "include_image",
+    "label" : "Include Image",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : false
+  }, {
+    "id" : "dcc9b1a2-da0e-fa45-b323-c26724375590",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "left_section.include_image",
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "responsive" : true,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    }
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -340,7 +574,73 @@
   "type" : "group",
   "display_width" : null,
   "default" : {
-    "content" : "<p>Introductory subtext, like “a range of IT services tailored to meet unique client needs, emphasizing flexibility and customization.” Y do eiusmod tempor incididunt ut labore et dolore magna.</p>"
+    "include_features" : true,
+    "title" : "Download the Technology Playbook now to learn:",
+    "feature_items" : [ {
+      "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    }, {
+      "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    }, {
+      "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    }, {
+      "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    } ],
+    "include_image" : false,
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    }
+  }
+}, {
+  "id" : "0b1234fc-0bd1-b6c8-4bec-3d5da5ef78c0",
+  "name" : "right_section",
+  "label" : "Right Section",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "ff974ea1-698e-1632-ba4d-42b86d6638c6",
+    "name" : "include_form",
+    "label" : "Include Form",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : true
+  }, {
+    "id" : "2597d5f7-07d1-2c30-47ef-3256cf14a611",
+    "name" : "form",
+    "label" : "Form",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "right_section.include_form",
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "type" : "form",
+    "display_width" : null,
+    "default" : {
+      "response_type" : "inline",
+      "message" : "Thanks for submitting the form."
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "include_form" : true,
+    "form" : {
+      "response_type" : "inline",
+      "message" : "Thanks for submitting the form."
+    }
   }
 }, {
   "id" : "fbc58b2b-b6db-82a2-8422-e7f6861ce34b",
@@ -361,7 +661,7 @@
     "preset" : null,
     "type" : "choice",
     "display_width" : null,
-    "default" : "center"
+    "default" : "left"
   }, {
     "id" : "7def73cf-f5f3-ad22-22a2-c1a64d3669f5",
     "name" : "intro_content_width",
@@ -373,7 +673,8 @@
     "max" : 2000,
     "step" : 1,
     "type" : "number",
-    "display_width" : null
+    "display_width" : null,
+    "default" : 800
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -381,7 +682,8 @@
   "type" : "group",
   "display_width" : null,
   "default" : {
-    "intro_content_alignment" : "center"
+    "intro_content_alignment" : "left",
+    "intro_content_width" : 800
   }
 }, {
   "id" : "module_overrides",
@@ -1391,6 +1693,20 @@
           "opacity" : null
         }
       }
+    }, {
+      "id" : "e1eeda7a-bbd0-5c44-794c-76f00647547f",
+      "name" : "background_image_position",
+      "label" : "Background Image Position",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "center center", "Center Center" ], [ "center top", "Center Top" ], [ "center bottom", "Center Bottom" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "center center"
     } ],
     "tab" : "CONTENT",
     "expanded" : true,
@@ -1427,7 +1743,8 @@
           "color" : null,
           "opacity" : null
         }
-      }
+      },
+      "background_image_position" : "center center"
     }
   }, {
     "id" : "fc248331-90d9-cb7e-66f6-4b85de179aa9",
@@ -1564,7 +1881,8 @@
           "color" : null,
           "opacity" : null
         }
-      }
+      },
+      "background_image_position" : "center center"
     },
     "container_size" : "theme",
     "custom_container_size" : 870

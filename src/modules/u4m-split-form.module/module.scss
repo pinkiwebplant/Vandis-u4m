@@ -1,0 +1,133 @@
+@import "../../css/_module-imports";
+
+.u4m-split-form {
+    .innerContainer {
+        overflow: visible;
+    }
+
+    .intro_content {
+        margin-bottom: 140rem;
+
+        @include tabletvert {
+            margin-bottom: 40rem;
+        }
+
+        .cmPartnerShipWrap {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20rem;
+
+
+            .cmPartnerText {
+                font-size: 23rem;
+                font-weight: 700;
+            }
+        }
+
+
+    }
+
+    .cmSplitFormWrap {
+        padding-top: 100px;
+
+        @include tabletvert {
+            padding-top: 0;
+        }
+
+        .cmSplitFormInner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60rem;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            @include tabletvert {
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                justify-content: flex-start;
+
+            }
+        }
+
+        .cmLeftSection {
+            flex: 1;
+
+            @include tabletvert {
+                width: 100%;
+            }
+
+            .cmFtureTitle {
+                color: $action1;
+                margin-bottom: 20px;
+            }
+
+            .featureWrap {
+                ul {
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    margin-bottom: 0;
+                    gap: 8px;
+                    list-style: none;
+
+                    li {
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        flex-wrap: nowrap;
+
+                        .cmCheckIcon {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+            }
+
+            .bottomImageWrap {
+                margin-top: 40px;
+                max-width: 400rem;
+
+
+                img {
+                    border-radius: 12px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .cmRightSection {
+            flex: 1;
+
+            @include tabletvert {
+                width: 100%;
+            }
+
+            .form-title {
+                &:empty {
+                    margin: 0;
+                }
+            }
+
+            form {
+                max-width: 100%;
+                width: 100%;
+                margin-bottom: 0;
+                margin-top: -134rem;
+
+                @include tabletvert {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+}

@@ -1,5 +1,11 @@
 @import "../../css/_module-imports";
 
+body {
+    &.full-screen-active {
+        overflow: hidden;
+    }
+}
+
 .u4m-team-cards {
     .cmcardItem {
         box-shadow: 0px 4px 40px rgba(5, 42, 80, 0.12);
@@ -9,10 +15,8 @@
     }
 
     .innerContainer {
-        overflow: auto;
+        overflow: visible;
     }
-
-    overflow: auto;
 
     .imgWrap {
         border-radius: 12px;
@@ -34,17 +38,213 @@
 
             .cmContent {
                 text-align: center;
+
+                .cmName {
+                    margin-bottom: 8px;
+                }
+
+                .cmTitle {
+                    margin: 0;
+                }
+
+                .cmBioCnt {
+                    margin-top: 20px;
+
+                    p {
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
             }
 
             .bioAndShare {
                 margin-top: auto;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                gap: 20px;
             }
+
+            .cmBioBtn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .cmBioBtnInner {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+
+
+                .rightArrow {
+                    display: flex;
+                    width: 24px;
+                    height: 24px;
+                    align-items: flex-end;
+                    justify-content: center;
+                    padding: 4px 7px;
+
+                    svg {
+                        display: inline-block;
+                    }
+                }
+            }
+
+
         }
 
 
     }
 
+    .cmShareWrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
 
+        .cmItem {
+            .cmItemLink {
+                width: 24px;
+                display: flex;
+                height: 24px;
+                align-items: center;
+                justify-content: center;
+
+
+                svg {
+                    display: inline-block;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    .full-screen {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        background: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        top: 0;
+        transition: 0.3s ease opacity;
+        opacity: 0;
+        left: 0;
+        transform: scale(0);
+        z-index: 999999999999;
+
+        .page-center {
+            margin: auto;
+        }
+
+        &.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .circle {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: center;
+            position: relative;
+            transition: 0.5s ease all 0.5s;
+            transform: translateY(10rem);
+            opacity: 1;
+            z-index: 2;
+            text-align: left;
+            background-color: $White;
+            padding: 20rem;
+            box-shadow: 0px 4px 40px rgba(5, 42, 80, 0.12);
+            border-radius: 12px;
+        }
+
+        .exit-wrap {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 40rem;
+            height: 40rem;
+            position: fixed;
+            top: 10rem;
+            right: 20rem;
+            cursor: pointer;
+
+            svg {
+                width: 100%;
+                color: $White;
+                fill: $White;
+            }
+
+        }
+
+        .circle-inner {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 24rem;
+
+            @include tabletvert {
+                flex-direction: column;
+            }
+
+            .cmShareWrap {
+                justify-content: flex-start;
+            }
+
+            .imgWrap {
+                width: 40%;
+
+                @include tabletvert {
+                    width: 100%;
+                    position: relative;
+                    padding-bottom: 56.66%;
+                }
+
+                img {
+                    @include tabletvert {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            .inner {
+                flex: 1;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                gap: 20rem;
+
+                .cmName {
+                    margin-bottom: 8rem;
+                }
+
+                .cmTitle {
+                    margin: 0;
+                }
+
+                .cmBioCnt {
+                    margin: 0;
+
+                    p {
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
 
 
 }
