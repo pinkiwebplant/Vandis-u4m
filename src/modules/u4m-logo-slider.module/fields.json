@@ -327,11 +327,11 @@
   "children" : [ {
     "id" : "662a2419-6019-2b13-92ab-89966cbc1ec8",
     "name" : "slider_type",
-    "label" : "Slider Type",
+    "label" : "Logos Type",
     "required" : false,
     "locked" : false,
     "display" : "select",
-    "choices" : [ [ "stnd", "Standard" ], [ "recent", "Recent" ], [ "category", "Category" ], [ "individual", "individual" ] ],
+    "choices" : [ [ "stnd", "Standard" ], [ "recent", "Recent" ], [ "category", "Category" ], [ "individual", "Individual" ] ],
     "multiple" : false,
     "reordering_enabled" : true,
     "preset" : null,
