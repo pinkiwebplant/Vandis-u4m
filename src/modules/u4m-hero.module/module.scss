@@ -205,6 +205,15 @@
 
           .media-col {
             height: auto;
+            display: block;
+            width: 100%;
+
+            .cardVideoPoster {
+              .play {
+                left: 50%;
+                translate: -50%;
+              }
+            }
 
             .embedVideo {
               padding-bottom: 90%;

@@ -176,15 +176,15 @@
   .u4m-alternating-content {
     .innerCnt {
       .cardItems {
-        gap: 20px;
+        gap: 30px;
         row-gap: 30px;
 
         .leftCnt {
-          width: calc(50% - 10px);
+          width: calc(50% - 15px);
         }
 
         .rightCnt {
-          width: calc(50% - 10px);
+          width: calc(50% - 15px);
         }
       }
     }
@@ -214,6 +214,15 @@
 
           .media-col {
             height: auto;
+            display: block;
+            width: 100%;
+
+            .cardVideoPoster {
+              .play {
+                left: 50%;
+                translate: -50%;
+              }
+            }
 
             .embedVideo {
               padding-bottom: 90%;
