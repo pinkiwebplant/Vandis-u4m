@@ -1,0 +1,135 @@
+{% set moduleName = 'u4m-logo-slider' %} 
+{% if module.module_overrides.inner_container_spacing_group.background_settings.background_type == 'color' %}
+{% set moduleExtraName = module.module_overrides.inner_container_spacing_group.background_settings.select_color + 'eye' %}
+{% endif %}
+{% include "../partials/u4-module-includes.html" %}
+
+{{ macros.introGroup(module.intro_content, module.module_settings) }} 
+
+{% set table = module.logo_slider.select_hubdb_table %}
+{% set count = module.logo_slider.count %}
+{% set recent_query = 'orderBy=hs_created_at&limit=' ~ count %}
+{% set category = module.logo_slider.category_name %}
+{% set category_query = 'orderBy=-hs_created_at&category__in=' ~ category ~ '&limit=' ~ count %}
+
+{% if module.logo_slider.slider_type == "recent" %}
+{% set data = hubdb_table_rows(table,recent_query) %}
+{% elif module.logo_slider.slider_type == "category" %}
+{% set data = hubdb_table_rows(table,category_query) %}
+{% endif %}
+
+<div class="logoSlider">
+	<div class="logoItems">
+
+		{% if module.logo_slider.slider_type == "stnd" %}
+		{% for item in module.logo_slider.logo_items %} 
+		<div class="logoItem">
+			{% if item.add_logo.src %}
+			{% set href = item.logo_link.url.href %}
+			{% if item.logo_link.url.type is equalto "EMAIL_ADDRESS" %}
+			{% set href = "mailto:" + href %}
+			{% endif %}
+			<a
+				 {% if item.logo_link.url.type is equalto "CALL_TO_ACTION"  %}
+				 href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+				 {% else %}
+				 href="{{ href|escape_url }}"
+				 {% endif %}
+				 {% if item.logo_link.open_in_new_tab %}
+				 target="_blank"
+				 {% endif %}
+				 {% if item.logo_link.rel %}
+				 rel="{{ item.logo_link.rel|escape_attr }}"
+				 {% endif %}
+				 ><img src="{{ item.add_logo.src }}" alt="{{ item.add_logo.alt }}" >
+			</a>
+			{% endif %}
+		</div>
+		{% endfor %}
+		{% elif module.logo_slider.slider_type == "individual" %} 
+
+		{% for item in module.logo_slider.add_logos %}
+		{% set row = item.select_logo.columns %}  
+		<div class="logoItem"> 
+			<a href="{{ row.url }}">
+				<img src="{{ row.logo.url }}" alt="{{ row.title }}" >
+			</a>
+		</div>
+		{% endfor %}
+		{% else %}  
+
+		{% for row in data %} 
+		<div class="logoItem"> 
+			<a href="{{ row.url }}">
+				<img src="{{ row.logo.url }}" alt="{{ row.title }}" >
+			</a>
+		</div>
+		{% endfor %}
+		{% endif %}
+
+	</div>
+</div> 
+
+<div class="logo_btBtn" >
+	{{ macros.buttonGroup(module.button_group) }} 
+</div> 
+
+
+</div>
+</div>
+</section>
+
+
+{% require_css %}
+<style>
+	.u4m-logo-slider .logo_btBtn  .intro_btn_wrap{
+		justify-content:{{ module.module_settings.bottom_button_alignment }};
+	}
+</style>
+{% end_require_css %}
+
+{% require_js %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.u4m-logo-slider.{{name}} .logoItems').slick({
+			slidesToShow: {{ module.module_settings.slider_settings.slide_to_show }},
+			slidesToScroll: 1,  
+			arrows: false,   
+			dots: false, 
+			speed: 300, 
+			{% if module.module_settings.slider_settings.infinite %}
+			infinite: {{ module.module_settings.slider_settings.infinite }}, 
+			{% endif %}
+			autoplay: true,
+			responsive: [
+			{
+			breakpoint: 991,
+			settings: {
+			slidesToShow: 4,
+			}
+										},
+										{
+										breakpoint: 767,
+										settings: {
+										slidesToShow: 3,
+										}
+	},
+		{
+			breakpoint: 500,
+				settings: {
+					slidesToShow: 2,
+				}
+		},
+			{
+				breakpoint: 375,
+					settings: {
+						slidesToShow: 1,
+					}
+			}
+	]
+	});
+	});
+</script>
+{% end_require_js %}
+
+

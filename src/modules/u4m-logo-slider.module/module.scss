@@ -1,0 +1,40 @@
+@import "../../css/_module-imports";
+.u4m-logo-slider {
+  &.White_bgeye {
+    .intro_content .eyebrow_text {
+      background-color: rgba($lightblue, 0.1);
+    }
+  }
+  .logoSlider {
+    margin: 60px 0;
+
+    .logoItems {
+      .slick-track {
+        align-items: center;
+        display: flex;
+        gap: 60px;
+        .logoItem.slick-slide {
+          height: auto;
+        }
+        a {
+          display: block;
+          img {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+  .logo_btBtn {
+    .intro_btn_wrap {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      a {
+        margin: 0;
+      }
+    }
+  }
+}
