@@ -313,6 +313,7 @@
 @mixin blogpostCard {
   border-radius: $border3;
   overflow: hidden;
+  height: 100%;
   .itemImgin {
     min-height: 225px;
     display: block;
@@ -323,6 +324,7 @@
   .itemCnWrap {
     background: $white;
     padding: 40rem 24rem;
+    height: 100%;
     .itemMeta {
       @include b5;
       margin-bottom: 16rem;

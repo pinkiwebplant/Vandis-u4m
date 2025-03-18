@@ -1,0 +1,47 @@
+@import "../../css/_module-imports";
+.u4m-events {
+  &.reverse-text .cardItem .hs-arrow-btn {
+    @include arrowbutton;
+  }
+  .CardWrap {
+    @include tabletvertMin {
+      .topcard {
+        width: 100%;
+        .cmCol3.cardItem {
+          width: 100%;
+          max-width: 1000rem;
+          margin: 0 auto 36rem;
+          .itemInr {
+            display: flex;
+            flex-wrap: wrap;
+            & > * {
+              width: 50%;
+              .itemImgin {
+                height: 100%;
+              }
+            }
+            .itemCnWrap {
+              padding: 32rem 40rem;
+            }
+          }
+        }
+      }
+    }
+    @include tabletvert {
+      .topcard {
+        width: 100%;
+      }
+    }
+    .cardItem {
+      .itemInr {
+        @include blogpostCard;
+        .itemCnWrap {
+          padding: 24rem;
+          .itemTags {
+            margin-bottom: 16rem;
+          }
+        }
+      }
+    }
+  }
+}
