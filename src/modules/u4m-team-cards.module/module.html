@@ -6,7 +6,9 @@
 <div class="cmTeamCards">
 	<div class="flex-row cardItems">
 		{% for item in module.cards %}
-		<div class="cmCol3 cmcardItem {% if !item.bio_excerpt %}no-bio{% endif %}">
+		<div class="cmCol3 cmcardItem {% if module.module_settings.cards_settings.dark_theme %}
+	cmDrakTheme
+{% endif %} {% if !item.bio_excerpt %}no-bio{% endif %} {{ module.module_settings.cards_settings.select_bg_color }}" {% if module.module_settings.cards_settings.select_bg_color == "custom" %}style="background-color:{{ module.module_settings.cards_settings.rgba }};"{% endif %}>
 			<div class="itemInner">
 				<div class="imgWrap">
 					<img src="{{ item.author_image.src }}" alt="{{ item.author_image.alt }}" {{ loadingAttr }}>

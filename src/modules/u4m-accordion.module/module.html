@@ -15,8 +15,10 @@
                         <svg class="cmMinusIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M200-440v-80h560v80H200Z"/></svg>
                     </span>
                 </div>
-                <div id="content_{{ loop.index }}" class="cmInnerContent" style="display: {{ 'block' if loop.index == 1 else 'none' }};">
+                <div id="content_{{ loop.index }}" class="cmInnerContent">
+                    <div class="cmContentWrap">
                     {{ item.content }}
+                    </div>
                 </div>
             </div>
         {% endfor %}
@@ -35,14 +37,14 @@
 		background-color: {{ module.module_settings.background_settings.item_settings.custom_color.rgba }};
 	}
 	.{{name}}.u4m-accordion .items .title,
-	.{{name}}.u4m-accordion .items .cmInnerContent *{
+	.{{name}}.u4m-accordion .items .cmContentWrap *{
 		color:{{ module.module_settings.background_settings.item_settings.content_color.rgba }};
 	}
 	.{{name}}.u4m-accordion .items.active{
 		background-color: {{ module.module_settings.background_settings.active_items_settings.custom_active_color.rgba }};
 	}
 	.{{name}}.u4m-accordion .items.active .title,
-	.{{name}}.u4m-accordion .items.active .cmInnerContent *{
+	.{{name}}.u4m-accordion .items.active .cmContentWrap *{
 		color:{{ module.module_settings.background_settings.active_items_settings.content_color.rgba }};
 	}
 

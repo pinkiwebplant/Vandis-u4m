@@ -8,9 +8,8 @@ body {
 
 .u4m-team-cards {
     .cmcardItem {
-        box-shadow: 0px 4px 40px rgba(5, 42, 80, 0.12);
+        box-shadow: 0px 4px 40px rgba($action1, 0.12);
         border-radius: 12px;
-        background-color: #fff;
         overflow: hidden;
     }
 
@@ -23,12 +22,21 @@ body {
         overflow: hidden;
     }
 
+    .cmDrakTheme {
+        .itemInner {
+            * {
+                color: $White;
+            }
+        }
+    }
+
     .itemInner {
         padding: 24px;
         display: flex;
         flex-direction: column;
         gap: 40px;
         height: 100%;
+
 
         .contentWrap {
             display: flex;
@@ -90,6 +98,8 @@ body {
 
                     svg {
                         display: inline-block;
+                        color: currentColor;
+                        fill: currentColor;
                     }
                 }
             }
@@ -120,6 +130,8 @@ body {
                     display: inline-block;
                     width: 100%;
                     height: auto;
+                    color: currentColor;
+                    fill: currentColor;
                 }
             }
         }
@@ -129,7 +141,7 @@ body {
         height: 100vh;
         width: 100vw;
         display: flex;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba($black, 0.7);
         position: fixed;
         top: 0;
         transition: 0.3s ease opacity;
@@ -137,6 +149,8 @@ body {
         left: 0;
         transform: scale(0);
         z-index: 999999999999;
+        padding: 80rem 0;
+        overflow-y: auto;
 
         .page-center {
             margin: auto;
@@ -162,7 +176,7 @@ body {
             text-align: left;
             background-color: $White;
             padding: 20rem;
-            box-shadow: 0px 4px 40px rgba(5, 42, 80, 0.12);
+            box-shadow: 0px 4px 40px rgba($action1, 0.12);
             border-radius: 12px;
         }
 
@@ -188,7 +202,7 @@ body {
         .circle-inner {
             display: flex;
             flex-wrap: nowrap;
-            align-items: center;
+            align-items: flex-start;
             gap: 24rem;
 
             @include tabletvert {
@@ -223,6 +237,11 @@ body {
                 flex-wrap: wrap;
                 flex-direction: column;
                 gap: 20rem;
+                padding-top: 40rem;
+
+                @include tabvert {
+                    padding-top: 0;
+                }
 
                 .cmName {
                     margin-bottom: 8rem;

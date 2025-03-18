@@ -937,6 +937,70 @@
     "step" : 1,
     "type" : "number",
     "display_width" : null
+  }, {
+    "id" : "8ec40873-1096-cddf-22c8-586883cb4d71",
+    "name" : "cards_settings",
+    "label" : "Cards Settings",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "212a9d9d-a933-4372-d922-c612af13449b",
+      "name" : "select_bg_color",
+      "label" : "Select Background Color",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "green_bg", "Green" ], [ "shakespeare_bg", "Shakespeare" ], [ "black_bg", "Black" ], [ "Blue_bg", "Blue" ], [ "lightblue_bg", "LightBlue" ], [ "orange_bg", "Orange" ], [ "Purple_bg", "Purple" ], [ "Gray_bg", "Gray" ], [ "lightgray_bg", "Light Gray" ], [ "solitudegray_bg", "Solitude Gray" ], [ "darkgray_bg", "Dark Gray" ], [ "shuttlegray_bg", "Shuttle Grey" ], [ "bluishgray_bg", "Bluish Gray" ], [ "White_bg", "White" ], [ "custom", "Custom" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "White_bg"
+    }, {
+      "id" : "f676e53a-dc88-6d6c-0ab4-f09aaa81384e",
+      "name" : "color",
+      "label" : "Custom Background Color",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "module_settings.cards_settings.select_bg_color",
+        "controlling_value_regex" : "custom",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "3f507ca2-6d6a-770e-831f-accc2b3625f2",
+      "name" : "dark_theme",
+      "label" : "Dark Theme",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : false
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "select_bg_color" : "White_bg",
+      "color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "dark_theme" : false
+    }
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -944,7 +1008,15 @@
   "type" : "group",
   "display_width" : null,
   "default" : {
-    "intro_content_alignment" : "center"
+    "intro_content_alignment" : "center",
+    "cards_settings" : {
+      "select_bg_color" : "White_bg",
+      "color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "dark_theme" : false
+    }
   }
 }, {
   "id" : "module_overrides",

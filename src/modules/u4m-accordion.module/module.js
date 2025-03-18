@@ -1,44 +1,41 @@
 
-document.addEventListener('DOMContentLoaded', function () {
-	const accordionButtons = document.querySelectorAll('.title');
 
-	accordionButtons.forEach(function (button, index) {
-		
-		button.addEventListener('click', function () {
-			const content = document.getElementById(button.getAttribute('aria-controls'));
-			const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-			
-			accordionButtons.forEach(function (otherButton) {
-				const otherContent = document.getElementById(otherButton.getAttribute('aria-controls'));
-				if (otherButton !== button) {
-					otherButton.setAttribute('aria-expanded', 'false');
-					otherContent.style.display = 'none';
-					otherButton.parentElement.classList.remove('active'); 
-				}
-			});
+const accordionItemHeaders = document.querySelectorAll(".u4m-accordion .accordions .items .title");
 
-		
-			if (isExpanded) {
-				button.setAttribute('aria-expanded', 'false');
-				content.style.display = 'none';
-				button.parentElement.classList.remove('active');  
-			} else {
-				button.setAttribute('aria-expanded', 'true');
-				content.style.display = 'block';
-				button.parentElement.classList.add('active');  
-			}
-		});
-	});
+const firstAccordionItem = document.querySelector(".u4m-accordion .accordions .items .title");
+if (firstAccordionItem) {
+  const firstAccordionBody = firstAccordionItem.nextElementSibling;
+  firstAccordionItem.classList.add("active");
+  firstAccordionItem.closest(".items").classList.add("active");
+  firstAccordionBody.style.maxHeight = firstAccordionBody.scrollHeight + "px";
+}
 
-	const firstButton = accordionButtons[0];
-	const firstContent = document.getElementById(firstButton.getAttribute('aria-controls'));
-	firstButton.parentElement.classList.add('active'); 
-	firstButton.setAttribute('aria-expanded', 'true');
-	firstContent.style.display = 'block';
+accordionItemHeaders.forEach(accordionItemHeader => {
+  accordionItemHeader.addEventListener("click", event => {
+
+
+    accordionItemHeaders.forEach(itemHeader => {
+      const accordionItemBody = itemHeader.nextElementSibling;
+      const parentItem = itemHeader.closest(".items");
+      if (itemHeader !== accordionItemHeader) {
+        itemHeader.classList.remove("active");
+        parentItem.classList.remove("active"); 
+        accordionItemBody.style.maxHeight = 0; 
+      }
+    });
+
+
+    const parentItem = accordionItemHeader.closest(".accordions .items");
+    const accordionItemBody = accordionItemHeader.nextElementSibling;
+
+    parentItem.classList.toggle("active"); 
+    accordionItemHeader.classList.toggle("active");
+
+    if (parentItem.classList.contains("active")) {
+      accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+    } else {
+      accordionItemBody.style.maxHeight = 0; 
+    }
+  });
 });
-
-
-
-
-
