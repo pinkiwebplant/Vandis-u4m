@@ -17,18 +17,18 @@
 
 {# pagination #}
 {% if module.disable_pagination == false %}
-	{% set batch_num = 4 %}
-	{% if not request.query_dict.page_num %}
-	{% set page_num = 1 %}
-	{% set offset_num = 0 %}
-	{% elif request.query_dict.page_num %}
-	{% set page_num = request.query_dict.page_num %}
-	{% set offset_num = page_num|add(-1) * batch_num %}
-	{% endif %}
-	{% set limit = "&limit="~batch_num ~ "&offset=" ~ offset_num %}
-  {% set dataRows = hubdb_table_rows(module.select_hubdb_table,query ~ limit ) %}
+{% set batch_num = 4 %}
+{% if not request.query_dict.page_num %}
+{% set page_num = 1 %}
+{% set offset_num = 0 %}
+{% elif request.query_dict.page_num %}
+{% set page_num = request.query_dict.page_num %}
+{% set offset_num = page_num|add(-1) * batch_num %}
+{% endif %}
+{% set limit = "&limit="~batch_num ~ "&offset=" ~ offset_num %}
+{% set dataRows = hubdb_table_rows(module.select_hubdb_table,query ~ limit ) %}
 {% else %}
-  {% set dataRows = hubdb_table_rows(module.select_hubdb_table,query ) %}
+{% set dataRows = hubdb_table_rows(module.select_hubdb_table,query ) %}
 {% endif %}
 
 <div class="hubdb-content"> 
@@ -88,7 +88,7 @@
 			</div>
 
 			{# pagination html #}
-{% if module.disable_pagination == false %}
+			{% if module.disable_pagination == false %}
 			<div class="pagination">
 				{% set nav = hubdb_table_rows(module.select_hubdb_table, paginationQuery) %}   
 				{% set total_pages = (nav|length/batch_num)|round(0, 'ceil') %}
@@ -143,7 +143,7 @@
 				</nav> 
 				{% endif %}
 			</div>
-{% endif %}
+			{% endif %}
 
 
 
@@ -167,6 +167,16 @@
 	.{{name}}.u4m-partner-cards .page-center .innerContainer .hubdb-content .hubdb-content-inner .filter-category form.filterForm ul.categories li input[type=radio]:checked{
 		background: url({{get_asset_url("../templates/images/radio_Icon.png")}});
 	}
+
+	.{{name}} .page-center .innerContainer .hubdb-content .hubdb-content-inner .filter-content .content-list .content-item{
+		background-color:rgba({{ module.module_settings.card_settings.background_color.color|convert_rgb }},{{ module.module_settings.card_settings.background_color.opacity*0.01 }});
+	}
+
+	.{{name}} .page-center .innerContainer .hubdb-content .hubdb-content-inner .filter-content .content-list .content-item .content-item-inner .item-title h5{
+		color:rgba({{ module.module_settings.card_settings.content_color.color|convert_rgb }},{{ module.module_settings.card_settings.content_color.opacity*0.01 }});
+	}
+
+
 </style>
 {% end_require_css %}
 
@@ -176,18 +186,18 @@
 
 	$(document).ready(function() {
 		// Handle form submission for filter (on submit, prevent page reload and update content)
-		$('.filterForm').on('submit', function(e) {
+		$('.{{name}} .filterForm').on('submit', function(e) {
 			e.preventDefault();
 			updateContent();
 		});
 
 		// Handle category change with radio buttons
-		$('.filterForm input[type=radio]').on('change', function() {
+		$('.{{name}} .filterForm input[type=radio]').on('change', function() {
 			updateContent();
 		});
 
 		// Handle pagination link clicks
-		$(document).on('click', '.pagination a.page-numbers', function(e) {
+		$(document).on('click', '.{{name}} .pagination a.page-numbers', function(e) {
 			e.preventDefault();
 			var pageNum = $(this).data('page'); // Get the page number from the clicked pagination link
 			updateContent(pageNum);
@@ -196,13 +206,13 @@
 		// Function to update the content based on filter and pagination
 		function updateContent(pageNum = 1) {
 			// Get the form data
-			var filterData = $('.filterForm').serialize();
+			var filterData = $('.{{name}} .filterForm').serialize();
 			// Check if "All Partners" is selected, if so, remove the category filter from the query string
-			if ($('input[name="category"]:checked').val() === 'all') {
+			if ($('.{{name}} input[name="category"]:checked').val() === 'all') {
 				// Remove the category filter from the query string
 				filterData = filterData.replace(/&category=[^&]*/, '');
 			}
-			
+
 
 			// If pagination is used, append the page number
 			if (pageNum) {
@@ -213,9 +223,9 @@
 			var selectUrl = window.location.href.split('?')[0] + '?' + filterData;
 
 			// Load filtered content (items list) dynamically
-			$('.filter-content .content-list').load(selectUrl + " .filter-content .content-list > .content-item", function() {
+			$('.{{name}} .filter-content .content-list').load(selectUrl + " .{{name}} .filter-content .content-list > .content-item", function() {
 				// After loading content, also load the pagination
-				$('.pagination').load(selectUrl + " .hbdb_pagination");
+				$('.{{name}} .pagination').load(selectUrl + " .hbdb_pagination");
 			});
 
 			console.log('Loading URL: ' + selectUrl);
@@ -228,7 +238,8 @@
 	function loadEvents() {
 		const url = window.location.href;
 		const path = new URL(url).pathname;
-		const parts = path.split("/sample-page");
+		const parts = path.split("/").pop();
+		console.log(parts);
 
 		var typeText = parts.length > 1 ? parts[1].replace("/", "") : null;
 
@@ -241,11 +252,11 @@
 		// Get the value of the "tag" parameter
 		const tagValue = urlParams.get('category');
 
-		$(".categories li input[type=radio]").each(function() {
+		$(".{{name}} .categories li input[type=radio]").each(function() {
 			var gettype = $(this).attr("value");
-			if (gettype === typeText) {
-				$('.categories').addClass('active_tag_url_matched pageis_',+gettype);
-				$('.categories li input[type=radio]:checked').addClass('active_tag_label');
+			if (gettype === parts) {
+				$('.{{name}} .categories').addClass('active_tag_url_matched pageis_',+gettype);
+				$('.{{name}} .categories li input[type=radio]:checked').addClass('active_tag_label');
 				$(this).click();
 				console.log(gettype ,'===', typeText)
 			}

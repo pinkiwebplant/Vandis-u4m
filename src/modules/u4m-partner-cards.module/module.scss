@@ -147,7 +147,7 @@
                   height: 32px;
                   &:hover {
                     color: $lightgreen;
-                    border-bottom: 2px #65bf72 inset;
+                    border-bottom: 2px $lightgreen inset;
                   }
                   svg {
                     vertical-align: middle;
@@ -159,7 +159,7 @@
                 }
                 a.active.page-numbers {
                   color: $lightgreen;
-                  border-bottom: 2px #65bf72 inset;
+                  border-bottom: 2px $lightgreen inset;
                 }
                 a.prev.page-numbers {
                   svg {
