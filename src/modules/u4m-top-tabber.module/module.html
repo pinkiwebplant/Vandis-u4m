@@ -1,7 +1,6 @@
 {% set moduleName = 'u4m-top-tabber' %}
 {% include "../partials/u4-module-includes.html" %}
 {{ macros.introGroup(module.intro_content, module.module_settings) }} 
-</div> 
 
 <!-- tabber -->
 <div class="tabber_wrap">
@@ -77,25 +76,25 @@
 					<div class="tab-card">
 						<div class="tab-card-items">
 							{% for item2 in item.tab_content.card_items %}
-							<div class="tab-card-item">
+							<div class="tab-card-item {{ item.tab_content.number_of_items }}">
 								<div class="tab-card-item-inn">
 									{% if item2.select_icon_type %}
 									<div class="tab-icon">
 										<div class="tab-icon-inner" style="background-color:rgba({{ item2.icon_settings.background_color.color|convert_rgb }},{{ item2.icon_settings.background_color.opacity*0.01 }}); fill:rgba({{ item2.icon_settings.color.color|convert_rgb }},{{ item2.icon_settings.color.opacity*0.01 }});">
-										{% if item2.select_icon_type == "icon" %}
-										{% icon
+											{% if item2.select_icon_type == "icon" %}
+											{% icon
 						name="{{ item2.icon_field.name }}"
 						style="{{ item2.icon_field.type }}"
 						unicode="{{ item2.icon_field.unicode }}"
 						icon_set="{{ item2.icon_field.icon_set }}"
 					%}
-										{% endif %}
-										{% if item2.select_icon_type == "img" %}
-										{% if item2.image_field.src %}
-										{% set loadingAttr = item2.image_field.loading != 'disabled' ? 'loading="{{ item2.image_field.loading|escape_attr }}"' : '' %}
-										<img src="{{ item2.image_field.src|escape_url }}" alt="{{ item2.image_field.alt|escape_attr }}" {{ loadingAttr }}>
-										{% endif %}
-										{% endif %}
+											{% endif %}
+											{% if item2.select_icon_type == "img" %}
+											{% if item2.image_field.src %}
+											{% set loadingAttr = item2.image_field.loading != 'disabled' ? 'loading="{{ item2.image_field.loading|escape_attr }}"' : '' %}
+											<img src="{{ item2.image_field.src|escape_url }}" alt="{{ item2.image_field.alt|escape_attr }}" {{ loadingAttr }}>
+											{% endif %}
+											{% endif %}
 										</div>
 									</div>
 									{% endif %}
@@ -106,49 +105,49 @@
 												{{ item2.heading }}
 											</h5>
 											<div class="tab-card-content">
-											{{ item2.content }}
+												{{ item2.content }}
 											</div>
-											
+
 										</div>
 									</div>
 									<div class="card_btn_wrap">
-												<div class="btn_item">
-													{% if item2.button_group.button_type == "std" %}
-													{% set href = item2.button_group.link.url.href %}
-													{% if item2.button_group.link.url.type is equalto "EMAIL_ADDRESS" %}
-													{% set href = "mailto:" + href %}
-													{% endif %}
-													<a class=" {{ item2.button_group.button_style ? item2.button_group.button_style : "hs-button" }}" 
-														 {% if item2.button_group.link.url.type is equalto "CALL_TO_ACTION"  %}
-														 href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
-														 {% else %}
-														 href="{{ href|escape_url }}"
-														 {% endif %}
-														 {% if item2.button_group.link.open_in_new_tab %}
-														 target="_blank"
-														 {% endif %}
-														 {% if item2.button_group.link.rel %}
-														 rel="{{ item2.button_group.link.rel|escape_attr }}"
-														 {% endif %}
-														 >
+										<div class="btn_item">
+											{% if item2.button_group.button_type == "std" %}
+											{% set href = item2.button_group.link.url.href %}
+											{% if item2.button_group.link.url.type is equalto "EMAIL_ADDRESS" %}
+											{% set href = "mailto:" + href %}
+											{% endif %}
+											<a class=" {{ item2.button_group.button_style ? item2.button_group.button_style : "hs-button" }}" 
+												 {% if item2.button_group.link.url.type is equalto "CALL_TO_ACTION"  %}
+												 href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+												 {% else %}
+												 href="{{ href|escape_url }}"
+												 {% endif %}
+												 {% if item2.button_group.link.open_in_new_tab %}
+												 target="_blank"
+												 {% endif %}
+												 {% if item2.button_group.link.rel %}
+												 rel="{{ item2.button_group.link.rel|escape_attr }}"
+												 {% endif %}
+												 >
 
-														<span>{{ item2.button_group.button_text }}</span>
-														{% if item2.button_group.button_style  == "hs-arrow-btn"%}
-														<div class="icon">
-															<div class="inner">
-																<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-																	<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"/>
-																</svg>
-															</div>
-														</div>
-														{% endif %}
-													</a>
-													{% endif %}
-													{% if item2.button_group.button_type == "cta" %}
-													{% cta guid="{{ item2.button_group.cta }}" %}
-													{% endif %}
+												<span>{{ item2.button_group.button_text }}</span>
+												{% if item2.button_group.button_style  == "hs-arrow-btn"%}
+												<div class="icon">
+													<div class="inner">
+														<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"/>
+														</svg>
+													</div>
 												</div>
-											</div>
+												{% endif %}
+											</a>
+											{% endif %}
+											{% if item2.button_group.button_type == "cta" %}
+											{% cta guid="{{ item2.button_group.cta }}" %}
+											{% endif %}
+										</div>
+									</div>
 								</div>
 							</div>
 							{% endfor %}
@@ -240,21 +239,21 @@
 											<div class="tab-card-item-inn">
 												{% if item2.select_icon_type %}
 												<div class="tab-icon">
-												<div class="tab-icon-inner" style="background-color:rgba({{ item2.icon_settings.background_color.color|convert_rgb }},{{ item2.icon_settings.background_color.opacity*0.01 }}); fill:rgba({{ item2.icon_settings.color.color|convert_rgb }},{{ item2.icon_settings.color.opacity*0.01 }});">
-													{% if item2.select_icon_type == "icon" %}
-													{% icon
+													<div class="tab-icon-inner" style="background-color:rgba({{ item2.icon_settings.background_color.color|convert_rgb }},{{ item2.icon_settings.background_color.opacity*0.01 }}); fill:rgba({{ item2.icon_settings.color.color|convert_rgb }},{{ item2.icon_settings.color.opacity*0.01 }});">
+														{% if item2.select_icon_type == "icon" %}
+														{% icon
             name="{{ item2.icon_field.name }}"
             style="{{ item2.icon_field.type }}"
             unicode="{{ item2.icon_field.unicode }}"
             icon_set="{{ item2.icon_field.icon_set }}"
           %}
-													{% endif %}
-													{% if item2.select_icon_type == "img" %}
-													{% if item2.image_field.src %}
-													{% set loadingAttr = item2.image_field.loading != 'disabled' ? 'loading="{{ item2.image_field.loading|escape_attr }}"' : '' %}
-													<img src="{{ item2.image_field.src|escape_url }}" alt="{{ item2.image_field.alt|escape_attr }}" {{ loadingAttr }}>
-													{% endif %}
-													{% endif %}
+														{% endif %}
+														{% if item2.select_icon_type == "img" %}
+														{% if item2.image_field.src %}
+														{% set loadingAttr = item2.image_field.loading != 'disabled' ? 'loading="{{ item2.image_field.loading|escape_attr }}"' : '' %}
+														<img src="{{ item2.image_field.src|escape_url }}" alt="{{ item2.image_field.alt|escape_attr }}" {{ loadingAttr }}>
+														{% endif %}
+														{% endif %}
 													</div>
 												</div>
 												{% endif %}
@@ -265,49 +264,49 @@
 															{{ item2.heading }}
 														</h5>
 														<div class="tab-card-content">
-														{{ item2.content }}
+															{{ item2.content }}
 														</div>
 													</div>
 												</div>
-												
-												<div class="card_btn_wrap">
-												<div class="btn_item">
-													{% if item2.button_group.button_type == "std" %}
-													{% set href = item2.button_group.link.url.href %}
-													{% if item2.button_group.link.url.type is equalto "EMAIL_ADDRESS" %}
-													{% set href = "mailto:" + href %}
-													{% endif %}
-													<a class=" {{ item2.button_group.button_style ? item2.button_group.button_style : "hs-button" }}" 
-														 {% if item2.button_group.link.url.type is equalto "CALL_TO_ACTION"  %}
-														 href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
-														 {% else %}
-														 href="{{ href|escape_url }}"
-														 {% endif %}
-														 {% if item2.button_group.link.open_in_new_tab %}
-														 target="_blank"
-														 {% endif %}
-														 {% if item2.button_group.link.rel %}
-														 rel="{{ item2.button_group.link.rel|escape_attr }}"
-														 {% endif %}
-														 >
 
-														<span>{{ item2.button_group.button_text }}</span>
-														{% if item2.button_group.button_style  == "hs-arrow-btn"%}
-														<div class="icon">
-															<div class="inner">
-																<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-																	<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"/>
-																</svg>
-															</div>
-														</div>
+												<div class="card_btn_wrap">
+													<div class="btn_item">
+														{% if item2.button_group.button_type == "std" %}
+														{% set href = item2.button_group.link.url.href %}
+														{% if item2.button_group.link.url.type is equalto "EMAIL_ADDRESS" %}
+														{% set href = "mailto:" + href %}
 														{% endif %}
-													</a>
-													{% endif %}
-													{% if item2.button_group.button_type == "cta" %}
-													{% cta guid="{{ item2.button_group.cta }}" %}
-													{% endif %}
+														<a class=" {{ item2.button_group.button_style ? item2.button_group.button_style : "hs-button" }}" 
+															 {% if item2.button_group.link.url.type is equalto "CALL_TO_ACTION"  %}
+															 href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+															 {% else %}
+															 href="{{ href|escape_url }}"
+															 {% endif %}
+															 {% if item2.button_group.link.open_in_new_tab %}
+															 target="_blank"
+															 {% endif %}
+															 {% if item2.button_group.link.rel %}
+															 rel="{{ item2.button_group.link.rel|escape_attr }}"
+															 {% endif %}
+															 >
+
+															<span>{{ item2.button_group.button_text }}</span>
+															{% if item2.button_group.button_style  == "hs-arrow-btn"%}
+															<div class="icon">
+																<div class="inner">
+																	<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+																		<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"/>
+																	</svg>
+																</div>
+															</div>
+															{% endif %}
+														</a>
+														{% endif %}
+														{% if item2.button_group.button_type == "cta" %}
+														{% cta guid="{{ item2.button_group.cta }}" %}
+														{% endif %}
+													</div>
 												</div>
-											</div>
 											</div>
 										</div>
 										{% endfor %}
@@ -328,6 +327,7 @@
 </div>
 
 
+</div> 
 </div>
 </section>
 
@@ -335,11 +335,30 @@
 {% require_css %}
 
 <style>
-	
-	.{{name}} .tabber_cnt .tabber_cnt_inr{
-		background-color:rgba({{ module.module_settings.tab_content_background_color.color|convert_rgb }},{{ module.module_settings.tab_content_background_color.opacity*0.01 }});
+.{{name}} .page-center .tabber_wrap .tabber_inr .tabber_cnt .tabber_cnt_inr,
+	.{{name}} .page-center .tabber_wrap .tabber_inr .tabs .tab .tab_ttl.slick-current .tab_txt{
+		background-color:rgba({{ module.module_settings.tabber_custom_style.tab_content_background_color.color|convert_rgb }},{{ module.module_settings.tabber_custom_style.tab_content_background_color.opacity*0.01 }});
+	}
+
+	.{{name}} .page-center .tabber_wrap .tabber_inr .tabs .tab .tab_ttl .tab_txt h5,
+	.{{name}} .page-center .tabber_wrap .tabber_inr .tabber_cnt .tabber_cnt_inr .tab-cnt-inner a.hs-arrow-btn,
+	.{{name}} .page-center .tabber_wrap .tabber_inr .tabber_cnt .tabber_cnt_inr .tab-cnt-inner h3,
+	.{{name}} .page-center .tabber_wrap .tabber_inr .tabber_cnt .tabber_cnt_inr .tab-cnt-inner{
+		color:rgba({{ module.module_settings.tabber_custom_style.content_color.color|convert_rgb }},{{ module.module_settings.tabber_custom_style.content_color.opacity*0.01 }});
 	}
 	
+	.{{name}} .page-center .tabber_wrap .tabber_inr .tabber_cnt .tabber_cnt_inr .tabber_flex .tab-card .tab-card-items .tab-card-item .tab-card-item-inn{
+		background-color:rgba({{ module.module_settings.tabber_custom_style.card_group.background_color.color|convert_rgb }},{{ module.module_settings.tabber_custom_style.card_group.background_color.opacity*0.01 }});
+	}
+	
+	.{{name}} .tab-card-item .tab-card-item-inn .card_btn_wrap .hs-arrow-btn,
+	.{{name}} .tab-card-item .tab-card-item-inn .tab-card-cnt-inn .tab-card-content,
+	.{{name}} .tab-card-item .tab-card-item-inn .tab-card-cnt-inn h5{
+		color:rgba({{ module.module_settings.tabber_custom_style.card_group.content_color.color|convert_rgb }},{{ module.module_settings.tabber_custom_style.card_group.content_color.opacity*0.01 }});
+	}
+
+
+
 </style>
 
 {% end_require_css %}
@@ -357,6 +376,7 @@
 		asNavFor: ".{{name}} .desktop_tab .tab",
 		autoplay: false,
 		autoplaySpeed: 5000,
+		adaptiveHeight: true
 		});
 	$(".{{name}} .desktop_tab .tab").slick({
 		slidesToShow: 3,

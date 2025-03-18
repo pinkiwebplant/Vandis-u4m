@@ -20,6 +20,7 @@
             margin: 0 -6px;
             width: auto;
             @include tabletvert {
+              margin: 0;
               .tab_acc_item {
                 margin-bottom: 20px;
                 .tab_ttl {
@@ -59,6 +60,7 @@
                 justify-content: center;
                 h5 {
                   margin-bottom: 0;
+                  color: $action1;
                 }
               }
             }
@@ -76,11 +78,15 @@
           .tabber_cnt_inr {
             padding: 60px;
             border-radius: 12px;
+            background-color: $gray3;
             .tabber_flex {
               flex-direction: column;
             }
             @include tabletvert {
               padding: 40px;
+            }
+            @include phone {
+              padding: 20px;
             }
             .tab-cnt-inner {
               max-width: 700px;
@@ -106,8 +112,28 @@
                   .tab-card-item {
                     max-width: 272px;
                     width: 23%;
+                    &.two-col {
+                      width: calc(50% - 24px);
+                      max-width: 100%;
+                    }
+                    &.three-col {
+                      width: calc(33.333% - 24px);
+                      max-width: 100%;
+                      @include navbreak {
+                        width: calc(50% - 24px);
+                        max-width: 100%;
+                      }
+                    }
+                    &.full-width {
+                      width: 100%;
+                      max-width: 100%;
+                    }
                     @include navbreak {
                       width: calc(50% - 24px);
+                      max-width: 100%;
+                    }
+                    @include tabletvert {
+                      width: 100%;
                       max-width: 100%;
                     }
                     .tab-card-item-inn {

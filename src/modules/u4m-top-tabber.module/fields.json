@@ -797,6 +797,20 @@
           }
         }
       } ]
+    }, {
+      "id" : "601dbe7f-e565-517e-39bf-e901df11187e",
+      "name" : "number_of_items",
+      "label" : "Number of Items",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "full-width", "One" ], [ "two-col", "Two" ], [ "three-col", "Three" ], [ "four-col", "Four" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "four-col"
     } ],
     "tab" : "CONTENT",
     "expanded" : false,
@@ -855,7 +869,8 @@
             "opacity" : 100
           }
         }
-      } ]
+      } ],
+      "number_of_items" : "four-col"
     }
   } ],
   "tab" : "CONTENT",
@@ -907,15 +922,18 @@
             "no_follow" : false
           }
         },
-        "icon_background_color" : {
-          "color" : "#E75625",
-          "opacity" : 15
-        },
-        "color" : {
-          "color" : "#E75625",
-          "opacity" : 100
+        "field_group" : {
+          "icon_background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
         }
-      } ]
+      } ],
+      "number_of_items" : "four-col"
     }
   } ]
 }, {
@@ -951,16 +969,106 @@
     "type" : "number",
     "display_width" : null
   }, {
-    "id" : "973a4dfd-c658-232a-e5a9-5ed28ec17aa6",
-    "name" : "tab_content_background_color",
-    "label" : "Tab Content Background Color",
+    "id" : "04e2441a-92b5-5505-08d1-a5dacd4ab918",
+    "name" : "tabber_custom_style",
+    "label" : "Tabber Custom Style",
     "required" : false,
     "locked" : false,
-    "type" : "color",
+    "children" : [ {
+      "id" : "973a4dfd-c658-232a-e5a9-5ed28ec17aa6",
+      "name" : "tab_content_background_color",
+      "label" : "Content Background Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+       "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "0e5bcb6c-8b1b-ac55-725d-c09a9366bfeb",
+      "name" : "content_color",
+      "label" : "Content Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "9d63d435-1404-8fd2-8db9-88983380e177",
+      "name" : "card_group",
+      "label" : "Card Group",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "132b96ea-b32c-9450-c30d-79274d9257f2",
+        "name" : "background_color",
+        "label" : "Background Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "display_width" : null,
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }, {
+        "id" : "572438cc-3ab5-3c50-f6c5-eebcb5b84c00",
+        "name" : "content_color",
+        "label" : "Content Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "display_width" : null,
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      } ],
+      "tab" : "CONTENT",
+      "expanded" : false,
+      "group_occurrence_meta" : null,
+      "type" : "group",
+      "display_width" : null,
+      "default" : {
+        "background_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "content_color" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
     "display_width" : null,
     "default" : {
-      "color" : "#B5BFCD",
-      "opacity" : 100
+      "tab_content_background_color" : {
+        "color" : "#B5BFCD",
+        "opacity" : 100
+      },
+      "content_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "card_group" : {
+        "background_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "content_color" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }
     }
   } ],
   "tab" : "CONTENT",
@@ -970,9 +1078,25 @@
   "display_width" : null,
   "default" : {
     "intro_content_alignment" : "center",
-    "tab_content_background_color" : {
-      "color" : "#B5BFCD",
-      "opacity" : 100
+    "tabber_custom_style" : {
+      "tab_content_background_color" : {
+        "color" : "#B5BFCD",
+        "opacity" : 100
+      },
+      "content_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "card_group" : {
+        "background_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "content_color" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }
     }
   }
 }, {
