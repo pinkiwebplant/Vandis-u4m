@@ -668,6 +668,30 @@
     "type" : "number",
     "display_width" : null
   }, {
+    "id" : "d10c87eb-e1d4-1d99-3203-45d498e84b30",
+    "name" : "tab_background_color",
+    "label" : "Tab Background Color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : null,
+      "opacity" : null
+    }
+  }, {
+    "id" : "d9f91cec-a3d4-5e19-ac41-ff00c4101e86",
+    "name" : "tab_content_color",
+    "label" : "Tab Content Color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : null,
+      "opacity" : null
+    }
+  }, {
     "id" : "ceadafbf-d783-8d85-1e6f-d235ac125d0b",
     "name" : "active_tab_background_color",
     "label" : "Active Tab Background Color",
@@ -699,6 +723,14 @@
   "display_width" : null,
   "default" : {
     "intro_content_alignment" : "center",
+    "tab_background_color" : {
+      "color" : null,
+      "opacity" : null
+    },
+    "tab_content_color" : {
+      "color" : null,
+      "opacity" : null
+    },
     "active_tab_background_color" : {
       "color" : "#4C8BB1",
       "opacity" : 100

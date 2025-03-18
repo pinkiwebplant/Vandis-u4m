@@ -84,12 +84,26 @@
 </section>
 
 
-
+{% require_css %}
 <style>
+	.{{ name }}.u4m-side-tabber .tab-content-section .cnt-item,
+	.{{ name }}.u4m-side-tabber .sideTabber .TabberInr .row .tab-section .tab-item .tab-ttl{
+		background-color:{{ module.module_settings.tab_background_color.rgba }};
+		color:{{ module.module_settings.tab_content_color.rgba }};
+	}
+	{% if module.module_settings.tab_content_color.color %}
+	.sideTabber .TabberInr .row .tab-section .tab-item .tab-ttl h5 {
+		color: inherit;
+	}
+	.sideTabber .TabberInr .row .tab-section .tab-item .tab-ttl h5 svg path {
+		fill: currentColor;
+	}
+	{% endif %}
 	.{{ name }}.u4m-side-tabber .tab-content-section .cnt-item.acc-open,
 	.{{ name }}.u4m-side-tabber .sideTabber .TabberInr .row .tab-section .tab-item.acc-open .tab-ttl{
 		background-color:{{ module.module_settings.active_tab_background_color.rgba }};
 		color:{{ module.module_settings.active_tab_content_color.rgba }};
 	}
-	
+
 </style>
+{% end_require_css %}

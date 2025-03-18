@@ -166,9 +166,9 @@
       "visibility" : {
         "controlling_field" : null,
         "controlling_field_path" : "intro_content.button_group.button_type",
-        "controlling_value_regex" : "std|popup_content",
+        "controlling_value_regex" : "std",
         "property" : null,
-        "operator" : "MATCHES_REGEX",
+        "operator" : "EQUAL",
         "access" : null
       },
       "display" : "select",
@@ -189,9 +189,9 @@
       "visibility" : {
         "controlling_field" : null,
         "controlling_field_path" : "intro_content.button_group.button_type",
-        "controlling_value_regex" : "std|popup_content",
+        "controlling_value_regex" : "std",
         "property" : null,
-        "operator" : "MATCHES_REGEX",
+        "operator" : "EQUAL",
         "access" : null
       },
       "allow_new_line" : false,
@@ -442,6 +442,30 @@
     "step" : 1,
     "type" : "number",
     "display_width" : null
+  }, {
+    "id" : "1540a2b9-db4a-7397-41bc-05d911cb8bd0",
+    "name" : "card_background_color",
+    "label" : "Card Background Color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : null,
+      "opacity" : null
+    }
+  }, {
+    "id" : "9ad7279f-e6e8-9f39-5a6b-16e74b3cd2db",
+    "name" : "card_content_color",
+    "label" : "Card Content Color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : null,
+      "opacity" : null
+    }
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -449,7 +473,15 @@
   "type" : "group",
   "display_width" : null,
   "default" : {
-    "intro_content_alignment" : "center"
+    "intro_content_alignment" : "center",
+    "card_background_color" : {
+      "color" : null,
+      "opacity" : null
+    },
+    "card_content_color" : {
+      "color" : null,
+      "opacity" : null
+    }
   }
 }, {
   "id" : "module_overrides",

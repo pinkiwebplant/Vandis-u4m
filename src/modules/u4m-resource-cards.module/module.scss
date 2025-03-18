@@ -1,5 +1,8 @@
 @import "../../css/_module-imports";
 .u4m-resource-cards {
+  &.reverse-text .cardItem .hs-arrow-btn {
+    @include arrowbutton;
+  }
   .CardWrap {
     .cardItem {
       .itemInr {
