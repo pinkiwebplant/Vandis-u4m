@@ -3,19 +3,30 @@
 
 {{ macros.introGroup(module.intro_content, module.module_settings) }} 
 
-{% set table = module.events.select_hubdb_table %} 
-{% set query = 'orderBy=start_date' %}
-{% set featuredquery = query ~ '&featured=true' %}
+{% set table = module.events.select_hubdb_table %}
+{% set limit = 6 %} {# Number of events per page #}
 
+{# Get current page from URL query parameter #}
+{% set current_page = request.query_dict.page|default(1)|int %}
+{% set offset = (current_page - 1) * limit %}
 
+{# Fetch all rows to get total count #}
+{% set all_data = hubdb_table_rows(table, 'orderBy=start_date') %}
+{% set total_rows = all_data|length %}
+{% set total_pages = (total_rows / limit)|round(method='ceil')|int %}
 
-{% set data = hubdb_table_rows(table,query) %}
-{% set featureddata = hubdb_table_rows(table,featuredquery) %}
+{# Fetch only the rows for the current page #}
+{% set query = 'orderBy=start_date&limit=' ~ limit ~ '&offset=' ~ offset %}
+{% set featuredquery = 'orderBy=start_date&featured=true' %}
 
+{% set data = hubdb_table_rows(table, query) %}
+{% set featureddata = hubdb_table_rows(table, featuredquery) %}
 
 <div class="postCardsWrap">
+	<div class="postCardsInr">
 	<div class="CardWrap">
 		<div class="flex_row cardItems {% if module.module_settings.card_content_color.color %}color{% endif %}">
+
 			{% for row in featureddata %}
 			{% if loop.first %} 
 			<div class="topcard">
@@ -30,6 +41,37 @@
 			{% endfor %}
 		</div>
 	</div>
+
+	{# Pagination #}
+	{% if total_pages > 1 %}
+	<div class="pagination">
+		<ul>
+			{% if current_page > 1 %}
+			<li><a class="prev page-numbers" data-href="?page={{ current_page - 1 }}">
+				<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"></path>
+				</svg>
+				</a></li>
+			{% endif %}
+
+			{% for i in range(1, total_pages + 1) %}
+			<li class="nav-links" >
+				<a class="{% if i == current_page %}active{% endif %} page-numbers"  data-href="?page={{ i }}">{{ i }}</a>
+			</li>
+			{% endfor %}
+
+			{% if current_page < total_pages %}
+			<li><a class="next page-numbers"  data-href="?page={{ current_page + 1 }}" >
+				<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"></path>
+				</svg>
+				</a></li>
+			{% endif %}
+		</ul>
+	</div>
+	{% endif %}
+</div>
+
 </div>
 
 

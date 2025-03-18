@@ -44,4 +44,50 @@
       }
     }
   }
+  .pagination {
+    text-align: center;
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 12px;
+      padding: 0;
+      list-style: none;
+      margin-top: 30rem;
+      .nav-links {
+        display: flex;
+        gap: 12px;
+      }
+      a.page-numbers {
+        font-weight: bold;
+        padding: 4px 11px;
+        display: block;
+        width: 32px;
+        height: 32px;
+        &:hover {
+          color: $lightgreen;
+          border-bottom: 2px $lightgreen inset;
+        }
+        svg {
+          vertical-align: middle;
+          path {
+            fill: currentColor;
+          }
+        }
+        &.disable {
+          pointer-events: none;
+          opacity: 0.4;
+        }
+      }
+      a.active.page-numbers {
+        color: $lightgreen;
+        border-bottom: 2px $lightgreen inset;
+      }
+      a.prev.page-numbers {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
 }
