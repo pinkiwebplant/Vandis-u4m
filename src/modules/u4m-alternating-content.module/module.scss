@@ -1,101 +1,233 @@
 @import "../../css/_module-imports";
-section.u4m-alternating-content {
-  margin-top: 100rem;
-  margin-bottom: 100rem;
-  &.reverse-text {
-    .inner .content {
-      color: $white;
+
+.u4m-alternating-content {
+  .topCnt {
+    .intro_content {
+      margin-bottom: 80rem;
     }
   }
-  div.inner {
-    @include center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 20px;
-    @include tablet {
-      display: block;
-    }
-    div.additional-content {
-      flex-direction: column;
-      flex: 1 1 50%;
-      @include tablet {
-        float: none;
-        width: 100%;
-      }
-      div.image {
-        //text-align: center;
-        img {
-          max-width: 600rem;
-          @include tablet {
-            max-width: 100%;
+
+  .innerCnt {
+    .cardItems {
+      gap: 80px;
+      row-gap: 30px;
+      align-items: center;
+
+      .rightCnt {
+        width: calc(45.31200% - 40px);
+
+        .media-col {
+          margin: 0 auto;
+          width: 424px;
+          height: 424px;
+          padding-bottom: 24px;
+          padding-right: 24px;
+          max-width: 100%;
+          display: flex;
+          align-items: center;
+
+          .img-col {
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            height: 100%;
+          }
+
+          img {
+            -o-object-fit: cover;
+            object-fit: cover;
+            height: 100% !important;
             width: 100%;
+          }
+
+          .embedVideo {
+            width: 100%;
+            padding-bottom: 100%;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+
+            iframe.iframe_video {
+              position: absolute;
+              width: 100%;
+              border: 0;
+              height: 100%;
+            }
+          }
+
+          .cardVideoPoster {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            border-radius: 12px;
+            display: flex;
+            height: 100%;
+            overflow: hidden;
+            justify-content: center;
+            position: relative;
+
+            .play {
+              cursor: pointer;
+              height: 50px;
+              left: 46%;
+              position: relative;
+              width: 50px;
+              transition: all 0.3s ease;
+              position: absolute;
+            }
+
+            &:hover {
+              .play {
+                transform: scale(1.2);
+              }
+            }
+          }
+
+          .cardVideo {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
           }
         }
       }
-      div.video {
-        flex: 1 1 50%;
-        h3 {
-          @include h6;
-        }
-        h4 {
-          @include b2;
-          font-weight: bold;
+
+      .leftCnt {
+        width: calc(54.688% - 40px);
+
+        .intro_content {
+          padding: 0;
+          max-width: 100%;
+          text-align: left;
+          margin: 0;
+
+          .intro_btn_wrap {
+            justify-content: flex-start;
+          }
         }
       }
     }
-    div.content {
-      flex: 1 1 50%;
-      padding-left: 50rem;
-      @include tablet {
-        max-width: 100%;
+
+    .cardItems.fullWith {
+      display: block;
+
+      .leftCnt {
         width: 100%;
-        margin-top: 0;
-        padding: 30rem 0;
-      }
-      .eyebrow {
-        @include eyebrow;
-      }
-      h2 {
-        margin-top: 0;
-        @include h5;
-        @include phone {
-          margin-bottom: 0;
-        }
-      }
-      h3 {
-        @include h6;
-      }
-      h4 {
-        @include b2;
-        font-weight: bold;
-      }
-      p {
-        @include b2;
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-        @include phone {
-          @include b4;
-        }
-      }
-      a {
-        margin-bottom: 0;
-      }
-      span.url,
-      span.cta {
-        a {
-          @include buttonSmall;
-          margin-top: 35rem;
-        }
+        max-width: 700px;
       }
     }
-    &.left {
+
+    .cardItems.left_items {
       flex-direction: row-reverse;
-      div.content {
-        padding-left: 0;
-        padding-right: 30rem;
+    }
+  }
+}
+
+.cardVideoPopup {
+  bottom: 0;
+  display: none;
+  height: 100%;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+  background: rgba($black, .5);
+
+  .small_container {
+    align-items: center;
+    display: flex;
+    height: auto;
+    margin: auto;
+    padding: 50px 20px;
+    position: relative;
+  }
+
+  video {
+    display: block;
+    outline: none;
+    width: 100%;
+  }
+
+  .cardpopVideo {
+    margin: auto;
+    padding: 35px 0;
+    position: relative;
+
+    .close {
+      align-items: center;
+      border-radius: 100%;
+      cursor: pointer;
+      display: flex;
+      height: 40px;
+      justify-content: flex-end;
+      position: absolute;
+      right: 0;
+      top: -10px;
+      width: 40px;
+      z-index: 99;
+      fill: $White;
+    }
+  }
+}
+
+@include navbreakMin {
+  .u4m-alternating-content {
+    .innerCnt {
+      .cardItems {
+        gap: 20px;
+        row-gap: 30px;
+
+        .leftCnt {
+          width: calc(50% - 10px);
+        }
+
+        .rightCnt {
+          width: calc(50% - 10px);
+        }
       }
     }
   }
+
+}
+
+@include tabletvert {
+
+  .u4m-alternating-content {
+    .innerCnt {
+      .cardItems {
+        .leftCnt {
+          width: 100%;
+
+          .intro_content {
+            text-align: center;
+
+            .intro_btn_wrap {
+              justify-content: center;
+            }
+          }
+        }
+
+        .rightCnt {
+          width: 100%;
+
+          .media-col {
+            height: auto;
+
+            .embedVideo {
+              padding-bottom: 90%;
+            }
+          }
+        }
+      }
+
+      .cardItems.fullWith {
+        .leftCnt {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
 }

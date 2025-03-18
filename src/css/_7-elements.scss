@@ -731,58 +731,126 @@ section[class*="u4m-"] {
 
 .green_clr {
   box-shadow: 24px 24px 0px $green;
+
+  svg.play {
+    fill: $green;
+  }
 }
 
 .shakespeare_clr {
   box-shadow: 24px 24px 0px $Shakespeare;
+
+  svg.play {
+    fill: $Shakespeare;
+  }
 }
 
 .black_clr {
   box-shadow: 24px 24px 0px $BlueCharcoal;
+
+  svg.play {
+    fill: $BlueCharcoal;
+  }
 }
 
 .lightblue_clr {
   box-shadow: 24px 24px 0px $lightblue;
+
+  svg.play {
+    fill: $lightblue;
+  }
 }
 
 .Blue_clr {
   box-shadow: 24px 24px 0px $Blue;
+
+  svg.play {
+    fill: $Blue;
+  }
 }
 
 .orange_clr {
   box-shadow: 24px 24px 0px $orange;
+
+  svg.play {
+    fill: $orange;
+  }
 }
 
 .Purple_clr {
   box-shadow: 24px 24px 0px $purple;
+
+  svg.play {
+    fill: $purple;
+  }
 }
 
 .Gray_clr {
   box-shadow: 24px 24px 0px $gray1;
+
+  svg .play {
+    fill: $gray1;
+  }
 }
 
 .lightgray_clr {
   box-shadow: 24px 24px 0px $gray2;
+
+  svg.play {
+    fill: $gray2;
+  }
 }
 
 .solitudegray_clr {
   box-shadow: 24px 24px 0px $gray3;
+
+  svg.play {
+    fill: $gray3;
+  }
 }
 
 .darkgray_clr {
   box-shadow: 24px 24px 0px $darkgray1;
+
+  svg.play {
+    fill: $darkgray1;
+  }
 }
 
 .shuttlegray_clr {
   box-shadow: 24px 24px 0px $darkgray2;
+
+  svg.play {
+    fill: $darkgray2;
+  }
 }
 
 .bluishgray_clr {
   box-shadow: 24px 24px 0px $darkgray3;
+
+  svg.play {
+    fill: $darkgray3;
+  }
 }
 
 .White_clr {
   box-shadow: 24px 24px 0px $white;
+
+  svg.play {
+    fill: $white;
+  }
+}
+
+.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemMeta,
+.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5,
+.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5 a,
+.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemTags,
+.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .intro_btn_wrap .btn_item .hs-arrow-btn {
+  color: inherit;
+}
+
+.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .intro_btn_wrap .btn_item .hs-arrow-btn svg path {
+  fill: currentColor;
 }
 
 .innerContainer {
