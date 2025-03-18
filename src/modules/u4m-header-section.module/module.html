@@ -75,12 +75,12 @@
 					<div class="nav-menu-wrapper">
 						<ul class="menu-items">
 							{% for item in module.menu %}
+							{% set href = item.link_field.url.href %}
 							<li class="menu-item">
-								{% set href = item.link_field.url.href %}
 								{% if item.link_field.url.type is equalto "EMAIL_ADDRESS" %}
 								{% set href = "mailto:" + href %}
 								{% endif %}
-								<a
+								<a class="{% if href == content.absolute_url %} active{% endif %}" 
 									 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
 									 href="{{ href }}"
 									 {% else %}
@@ -112,12 +112,12 @@
 											</h6>
 											{% endif %}
 											{% for item3 in item2.menu_group %}
+											{% set href = item3.link_field_2.url.href %}
 											<li class="submenu-item">
-												{% set href = item3.link_field_2.url.href %}
 												{% if item3.link_field_2.url.type is equalto "EMAIL_ADDRESS" %}
 												{% set href = "mailto:" + href %}
 												{% endif %}
-												<a
+												<a class="{% if href == content.absolute_url %} active {% endif %}"
 													 {% if item3.link_field_2.url.type is equalto "CALL_TO_ACTION"  %}
 													 href="{{ href }}"
 													 {% else %}
