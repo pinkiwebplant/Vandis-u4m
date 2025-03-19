@@ -15,6 +15,7 @@
 			<div class="card-item-inner">
 
 				{% if module.module_settings.select_content_type == "type_three" or module.module_settings.select_content_type == "type_one" %}
+					{% if item.select_icon_type or item.image_area.src %}
 				<div class="card-media">
 					<div class="card-media-inner media_{{ module.module_settings.select_content_type }}">
 						{% if module.module_settings.select_content_type == "type_one" %}
@@ -40,6 +41,7 @@
 						{% endif %}
 					</div>
 				</div>
+			{% endif %}
 				<div class="card-content-row">
 					<div class="card-content">	
 						{% if item.include_eyebrow_text %}
@@ -184,8 +186,9 @@
 		color:rgba({{ module.module_settings.cards_style.content_color.color|convert_rgb }},{{ module.module_settings.cards_style.content_color.opacity*0.01 }});
 	}
 
+	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content,
 	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content .eyebrow_text,
-	.{{name}} .card-item .card-title{
+	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content .card-title{
 		color:rgba({{ module.module_settings.cards_style.content_color.color|convert_rgb }},{{ module.module_settings.cards_style.content_color.opacity*0.01 }});
 	}
 

@@ -302,7 +302,7 @@
     "min" : null,
     "max" : null,
     "sorting_label_field" : "4fb2b019-8511-ad09-03e1-ef6293e43dc2",
-    "default" : 1
+    "default" : 4
   },
   "children" : [ {
     "id" : "76ed8789-9068-d44d-eb02-900cbd56a4a4",

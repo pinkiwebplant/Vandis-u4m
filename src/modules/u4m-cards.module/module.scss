@@ -31,15 +31,21 @@
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
-          gap: 24px;
+          margin: 0 -12px;
+          row-gap: 24px;
           justify-content: space-between;
+          @include tabletvert {
+            margin: 0;
+          }
           .card-item.col-four {
-            width: calc(25% - 24px);
+            width: 25%;
+            padding: 0 12px;
             @include tablet {
-              width: calc(50% - 24px);
+              width: 50%;
             }
             @include tabletvert {
               width: 100%;
+              padding: 0;
             }
           }
           .card-item {
@@ -74,6 +80,7 @@
               }
               .card-content-row {
                 .card-content {
+                  color: $action2;
                   .eyebrow_text {
                     @include b5;
                     color: $action2;
@@ -81,6 +88,9 @@
                     letter-spacing: 0.05em;
                     margin-bottom: 8rem;
                     text-transform: uppercase;
+                  }
+                  .card-title {
+                    color: $action1;
                   }
                   p {
                     margin-top: 0;
@@ -118,9 +128,11 @@
 .u4m-cards.style-type_two {
   padding-bottom: 140px;
   .card-item.col-two {
-    width: calc(50% - 24px);
+    width: 50%;
+    padding: 0 12px;
     @include tabletvert {
       width: 100%;
+      padding: 0;
     }
   }
   .page-center {
@@ -194,12 +206,14 @@
       .cards-items-wrapper {
         .cards-items-inner {
           .card-item.col-three {
-            width: calc(33.333% - 24px);
+            width: 33.333%;
+            padding: 0 12px;
             @include tablet {
-              width: calc(50% - 24px);
+              width: 50%;
             }
             @include tabletvert {
               width: 100%;
+              padding: 0;
             }
           }
           .card-item {
