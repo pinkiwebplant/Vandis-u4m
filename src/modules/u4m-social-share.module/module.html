@@ -10,13 +10,13 @@
 			 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
 			 href="{{ href }}"
 			 {% else %}
-			 href="{{ href|escape_url }}"
+			 href="{{ href }}"
 			 {% endif %}
 			 {% if item.link_field.open_in_new_tab %}
 			 target="_blank"
 			 {% endif %}
 			 {% if item.link_field.rel %}
-			 rel="{{ item.link_field.rel|escape_attr }}"
+			 rel="{{ item.link_field.rel }}"
 			 {% endif %}
 			 >
 			{% icon
@@ -36,19 +36,17 @@
 			 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
 			 href="{{ href }}"
 			 {% else %}
-			 href="{{ href|escape_url }}"
+			 href="{{ href }}"
 			 {% endif %}
 			 {% if item.link_field.open_in_new_tab %}
 			 target="_blank"
 			 {% endif %}
 			 {% if item.link_field.rel %}
-			 rel="{{ item.link_field.rel|escape_attr }}"
+			 rel="{{ item.link_field.rel }}"
 			 {% endif %}
 			 >
-			{% set loadingAttr = item.image_field.loading != 'disabled' ? 'loading="{{ item.image_field.loading|escape_attr }}"' : '' %}
-			<img src="{{ item.image_field.src|escape_url }}" alt="{{ item.image_field.alt|escape_attr }}" {{ loadingAttr }}>
-			{% set loadingAttr = item.image.loading != 'disabled' ? 'loading="{{ item.image.loading|escape_attr }}"' : '' %}
-			<img src="{{ item.image_field.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }}>
+			{% set loadingAttr = item.image_field.loading != 'disabled' ? 'loading="{{ item.image_field.loading }}"' : '' %}
+			<img src="{{ item.image_field.src }}" alt="{{ item.image_field.alt }}" {{ loadingAttr }}>
 		</a>
 		{% endif %}
 		{% endif %}

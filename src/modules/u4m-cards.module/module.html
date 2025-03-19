@@ -1,80 +1,201 @@
 {% set moduleName = 'u4m-cards' %}
-  {% set imageMax = 300 %}
-  {% set imageFillMax = 720 %}
-  {% set bgImageMax = 1920 %}
-    
-  {# sample lazy load bg <div class="lazy" data-bg="{{ resize_image_url(item.card_image.src, 0,0,imageMax) }}"></div> #}
-    
-    {% include "../partials/u4-module-includes.html" %}
-    
-      {% if module.include_heading %}
-        <h2 class="heading">{{ module.cards_heading }}</h2>
-      {% endif %}
-      
-      {% if module.include_subheading %}
-        <h3 class="subheading">{{ module.cards_subheading }}</h3>
-      {% endif %}
+{% set moduleExtraName = 'style-{{ module.module_settings.select_content_type }}' %}
+{% include "../partials/u4-module-includes.html" %}
+{% if module.module_settings.select_content_type == "type_one" %}
+<div class="curved-top-img"></div>
+{% endif %}
 
-      {% if module.include_link %}
-        <div class="link">
-        {% set href = module.link_field.url.href %}
-        {% if module.link_field.url.type is equalto "EMAIL_ADDRESS" %}
-          {% set href = "mailto:" + href %}
-        {% endif %}
-        <a href="{{ href }}"
-          {% if module.link_field.open_in_new_tab %}target="_blank"{% endif %}
-          {% if module.link_field.rel %}rel="{{ module.link_field.rel }}"{% endif %}
-          >
-          {{ module.link_text }}
-        </a>
-        </div>
-      {% endif %}
+{{ macros.introGroup(module.intro_content, module.module_settings) }} 
 
-      <div class="wrapper {{ module.cards_per_row }} {% if module.landscape_cards %}landscape{% endif %}">
-        {% for item in module.card %}
-        <div class="card" >
-          
-          {% if item.dynamic_card %}
-            {# Dynamic Card #}
-            {% set pageSelector = content_by_id(item.dynamic_page_field) %}
-          
-            {% if item.include_card_image %}
-              <div class="image filled lazy" {% if pageSelector.featured_image %} data-bg="{{ resize_image_url(pageSelector.featured_image, 0,0,imageFillMax) }}" {% endif %}></div>
-            {% endif %}
-            <div class="content">
-              {% set pageTitle = pageSelector.html_title|split(' | ') %}
-              
-              <span class="title">{{ pageTitle[0] }}</span>
-              {% if pageSelector.meta_description %}<span class="teaser">{{ pageSelector.meta_description|truncate(200) }}</span>{% endif %}
-              <span class="url"><a href="{{ pageSelector.url }}">{{ item.dynamic_page_button_text }}</a></span>
-            </div>      
-          {% else %} 
-            {# Manual Card #}
-            {% if item.include_card_image %}
-              {% if item.fill_image_area %}
-                <div class="image filled">
-                  <img src="{{ resize_image_url(item.card_image.src, 0,0,imageFillMax) }}" alt="{{item.card_image.alt}}" lazy>
-                </div>
-              {% else %}
-                <div class="image">
-                  {% if item.card_image.src %} <img class="{% if item.image_on_left %}left{% endif %}" loading="lazy" src="{{ item.card_image.src }}" width="70" alt="{{ item.card_image.alt }}">{% endif %}
-                </div>
-              {% endif %}
-            {% endif %}
-            <div class="content">
-              {% if item.include_type %}<span class="type">{{ item.type }}</span>{% endif %}
-              <span class="title">{{ item.resource_title }}</span>
-              {% if item.show_teaser_text %}<span class="teaser">{{ item.teaser_text|truncate(200) }}</span>{% endif %}
-              {% if item.link_type == "cta" %}
-              <span class="cta">{% cta guid="{{ item.call_to_action }}" %}</span>
-              {% elif item.link_type == "url" %}
-              <span class="url"><a href="{{ item.link.href }}" {% if item.open_in_new_window %}target="_blank"{% endif %}>{{ item.link_text }}</a></span>
-              {% else %}
-              <!-- No link -->
-              {% endif %}   
-            </div>      
-          {% endif %}      
-        </div>
-        {% endfor %}
-      </div>
-    </section>
+
+<div class="cards-items-wrapper content_{{ module.module_settings.select_content_type }}">
+	<div class="cards-items-inner">
+		{% for item in module.card_group %}
+		<div class="card-item card{{loop.index}} col-{{ module.module_settings.cards_per_row }}">
+			<div class="card-item-inner">
+
+				{% if module.module_settings.select_content_type == "type_three" or module.module_settings.select_content_type == "type_one" %}
+					{% if item.select_icon_type or item.image_area.src %}
+				<div class="card-media">
+					<div class="card-media-inner media_{{ module.module_settings.select_content_type }}">
+						{% if module.module_settings.select_content_type == "type_one" %}
+						{% if item.select_icon_type == "icon" %}
+						{% icon
+											name="{{ item.icon_field.name }}"
+											style="{{ item.icon_field.type }}"
+											unicode="{{ item.icon_field.unicode }}"
+											icon_set="{{ item.icon_field.icon_set }}"
+										%}
+						{% elif item.select_icon_type == "image" %}
+						{% if item.image.src %}
+						{% set loadingAttr = item.image.loading != 'disabled' ? 'loading="{{ item.image.loading }}"' : '' %}
+						<img src="{{ item.image.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }}>
+						{% endif %}
+						{% endif %}
+
+						{% elif module.module_settings.select_content_type== "type_three" %}
+						{% if item.image_area.src %}
+						{% set loadingAttr = item.image_area.loading != 'disabled' ? 'loading="{{ item.image_area.loading|escape_attr }}"' : '' %}
+						<img src="{{ item.image_area.src }}" alt="{{ item.image_area.alt }}" {{ loadingAttr }}>
+						{% endif %}
+						{% endif %}
+					</div>
+				</div>
+			{% endif %}
+				<div class="card-content-row">
+					<div class="card-content">	
+						{% if item.include_eyebrow_text %}
+						<div class="eyebrow_text">
+							{{ item.eyebrow_text }}
+						</div>
+						{% endif %}
+						{% if item.heading %}
+						<h4 class="card-title">
+							{{ item.heading }}
+						</h4>
+						{% endif %}
+						{% if item.content %}
+						{{ item.content }}
+						{% endif %}
+						{% set href = item.link_field.url.href %}
+						{% if item.link_field.url.type is equalto "EMAIL_ADDRESS" %}
+						{% set href = "mailto:" + href %}
+						{% endif %}
+						{% if href %}
+						<a class="card-link" 
+							 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
+							 href="{{ href }}"
+							 {% else %}
+							 href="{{ href }}"
+							 {% endif %}
+							 {% if item.link_field.open_in_new_tab %}
+							 target="_blank"
+							 {% endif %}
+							 {% if item.link_field.rel %}
+							 rel="{{ item.link_field.rel|escape_attr }}"
+							 {% endif %}
+							 >
+						</a>
+						{% endif %}
+					</div>
+				</div>
+				{% endif %}
+
+				{% if module.module_settings.select_content_type == "type_two" %}
+				<div class="card-content-row">
+					<div class="card-content">	
+						<div class="card-top-content">
+							<div class="card-icon-left">
+								<div class="card-media-inner">
+								{% if item.select_icon_type == "icon" %}
+								{% icon
+											name="{{ item.icon_field.name }}"
+											style="{{ item.icon_field.type }}"
+											unicode="{{ item.icon_field.unicode }}"
+											icon_set="{{ item.icon_field.icon_set }}"
+										%}
+								{% elif item.select_icon_type == "image" %}
+								{% if item.image.src %}
+								{% set loadingAttr = item.image.loading != 'disabled' ? 'loading="{{ item.image.loading }}"' : '' %}
+								<img src="{{ item.image.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }}>
+								{% endif %}
+								{% endif %}
+								</div>
+							</div>
+							<div class="card-content-right">
+								{% if item.include_eyebrow_text %}
+								<div class="eyebrow_text">
+									{{ item.eyebrow_text }}
+								</div>
+								{% endif %}
+								{% if item.heading %}
+								<h4 class="card-title">
+									{{ item.heading }}
+								</h4>
+								{% endif %}
+							</div>
+						</div>
+						{% if item.content %}
+							<div class="card-bottom-content">
+								{{ item.content }}
+							</div>
+						{% endif %}
+						{% set href = item.link_field.url.href %}
+						{% if item.link_field.url.type is equalto "EMAIL_ADDRESS" %}
+						{% set href = "mailto:" + href %}
+						{% endif %}
+						{% if href %}
+						<a class="card-link" 
+							 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
+							 href="{{ href }}"
+							 {% else %}
+							 href="{{ href }}"
+							 {% endif %}
+							 {% if item.link_field.open_in_new_tab %}
+							 target="_blank"
+							 {% endif %}
+							 {% if item.link_field.rel %}
+							 rel="{{ item.link_field.rel|escape_attr }}"
+							 {% endif %}
+							 >
+						</a>
+						{% endif %}
+					</div>
+				</div>
+				{% endif %}
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+{% require_css %}
+
+<style>
+	{% for item in module.card_group %}
+	.{{name}}.style-type_two .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner .card-content-row .card-content .card-top-content .card-icon-left .card-media-inner,
+	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner .card-media .card-media-inner,
+	.{{name}} .card-item.card{{loop.index}} .card-media-inner{
+		background-color:rgba({{ item.icon_settings.background_color.color|convert_rgb }},{{ item.icon_settings.background_color.opacity*0.01 }});
+		color:rgba({{ item.icon_settings.color.color|convert_rgb }},{{ item.icon_settings.color.opacity*0.01 }});
+	}
+	
+	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner .card-media .card-media-inner svg,
+	.{{name}}.style-type_two .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner .card-content-row .card-content .card-top-content .card-icon-left .card-media-inner svg,
+	.{{name}} .card-item.card{{loop.index}} .card-media-inner svg{
+		fill:rgba({{ item.icon_settings.color.color|convert_rgb }},{{ item.icon_settings.color.opacity*0.01 }});
+	}
+
+	.{{name}}.style-type_two .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner{
+		border-bottom-color:rgba({{ item.icon_settings.color.color|convert_rgb }},{{ item.icon_settings.color.opacity*0.01 }});
+	}
+	{% endfor %}
+
+	.{{name}}.style-type_one:before {
+	background-image: url({{get_asset_url("../templates/images/curved-shape.png")}});
+	}
+
+	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner{
+		background-color:rgba({{ module.module_settings.cards_style.background_color.color|convert_rgb }},{{ module.module_settings.cards_style.background_color.opacity*0.01 }});
+		color:rgba({{ module.module_settings.cards_style.content_color.color|convert_rgb }},{{ module.module_settings.cards_style.content_color.opacity*0.01 }});
+	}
+
+	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content,
+	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content .eyebrow_text,
+	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content .card-title{
+		color:rgba({{ module.module_settings.cards_style.content_color.color|convert_rgb }},{{ module.module_settings.cards_style.content_color.opacity*0.01 }});
+	}
+
+
+
+
+
+</style>
+
+{% end_require_css %}

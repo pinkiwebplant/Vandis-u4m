@@ -6,7 +6,13 @@
 }
 
 @mixin tabletvert {
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tabletvertMin {
+  @media (min-width: 768px) {
     @content;
   }
 }
@@ -23,11 +29,18 @@
   }
 }
 
+@mixin navbreakMin {
+  @media (max-width: 1199px) {
+    @content;
+  }
+}
+
 @mixin navbreak {
   @media (max-width: 1280px) {
     @content;
   }
 }
+
 @mixin tabvertMin {
   @media (max-width: 992px) {
     @content;
@@ -59,7 +72,9 @@
 }
 
 @mixin ie {
-  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+  @media all and (-ms-high-contrast: none),
+  (-ms-high-contrast: active) {
     @content;
   }
 }

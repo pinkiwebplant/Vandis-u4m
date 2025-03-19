@@ -1,100 +1,249 @@
 @import "../../css/_module-imports";
 
-section.u4m-cards {
-  margin-top: 100rem;
-  margin-bottom: 100rem;
-
-  &.reverse-text {
-
-    h2.heading,
-    h3.subheading {
-      color: $white;
+.u4m-cards {
+  &.style-type_one {
+    padding-bottom: 120px;
+    padding-top: 150px;
+    @include tabletvert {
+      padding-top: 50px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      z-index: 9;
+      display: inline-block;
+      height: 80px;
+      @include tabletvert {
+        display: none;
+      }
     }
   }
-
-  .heading {
-    @include center;
-    @include h2;
-    text-align: center;
-  }
-
-  .subheading {
-    @include center;
-    max-width: 1000rem;
-    @include b2;
-    font-weight: normal;
-    text-align: center;
-  }
-
-  .link {
-    text-align: center;
-
-    a {
-      @include button;
-    }
-  }
-
-  .wrapper {
-    @include center;
-    max-width: 1280rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    @include phone {
-      display: block;
-    }
-
-    &.landscape {
-      div.card {
-        flex-direction: row;
-
-        @include tabletvert {
-          flex-direction: column;
+  .page-center {
+    .innerContainer {
+      .intro_content {
+        &.nobtn {
+          margin-bottom: 60px;
         }
-
-        div.image.filled {
-          min-width: 200rem;
+      }
+      .cards-items-wrapper {
+        .cards-items-inner {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin: 0 -12px;
+          row-gap: 24px;
+          justify-content: space-between;
+          @include tabletvert {
+            margin: 0;
+          }
+          .card-item.col-four {
+            width: 25%;
+            padding: 0 12px;
+            @include tablet {
+              width: 50%;
+            }
+            @include tabletvert {
+              width: 100%;
+              padding: 0;
+            }
+          }
+          .card-item {
+            .card-item-inner {
+              padding: 40px 24px;
+              background-color: $white;
+              border-radius: $border3;
+              height: 100%;
+              .card-media {
+                margin-bottom: 24px;
+                .card-media-inner {
+                  width: 64px;
+                  height: 64px;
+                  background-color: rgba($orange, 0.1);
+                  border-radius: $border2;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 16px;
+                  font-size: 0;
+                  img {
+                    width: auto;
+                    max-height: 32px;
+                    max-width: 32px;
+                  }
+                  svg {
+                    fill: $orange;
+                    height: 32px;
+                  }
+                }
+              }
+              .card-content-row {
+                .card-content {
+                  color: $action2;
+                  .eyebrow_text {
+                    @include b5;
+                    color: $action2;
+                    font-weight: 700;
+                    letter-spacing: 0.05em;
+                    margin-bottom: 8rem;
+                    text-transform: uppercase;
+                  }
+                  .card-title {
+                    color: $action1;
+                  }
+                  p {
+                    margin-top: 0;
+                    &:last-child {
+                      margin-bottom: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
-
-        div.content {
-          @include phone {
-            margin-bottom: 0;
-
-            span.teaser {
-              margin-bottom: 0;
+      }
+      .cards-items-wrapper.content_type_one {
+        .cards-items-inner {
+          .card-item {
+            &:nth-child(even) {
+              padding-top: 40px;
+              @include tabletvert {
+                padding-top: 0;
+              }
+            }
+            &:nth-child(odd) {
+              padding-bottom: 40px;
+              @include tabletvert {
+                padding-bottom: 0;
+              }
             }
           }
         }
       }
     }
-
-    div.card {
-      @include card;
+  }
+}
+.u4m-cards.style-type_two {
+  padding-bottom: 140px;
+  .card-item.col-two {
+    width: 50%;
+    padding: 0 12px;
+    @include tabletvert {
+      width: 100%;
+      padding: 0;
     }
-
-    &.two {
-      div.card {
-        flex-basis: calc(50% - 40rem);
+  }
+  .page-center {
+    .innerContainer {
+      .cards-items-wrapper {
+        .cards-items-inner {
+          .card-item.col-two {
+            .card-item-inner {
+              padding: 24px;
+              box-shadow: $shadow1;
+              border-bottom: 6px solid $orange;
+              .card-content-row {
+                .card-content {
+                  .card-top-content {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 24px;
+                    align-items: center;
+                    margin-bottom: 24px;
+                    @include phone {
+                      flex-direction: column;
+                      align-items: flex-start;
+                    }
+                    .card-icon-left {
+                      .card-media-inner {
+                        width: 64px;
+                        height: 64px;
+                        background-color: rgba($orange, 0.1);
+                        border-radius: $border2;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 16px;
+                        font-size: 0;
+                        img {
+                          width: 32px;
+                        }
+                        svg {
+                          fill: $orange;
+                          height: 32px;
+                        }
+                      }
+                    }
+                    .card-content-right {
+                      .card-title {
+                        margin-bottom: 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-    }
-
-    &.three {
-      div.card {
-        flex-basis: calc(33.333% - 40rem);
-
-        @include tablet {
-          flex-basis: calc(50% - 40rem);
+      .intro_content {
+        &.nobtn {
+          margin-bottom: 80rem;
         }
       }
     }
-
-    &.four {
-      div.card {
-        flex-basis: calc(25% - 40rem);
-
-        @include tablet {
-          flex-basis: calc(50% - 40rem);
+  }
+  .bg_image {
+    overflow: visible;
+    background-position: center bottom;
+  }
+}
+.u4m-cards.style-type_three {
+  padding-top: 120px;
+  .page-center {
+    .innerContainer {
+      .cards-items-wrapper {
+        .cards-items-inner {
+          .card-item.col-three {
+            width: 33.333%;
+            padding: 0 12px;
+            @include tablet {
+              width: 50%;
+            }
+            @include tabletvert {
+              width: 100%;
+              padding: 0;
+            }
+          }
+          .card-item {
+            .card-item-inner {
+              padding: 24px;
+              .card-media {
+                .card-media-inner {
+                  width: 100%;
+                  height: 100%;
+                  padding: 0;
+                  background: transparent;
+                  border-radius: $border2;
+                  overflow: hidden;
+                  img {
+                    width: 100%;
+                    max-width: 100%;
+                    max-height: 100%;
+                  }
+                }
+              }
+            }
+          }
+          justify-content: center;
         }
       }
     }

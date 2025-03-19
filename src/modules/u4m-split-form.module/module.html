@@ -1,0 +1,205 @@
+{% set moduleName = 'u4m-split-form' %}
+{% include "../partials/u4-module-includes.html" %}
+
+{% if module.intro_content.include_eyebrow_text or module.intro_content.include_heading or module.intro_content.include_content or  module.intro_content.include_button%}
+<div class="intro_content {{ module.module_settings.intro_content_alignment }}" {% if module.module_settings.intro_content_width %}style="max-width:{{ module.module_settings.intro_content_width }}px;"{% endif %}>
+	<div class="intro__inner " >
+		<div class="intCnt">
+			{% if module.intro_content.include_eyebrow_text%}
+			<div class="eyebrow_text">
+				{{ module.intro_content.eyebrow_text }}
+			</div>
+			{% endif %}
+
+			{% if module.intro_content.include_heading %}
+			<{{module.intro_content.heading_size}} class="intro_title 		{% if module.intro_content.include_heading_border %}hd_border{% endif %}">{{ module.intro_content.heading }}{% if module.intro_content.include_heading_border %}<span></span>{% endif %}</{{module.intro_content.heading_size}}>
+				{% endif %}
+				{% if module.intro_content.include_subheading %}
+				<div class="subheading">
+			{{ module.intro_content.subheading }}
+		</div>
+		{% endif %}
+
+		{% if module.intro_content.include_content %}
+		<div class="intro_desc {{ module.intro_content.content_style }} {{settings.select_content_bg_color}}">
+			{{ module.intro_content.content }}
+		</div>
+		{% endif %}
+	</div>
+	{% if module.intro_content.include_button %}
+	{{buttonmodule.intro_content(module.intro_content.button_module.intro_content)}}
+	{% endif %}
+
+
+
+</div>
+{% if module.intro_content.include_button %}
+<div class="intro_btn_wrap">
+	{% for item in module.intro_content.button_group %}
+	<div class="btn_item">
+		{% if item.button_type == "std" %}
+		{% set href = item.link.url.href %}
+		{% if item.link.url.type is equalto "EMAIL_ADDRESS" %}
+		{% set href = "mailto:" + href %}
+		{% endif %}
+		<a class=" {{ item.button_style ? item.button_style : "hs-button" }} {{item.button_theme}}"
+			 {% if item.link.url.type is equalto "CALL_TO_ACTION"  %}
+			 href="{{ href }}" 
+			 {% else %}
+			 href="{{ href }}"
+			 {% endif %}
+			 {% if item.link.open_in_new_tab %}
+			 target="_blank"
+			 {% endif %}
+			 {% if item.link.rel %}
+			 rel="{{ item.link.rel }}"
+			 {% endif %}>
+			<span>{{ item.button_text }}</span>
+			{% if item.button_style  == "hs-arrow-btn"%}
+			<div class="icon">
+				<div class="inner">
+					<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"/>
+					</svg>
+
+				</div>
+			</div>
+			{% endif %}
+		</a>
+		{% endif %}
+		{% if item.button_type == "cta" %}
+		{% cta guid="{{ item.cta }}" %}
+		{% endif %}
+	</div>
+	{% endfor %}
+</div>
+{% endif %}
+
+{% if module.intro_content.include_partnership %}
+<div class="cmPartnerShipWrap ">
+	{% if module.intro_content.partnership.partnership_text %} 
+	<span class="cmPartnerText">{{ module.intro_content.partnership.partnership_text }}</span>
+	{% endif %}
+	{% for item in module.intro_content.partnership.brand_logo %}
+	{% if item.image.src %}
+	<span class="cmLogoWrap">
+	{% set href = item.link.url.href %}
+	{% if item.link.url.type is equalto "EMAIL_ADDRESS" %}
+	  {% set href = "mailto:" + href %}
+	{% endif %}
+		{% if href %}
+	<a
+	  {% if item.link.url.type is equalto "CALL_TO_ACTION"  %}
+	    href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+	  {% else %}
+	    href="{{ href|escape_url }}"
+	  {% endif %}
+	  {% if item.link.open_in_new_tab %}
+	    target="_blank"
+	  {% endif %}
+	  {% if item.link.rel %}
+	    rel="{{ item.link.rel|escape_attr }}"
+	  {% endif %}
+	  >
+		{% endif %}
+	  <img src="{{ item.image.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }}>
+		{% if href %}
+	</a>
+{% endif %}
+	</span>
+	{% endif %}
+	{% endfor %}
+
+</div>
+{% endif %}
+</div>
+{% endif %}
+</div>
+</div>
+</section>
+
+<section id="{{name}}" class="{{name}} cmSplitFormWrap dnd_padd {{ module.module_settings.form_section.top_padding }} {{ module.module_settings.form_section.bottom_padding }} {{ module.module_settings.form_section.select_bg_color }}" {% if module.module_settings.form_section.select_bg_color == "custom" %}style="background-color:{{ module.module_settings.form_section.custom_color.rgba }}"{% endif %}>
+	<div class="page-center {% if module.module_overrides.enable_overrides %} {{ module.module_settings.theme }} {{ module.module_overrides.container_size }}" {% if module.module_overrides.container_size == "custom" %} style="max-width:{{ module.module_overrides.custom_container_size }}rem {% endif %} 			{% endif %}" >
+		<div class="cmSplitFormInner">
+		<div class="cmLeftSection {% if module.module_settings.form_section.dark_theme %}cmDarkTheme{% endif %}">
+			{% if module.left_section.include_top_content %}
+			{% if module.left_section.content %}
+			<div class="cmContent">
+				{{ module.left_section.content }}
+			</div>
+			{% endif %}
+			{% endif %}
+			{% if module.left_section.include_features %}
+			<div class="featureWrap">
+				{% if module.left_section.title %}
+				<h3 class="cmFtureTitle">
+					{{ module.left_section.title }}
+				</h3>
+				{% endif %}
+				<ul>
+					{% for item in module.left_section.feature_items %}
+					<li>
+						<span class="cmCheckIcon">
+							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+						</span>
+						{{ item.text }}
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+			{% if module.left_section.include_image %}
+			<div class="bottomImageWrap">
+				{% if module.left_section.image.src %}
+				<img src="{{ module.left_section.image.src }}" alt="{{ module.left_section.image.alt }}" {{ loadingAttr }} >
+				{% endif %}
+			</div>
+			{% endif %}
+
+
+		</div>
+		{% if module.right_section.include_form %}
+			<div class="cmRightSection">
+			<div class="cmFormWrap">
+			{% form
+				form_to_use="{{ module.right_section.form.form_id }}"
+				response_response_type="{{ module.right_section.form.response_type }}"
+				response_message="{{ module.right_section.form.message }}"
+				response_redirect_id="{{ module.right_section.form.redirect_id }}"
+				response_redirect_url="{{module.right_section.form.redirect_url}}"
+				gotowebinar_webinar_key="{{ module.right_section.form.gotowebinar_webinar_key }}"
+				no_wrapper = true
+			%}
+			</div>
+		</div>
+		{% endif %}
+		
+	</div>
+	</div>
+</section>
+
+{% require_css %}
+<style>
+	{% if module.module_settings.form_section.top_padding == "custom" %}
+	.{{name}}.cmSplitFormWrap{
+		padding-top:{{ module.module_settings.form_section.custom_top_padding }}rem;
+	}
+	@media (max-width:767px){
+		.{{name}}.cmSplitFormWrap{
+			padding-top:{{ module.module_settings.form_section.custom_top_padding_mobile }}rem;
+		}
+	}
+	{% endif %}
+	{% if module.module_settings.form_section.bottom_padding == "custom" %}
+	.{{name}}.cmSplitFormWrap{
+		padding-bottom:{{ module.module_settings.form_section.custom_bottom_padding }}rem;
+	}
+	@media (max-width:767px){
+		.{{name}}.cmSplitFormWrap{
+			padding-bottom:{{ module.module_settings.form_section.custom_bottom_padding_mobile }}rem;
+		}
+	}
+	{% endif %}
+</style>
+
+{% end_require_css %}

@@ -1,10 +1,17 @@
 {% set moduleName = 'u4m-rich-text' %}
-{% set imageMax = 1000 %}
-{% set bgImageMax = 1920 %}
+{% include "../partials/u4-module-includes.html" %}
+
+{{ macros.introGroup(module.intro_content, module.module_settings) }} 
+ {% if module.content.content %} 
+<div class="cmRichText {{ module.module_settings.intro_content_alignment }}" style="max-width:{{ module.module_settings.intro_content_width }}rem;">
+{{ module.content.content }}
+</div>
+{% endif %}
+
+
  
 
-{% include "../partials/u4-module-includes.html" %}
-  <div class="content">
-    {% inline_rich_text field="richtext_field" value="{{ module.richtext_field }}" %}
-  </div>
+
+</div>
+</div>
 </section>

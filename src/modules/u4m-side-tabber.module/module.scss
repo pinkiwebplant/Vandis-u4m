@@ -1,0 +1,112 @@
+@import "../../css/_module-imports";
+.u4m-side-tabber {
+  .sideTabber {
+    .TabberInr {
+      max-width: 1000rem;
+      margin: 0 auto;
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        .tab-section {
+          width: 30.2%;
+          @include tabletvert {
+            width: 100%;
+          }
+          .tab-item {
+            margin-bottom: 12px;
+            .tab-ttl {
+              background: $white;
+              padding: 20px 28px;
+              border-radius: $border3;
+              .slider_tab_title {
+                color: $action1;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 8px;
+                cursor: pointer;
+                .plus {
+                  display: flex;
+                }
+              }
+            }
+            .tab-inner {
+              .content {
+                display: none;
+                margin-top: 8px;
+              }
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+            &.acc-open {
+              .tab-ttl {
+                h5.slider_tab_title {
+                  color: inherit;
+                  .plus {
+                    transform: rotate(180deg);
+                    svg path {
+                      fill: currentColor;
+                    }
+                  }
+                }
+                .tab-inner .content {
+                  display: block;
+                }
+              }
+            }
+          }
+          @include tabletvertMin {
+            .mobile_cnnt.tab-content-section {
+              display: none;
+            }
+          }
+          @include tabletvert {
+            .mobile_cnnt.tab-content-section {
+              margin-top: 30px;
+              .tabber-cnt h3 {
+                color: inherit;
+              }
+              .tabber-btn .hs-arrow-btn {
+                color: inherit;
+                svg path {
+                  fill: currentColor;
+                }
+              }
+            }
+          }
+        }
+        & > .tab-content-section {
+          width: calc(69.8% - 12px);
+          @include tabletvert {
+            display: none;
+          }
+          .cnt-item {
+            display: none;
+            height: 100%;
+            padding: 60px;
+            border-radius: $border3;
+            overflow: hidden;
+            .cnt {
+              margin-bottom: 40px;
+            }
+          }
+          & > .cnt-item.acc-open {
+            display: block;
+            .tabber-cnt h3 {
+              color: inherit;
+            }
+            .tabber-btn .hs-arrow-btn {
+              color: inherit;
+              svg path {
+                fill: currentColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

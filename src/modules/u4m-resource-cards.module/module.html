@@ -20,7 +20,7 @@
 
 <div class="postCardsWrap">
 	<div class="CardWrap">
-		<div class="flex_row cardItems">
+		<div class="flex_row cardItems {% if module.module_settings.card_content_color.color %}color{% endif %}">
 
 			{% if module.resource.resource_type == "recent" ||  module.resource.resource_type == "category" %} 
 				{% for row in data %}
@@ -51,3 +51,12 @@
 </section>
 
  
+{% require_css %}
+<style>
+	.{{ name }}.u4m-resource-cards .CardWrap .cardItem .itemInr .itemCnWrap{
+		background-color:{{ module.module_settings.card_background_color.rgba }};
+		color:{{ module.module_settings.card_content_color.rgba }};
+	}
+ 
+</style>
+{% end_require_css %}

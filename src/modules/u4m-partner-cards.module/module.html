@@ -1,0 +1,282 @@
+{% set moduleName = 'u4m-partner-cards' %}
+{% include "../partials/u4-module-includes.html" %}
+
+{{ macros.introGroup(module.intro_content, module.module_settings) }} 
+
+{# query #}
+{% set query = 'orderBy=-hs_created_at' %}
+
+{# filter #}
+{% set category = hubdb_table_column(module.select_hubdb_table, "category").options %}
+{% if request.query_dict.category and request.query_dict.category != "all" %}
+{% set query = query ~ '&category__in=' ~ request.query_dict.category %}
+{% if module.disable_pagination == false %}
+{% set paginationQuery = paginationQuery ~ "&category__in=" ~ request.query_dict.category|urlencode %}
+{% endif %}
+{% endif %}
+
+{# pagination #}
+{% if module.disable_pagination == false %}
+{% set batch_num = 4 %}
+{% if not request.query_dict.page_num %}
+{% set page_num = 1 %}
+{% set offset_num = 0 %}
+{% elif request.query_dict.page_num %}
+{% set page_num = request.query_dict.page_num %}
+{% set offset_num = page_num|add(-1) * batch_num %}
+{% endif %}
+{% set limit = "&limit="~batch_num ~ "&offset=" ~ offset_num %}
+{% set dataRows = hubdb_table_rows(module.select_hubdb_table,query ~ limit ) %}
+{% else %}
+{% set dataRows = hubdb_table_rows(module.select_hubdb_table,query ) %}
+{% endif %}
+
+<div class="hubdb-content"> 
+	<div class="hubdb-content-inner"> 
+
+		<div class="filter-category">
+			<form class="filterForm">
+				<ul class="categories">
+					<li>
+						<input type="radio" id="all" name="category" value="" checked>
+						<label for="all">All Partners</label>
+					</li>
+					{% for cat in category %}
+					<li>
+						<input type="radio" id="{{cat.name|lower}}" name="category" value="{{cat.name}}">
+						<label for="{{cat.name}}">{{cat.name|capitalize}}</label>
+					</li>
+					{% endfor %}
+				</ul>
+			</form>
+		</div>
+
+		<div class="filter-content">
+			<div class="content-list">
+				{% for row in dataRows %}
+				<div class="content-item">
+					<div class="content-item-inner">
+						{% if row.logo.url %}
+						<div class="item-logo">
+							<img class="img-fluid" src="{{ row.logo.url }}" alt="{{ row.title }}">
+						</div>
+						{% endif %}
+						{% if row.title %}
+						<div class="item-title">
+							<h5>
+								{{ row.title }}
+							</h5>
+						</div>
+						{% endif %}
+						{% if row.category %}
+						<div class="item-category">
+							<ul class="category-list">
+								{% for cat in row.category %}
+								<li class="category-item">
+									{{cat.name|upper}}
+								</li>{% if not loop.last %},{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+						{% endif %}
+						{% if row.url %}
+						<a href="{{ row.url }}" class="overlay_link"></a>
+						{% endif %}
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+			{# pagination html #}
+			{% if module.disable_pagination == false %}
+			<div class="pagination">
+				{% set nav = hubdb_table_rows(module.select_hubdb_table, paginationQuery) %}   
+				{% set total_pages = (nav|length/batch_num)|round(0, 'ceil') %}
+				{% set more_pages = total_pages - page_num %}
+				{% set last = total_pages %}
+				{% set first = total_pages - more_pages %} 
+				{% set paginatonTopic = '&category=' ~request.query_dict.category|urlencode %}
+				{% set paginatonQueryKey = paginatonTopic %}
+				{% if total_pages > 1 %}
+				<nav class="hbdb_pagination" data-more="{{more_pages}}">
+
+					<a class="prev page-numbers {% if page_num > 1 %}{% else %}disable{% endif %}" href="{{ content.absolute_url }}?page_num={{ page_num|add(-1) }}{{ paginatonQueryKey }}">
+						<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"></path>
+						</svg>
+					</a>
+
+					<div class="nav-links" data-total="{{total_pages}}" data-page="{{page_num}}" data-more="{{more_pages}}">
+						{% if more_pages == 0 %}
+						{% if page_num|add(-4) >= 1 %} <a class="page-numbers" href="{{ content.absolute_url }}?page_num={{ page_num|add(-4) }}{{ paginatonQueryKey }}" data-page="{{ page_num|add(-4) }}">{{ page_num|add(-4) }}</a>{% endif %}
+						{% endif %}
+
+						{% if more_pages <= 1 %}
+						{% if page_num|add(-3) >= 1 %}<a class="page-numbers" href="{{ content.absolute_url }}?page_num={{ page_num|add(-3) }}{{ paginatonQueryKey }}" data-page="{{ page_num|add(-3) }}">{{ page_num|add(-3) }}</a>{% endif %}
+						{% endif %}
+
+						{% if page_num|add(-2) >= 1 %} <a class="page-numbers" href="{{ content.absolute_url }}?page_num={{ page_num|add(-2) }}{{ paginatonQueryKey }}" data-page="{{ page_num|add(-2) }}">{{ page_num|add(-2) }}</a>{% endif %}
+
+						{% if page_num|add(-1) >= 1 %}<a class="page-numbers" href="{{ content.absolute_url }}?page_num={{ page_num|add(-1) }}{{ paginatonQueryKey }}"  data-page="{{ page_num|add(-1) }}">{{ page_num|add(-1) }}</a>{% endif %}
+
+
+						<a class="active page-numbers" href="{{ content.absolute_url }}?page_num={{ page_num }}{{ paginatonQueryKey }}"  data-page="{{ page_num }}">{{ page_num }}</a>
+
+
+						{% if page_num|add(1) <= total_pages %}<a class="page-numbers" href="{{ content.absolute_url }}?page_num={{ page_num|add(1) }}{{ paginatonQueryKey }}"  data-page="{{ page_num|add(1) }}">{{ page_num|add(1) }}</a>{% endif %}
+
+						{% if page_num|add(2) <= total_pages %}<a class="page-numbers" href="{{ content.absolute_url }}?page_num={{ page_num|add(2) }}{{ paginatonQueryKey }}"  data-page="{{ page_num|add(2) }}">{{ page_num|add(2) }}</a>{% endif %}
+
+						{% if page_num <= 2 %}
+						{% if page_num|add(3) <= total_pages %}<a class="page-numbers" href="{{ content.absolute_url }}?page_num={{ page_num|add(3) }}{{ paginatonQueryKey }}" data-page="{{ page_num|add(3) }}">{{ page_num|add(3) }}</a>{% endif %}
+						{% endif %}
+
+						{% if page_num == 1 %}
+						{% if page_num|add(4) <= total_pages %}<a class="page-numbers" href="{{ content.absolute_url }}?page_num={{ page_num|add(4) }}{{ paginatonQueryKey }}" data-page="{{ page_num|add(4) }}">{{ page_num|add(4) }}</a>{% endif %}
+						{% endif %}
+					</div>
+					<a class="{% if total_pages > page_num %} {% else %}disable{% endif %} next page-numbers" href="{{ content.absolute_url }}?page_num={{ page_num|add(1) }}{{ paginatonQueryKey }}">
+						<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"></path>
+						</svg>
+					</a>
+				</nav> 
+				{% endif %}
+			</div>
+			{% endif %}
+
+
+
+
+		</div>
+
+
+
+	</div>
+</div>
+
+
+
+
+</div>
+</div>
+</section>
+
+{% require_css %}
+<style>
+	.{{name}}.u4m-partner-cards .page-center .innerContainer .hubdb-content .hubdb-content-inner .filter-category form.filterForm ul.categories li input[type=radio]:checked{
+		background: url({{get_asset_url("../templates/images/radio_Icon.png")}});
+	}
+
+	.{{name}} .page-center .innerContainer .hubdb-content .hubdb-content-inner .filter-content .content-list .content-item{
+		background-color:rgba({{ module.module_settings.card_settings.background_color.color|convert_rgb }},{{ module.module_settings.card_settings.background_color.opacity*0.01 }});
+	}
+
+	.{{name}} .page-center .innerContainer .hubdb-content .hubdb-content-inner .filter-content .content-list .content-item .content-item-inner .item-title h5{
+		color:rgba({{ module.module_settings.card_settings.content_color.color|convert_rgb }},{{ module.module_settings.card_settings.content_color.opacity*0.01 }});
+	}
+
+
+</style>
+{% end_require_css %}
+
+{% require_js %}
+
+<script>
+
+	$(document).ready(function() {
+		// Handle form submission for filter (on submit, prevent page reload and update content)
+		$('.{{name}} .filterForm').on('submit', function(e) {
+			e.preventDefault();
+			updateContent();
+		});
+
+		// Handle category change with radio buttons
+		$('.{{name}} .filterForm input[type=radio]').on('change', function() {
+			updateContent();
+		});
+
+		// Handle pagination link clicks
+		$(document).on('click', '.{{name}} .pagination a.page-numbers', function(e) {
+			e.preventDefault();
+			var pageNum = $(this).data('page'); // Get the page number from the clicked pagination link
+			updateContent(pageNum);
+		});
+
+		// Function to update the content based on filter and pagination
+		function updateContent(pageNum = 1) {
+			// Get the form data
+			var filterData = $('.{{name}} .filterForm').serialize();
+			// Check if "All Partners" is selected, if so, remove the category filter from the query string
+			if ($('.{{name}} input[name="category"]:checked').val() === 'all') {
+				// Remove the category filter from the query string
+				filterData = filterData.replace(/&category=[^&]*/, '');
+			}
+
+
+			// If pagination is used, append the page number
+			if (pageNum) {
+				filterData += '&page_num=' + pageNum;
+			}
+
+			// Create the URL with filters and page number
+			var selectUrl = window.location.href.split('?')[0] + '?' + filterData;
+
+			// Load filtered content (items list) dynamically
+			$('.{{name}} .filter-content .content-list').load(selectUrl + " .{{name}} .filter-content .content-list > .content-item", function() {
+				// After loading content, also load the pagination
+				$('.{{name}} .pagination').load(selectUrl + " .hbdb_pagination");
+			});
+
+			console.log('Loading URL: ' + selectUrl);
+		}
+
+
+
+	});
+
+	function loadEvents() {
+		const url = window.location.href;
+		const path = new URL(url).pathname;
+		const parts = path.split("/").pop();
+		console.log(parts);
+
+		var typeText = parts.length > 1 ? parts[1].replace("/", "") : null;
+
+		console.log('typeText', typeText);
+
+
+		// Get the URL parameters
+		const urlParams = new URLSearchParams(window.location.search);
+
+		// Get the value of the "tag" parameter
+		const tagValue = urlParams.get('category');
+
+		$(".{{name}} .categories li input[type=radio]").each(function() {
+			var gettype = $(this).attr("value");
+			if (gettype === parts) {
+				$('.{{name}} .categories').addClass('active_tag_url_matched pageis_',+gettype);
+				$('.{{name}} .categories li input[type=radio]:checked').addClass('active_tag_label');
+				$(this).click();
+				console.log(gettype ,'===', typeText)
+			}
+		});
+
+		console.log('loadEvents loaded');
+	}
+
+	$(document).ready(function() {
+		loadEvents();
+	});
+
+
+
+
+</script>
+
+
+{% end_require_js %}
+
+
+
+

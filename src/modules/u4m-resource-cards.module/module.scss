@@ -1,11 +1,20 @@
 @import "../../css/_module-imports";
 .u4m-resource-cards {
+  &.reverse-text .cardItem .hs-arrow-btn {
+    @include arrowbutton;
+  }
   .CardWrap {
     .cardItem {
       .itemInr {
         @include blogpostCard;
         .itemCnWrap .itemTags {
           margin-bottom: 16rem;
+        }
+        .itemCnWrap {
+          padding: 24rem;
+          .btn_item a {
+            margin: 0;
+          }
         }
       }
     }

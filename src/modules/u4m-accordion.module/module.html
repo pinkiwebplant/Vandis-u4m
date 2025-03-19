@@ -1,22 +1,53 @@
 {% set moduleName = 'u4m-accordion' %}
 {% include "../partials/u4-module-includes.html" %}
-  <div class='intro'>
-    <div class="heading">
-      {% if module.include_heading %}
-      <h2>{{ module.heading }}</h2>
-      {% endif %}
-      {% if module.include_copy %}
-      <p>{{ module.copy }}</p>
-      {% endif %}     
+
+{{ macros.introGroup(module.intro_content, module.module_settings) }} 
+
+
+<div class="cmAccordion">
+    <div class="accordions">
+        {% for item in module.accordion_items %}
+            <div class="items item_{{ loop.index }} {{ module.module_settings.background_settings.select_item_bg_color }}">
+                <div class="title" aria-expanded="{{ 'true' if loop.index == 1 else 'false' }}" aria-controls="content_{{ loop.index }}">
+                    {{ item.title }}
+                    <span class="cmIconWrap">
+                        <svg class="cmPlusIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                        <svg class="cmMinusIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M200-440v-80h560v80H200Z"/></svg>
+                    </span>
+                </div>
+                <div id="content_{{ loop.index }}" class="cmInnerContent">
+                    <div class="cmContentWrap">
+                    {{ item.content }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-  </div>
-  <div class='accordions'>
-  {# Using details.js as a polyfill for browsers that don't suppose details/open #}
-    {% for accordion in module.accordions %}
-    <details>
-      <summary>{{ accordion.summary }}</summary>
-      <div>{{ accordion.detail }}</div>
-    </details>
-    {% endfor %}
-  </div>
+</div>
+
+
+</div>
+</div>
 </section>
+
+
+{% require_css %}
+<style>
+	.{{name}}.u4m-accordion .items{
+		background-color: {{ module.module_settings.background_settings.item_settings.custom_color.rgba }};
+	}
+	.{{name}}.u4m-accordion .items .title,
+	.{{name}}.u4m-accordion .items .cmContentWrap *{
+		color:{{ module.module_settings.background_settings.item_settings.content_color.rgba }};
+	}
+	.{{name}}.u4m-accordion .items.active{
+		background-color: {{ module.module_settings.background_settings.active_items_settings.custom_active_color.rgba }};
+	}
+	.{{name}}.u4m-accordion .items.active .title,
+	.{{name}}.u4m-accordion .items.active .cmContentWrap *{
+		color:{{ module.module_settings.background_settings.active_items_settings.content_color.rgba }};
+	}
+
+</style>
+{% end_require_css %}
+
