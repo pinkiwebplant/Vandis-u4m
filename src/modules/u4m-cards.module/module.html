@@ -1,6 +1,9 @@
 {% set moduleName = 'u4m-cards' %}
 {% set moduleExtraName = 'style-{{ module.module_settings.select_content_type }}' %}
 {% include "../partials/u4-module-includes.html" %}
+{% if module.module_settings.select_content_type == "type_one" %}
+<div class="curved-top-img"></div>
+{% endif %}
 
 {{ macros.introGroup(module.intro_content, module.module_settings) }} 
 
@@ -154,6 +157,7 @@
 
 <style>
 	{% for item in module.card_group %}
+	.{{name}}.style-type_two .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner .card-content-row .card-content .card-top-content .card-icon-left .card-media-inner,
 	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner .card-media .card-media-inner,
 	.{{name}} .card-item.card{{loop.index}} .card-media-inner{
 		background-color:rgba({{ item.icon_settings.background_color.color|convert_rgb }},{{ item.icon_settings.background_color.opacity*0.01 }});
@@ -169,10 +173,11 @@
 	.{{name}}.style-type_two .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner{
 		border-bottom-color:rgba({{ item.icon_settings.color.color|convert_rgb }},{{ item.icon_settings.color.opacity*0.01 }});
 	}
-
-
-	
 	{% endfor %}
+
+	.{{name}}.style-type_one:before {
+	background-image: url({{get_asset_url("../templates/images/curved-shape.png")}});
+	}
 
 	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner{
 		background-color:rgba({{ module.module_settings.cards_style.background_color.color|convert_rgb }},{{ module.module_settings.cards_style.background_color.opacity*0.01 }});

@@ -1,10 +1,29 @@
 @import "../../css/_module-imports";
 
-.u4m-cards.style-type_one {
-  padding-bottom: 120px;
-  overflow: visible;
-}
 .u4m-cards {
+  &.style-type_one {
+    padding-bottom: 120px;
+    padding-top: 150px;
+    @include tabletvert {
+      padding-top: 50px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      z-index: 9;
+      display: inline-block;
+      height: 80px;
+      @include tabletvert {
+        display: none;
+      }
+    }
+  }
   .page-center {
     .innerContainer {
       .cards-items-wrapper {
@@ -27,15 +46,15 @@
             .card-item-inner {
               padding: 40px 24px;
               background-color: $white;
-              border-radius: 12px;
+              border-radius: $border3;
               height: 100%;
               .card-media {
                 margin-bottom: 24px;
                 .card-media-inner {
                   width: 64px;
                   height: 64px;
-                  background-color: rgba(231, 86, 37, 0.1);
-                  border-radius: 8px;
+                  background-color: rgba($orange, 0.1);
+                  border-radius: $border2;
                   display: flex;
                   flex-direction: column;
                   justify-content: center;
@@ -43,10 +62,12 @@
                   padding: 16px;
                   font-size: 0;
                   img {
-                    width: 32px;
+                    width: auto;
+                    max-height: 32px;
+                    max-width: 32px;
                   }
                   svg {
-                    fill: #e75625;
+                    fill: $orange;
                     height: 32px;
                   }
                 }
@@ -109,8 +130,8 @@
           .card-item.col-two {
             .card-item-inner {
               padding: 24px;
-              box-shadow: 0 4px 40px rgba(5, 42, 82, 0.12);
-              border-bottom: 6px solid #e75625;
+              box-shadow: $shadow1;
+              border-bottom: 6px solid $orange;
               .card-content-row {
                 .card-content {
                   .card-top-content {
@@ -127,8 +148,8 @@
                       .card-media-inner {
                         width: 64px;
                         height: 64px;
-                        background-color: rgba(231, 86, 37, 0.1);
-                        border-radius: 8px;
+                        background-color: rgba($orange, 0.1);
+                        border-radius: $border2;
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
@@ -139,7 +160,7 @@
                           width: 32px;
                         }
                         svg {
-                          fill: #e75625;
+                          fill: $orange;
                           height: 32px;
                         }
                       }
@@ -190,10 +211,12 @@
                   height: 100%;
                   padding: 0;
                   background: transparent;
-                  border-radius: 8px;
+                  border-radius: $border2;
                   overflow: hidden;
                   img {
                     width: 100%;
+                    max-width: 100%;
+                    max-height: 100%;
                   }
                 }
               }
