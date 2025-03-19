@@ -130,7 +130,7 @@
                     visibility: hidden;
                     transform: translateX(-50%);
                     box-shadow: 0 4px 24px rgb($black, 0.24);
-                    z-index: 9;
+                    z-index: 12;
                     @include tabvert {
                       opacity: 1;
                       visibility: visible;
