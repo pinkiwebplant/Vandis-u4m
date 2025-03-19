@@ -67,7 +67,7 @@
                 padding: 24px;
                 width: 25%;
                 max-width: 302px;
-                border-radius: 12px;
+                border-radius: $border3;
                 background-color: $white;
                 position: relative;
                 @include laptop {
@@ -103,7 +103,7 @@
                       list-style: none;
                       margin: 0;
                       padding: 8px 12px;
-                      background-color: rgba(76, 139, 177, 0.1);
+                      background-color: rgba($lightblue, 0.1);
                       border-radius: 8px;
                       display: inline-block;
                       color: $lightblue;
