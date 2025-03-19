@@ -1,6 +1,22 @@
 @import "../../css/_module-imports";
 
 .u4m-cta-row {
+
+  &.reverse-text {
+    .intro_content {
+      margin-bottom: 0;
+
+      .eyebrow_text {
+        background-color: rgba($white, 0.15);
+        color: $white;
+      }
+
+      .hs-button {
+        @include button;
+      }
+    }
+  }
+
   .intro_content {
     margin-bottom: 0;
   }

@@ -1678,7 +1678,7 @@
     "display" : "checkbox",
     "type" : "boolean",
     "display_width" : null,
-    "default" : false
+    "default" : true
   }, {
     "id" : "94e04306-ecc1-4735-09fd-9b66482a8101",
     "name" : "background_settings",
@@ -1706,7 +1706,7 @@
       "preset" : null,
       "type" : "choice",
       "display_width" : null,
-      "default" : "image"
+      "default" : "color"
     }, {
       "id" : "5d97321e-e326-2d30-8757-51608da05ea6",
       "name" : "background_image",
@@ -1952,7 +1952,7 @@
     "type" : "group",
     "display_width" : null,
     "default" : {
-      "background_type" : "image",
+      "background_type" : "color",
       "background_image" : {
         "size_type" : "auto",
         "src" : "",
@@ -2088,9 +2088,9 @@
         }
       }
     },
-    "reverse_text" : false,
+    "reverse_text" : true,
     "background_settings" : {
-      "background_type" : "image",
+      "background_type" : "color",
       "background_image" : {
         "size_type" : "auto",
         "src" : "",

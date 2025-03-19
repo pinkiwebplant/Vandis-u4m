@@ -29,6 +29,7 @@
 
 .cmSplitFormWrap {
     overflow: visible !important;
+    z-index: 99;
 
     @include tabletvert {
         padding-top: 0;
@@ -39,7 +40,6 @@
         flex-wrap: wrap;
         gap: 60rem;
         justify-content: space-between;
-        align-items: flex-end;
 
         @include tabletvert {
             flex-direction: column;
@@ -148,10 +148,15 @@
             max-width: 100%;
             width: 100%;
             margin-bottom: 0;
-            margin-top: -134rem;
+            margin-top: -233rem;
 
             form {
                 margin: 0;
+
+                .hs_submit {
+                    display: flex;
+                    justify-content: center;
+                }
             }
 
             @include tabletvert {

@@ -119,6 +119,13 @@
 
     .cardItems.left_items {
       flex-direction: row-reverse;
+
+      .rightCnt {
+        .media-col {
+          padding-left: 24px;
+          padding-right: 0px;
+        }
+      }
     }
   }
 }

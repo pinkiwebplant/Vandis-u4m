@@ -147,5 +147,16 @@
 	.u4m-alternating-content.{{name}} .innerCnt .cardItems .rightCnt .media-col .cardVideoPoster.custom .play{
 		fill: {{ module.module_settings.media_shadow_group.custom_color.rgba }};
 	}
+
+	.u4m-alternating-content.{{name}} .innerCnt .cardItems.left_items .rightCnt .media-col .img-col.custom ,
+	.u4m-alternating-content.{{name}} .innerCnt .cardItems.left_items .rightCnt .media-col .embedVideo.custom,
+	.u4m-alternating-content.{{name}} .innerCnt .cardItems.left_items .rightCnt .media-col .cardVideoPoster.custom{
+		box-shadow: -24px 24px 0px {{ module.module_settings.media_shadow_group.custom_color.rgba }};
+	}
+	.u4m-alternating-content.{{name}} .innerCnt .cardItems.left_items .rightCnt .media-col .img-col.custom .play,
+	.u4m-alternating-content.{{name}} .innerCnt .cardItems.left_items .rightCnt .media-col .embedVideo.custom .play,
+	.u4m-alternating-content.{{name}} .innerCnt .cardItems.left_items .rightCnt .media-col .cardVideoPoster.custom .play{
+		fill: {{ module.module_settings.media_shadow_group.custom_color.rgba }};
+	}
 </style>
 

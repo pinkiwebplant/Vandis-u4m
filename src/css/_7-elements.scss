@@ -490,6 +490,11 @@ section[class*="u4m-"] {
     color: $white;
   }
 
+  .eyebrow_text {
+    background-color: rgba($white, 0.15) !important;
+    color: $white !important;
+  }
+
   :is(h1, h2, h3, h4, h5, h6) {
     color: $white;
   }
@@ -840,6 +845,122 @@ section[class*="u4m-"] {
     fill: $white;
   }
 }
+
+
+
+.left_items .green_clr {
+  box-shadow: -24px 24px 0px $green;
+
+  svg.play {
+    fill: $green;
+  }
+}
+
+.left_items .shakespeare_clr {
+  box-shadow: -24px 24px 0px $Shakespeare;
+
+  svg.play {
+    fill: $Shakespeare;
+  }
+}
+
+.left_items .black_clr {
+  box-shadow: -24px 24px 0px $BlueCharcoal;
+
+  svg.play {
+    fill: $BlueCharcoal;
+  }
+}
+
+.left_items .lightblue_clr {
+  box-shadow: -24px 24px 0px $lightblue;
+
+  svg.play {
+    fill: $lightblue;
+  }
+}
+
+.left_items .Blue_clr {
+  box-shadow: -24px 24px 0px $Blue;
+
+  svg.play {
+    fill: $Blue;
+  }
+}
+
+.left_items .orange_clr {
+  box-shadow: -24px 24px 0px $orange;
+
+  svg.play {
+    fill: $orange;
+  }
+}
+
+.left_items .Purple_clr {
+  box-shadow: -24px 24px 0px $purple;
+
+  svg.play {
+    fill: $purple;
+  }
+}
+
+.left_items .Gray_clr {
+  box-shadow: -24px 24px 0px $gray1;
+
+  svg .play {
+    fill: $gray1;
+  }
+}
+
+.left_items .lightgray_clr {
+  box-shadow: -24px 24px 0px $gray2;
+
+  svg.play {
+    fill: $gray2;
+  }
+}
+
+.left_items .solitudegray_clr {
+  box-shadow: -24px 24px 0px $gray3;
+
+  svg.play {
+    fill: $gray3;
+  }
+}
+
+.left_items .darkgray_clr {
+  box-shadow: -24px 24px 0px $darkgray1;
+
+  svg.play {
+    fill: $darkgray1;
+  }
+}
+
+.left_items .shuttlegray_clr {
+  box-shadow: -24px 24px 0px $darkgray2;
+
+  svg.play {
+    fill: $darkgray2;
+  }
+}
+
+.left_items .bluishgray_clr {
+  box-shadow: -24px 24px 0px $darkgray3;
+
+  svg.play {
+    fill: $darkgray3;
+  }
+}
+
+.left_items .White_clr {
+  box-shadow: -24px 24px 0px $white;
+
+  svg.play {
+    fill: $white;
+  }
+}
+
+
 
 .CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemMeta,
 .CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5,
