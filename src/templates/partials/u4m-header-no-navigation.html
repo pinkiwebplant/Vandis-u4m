@@ -1,23 +1,14 @@
 <!--
 templateType: global_partial
-label: Website header no navigation
+label: Header no navigation
 -->
-<div class="header-section">
-	<header class="header">
-
-		{% module "header" 
-        path="../../modules/u4m-header-section",
-        offset=0,
-        width=12,
-        logo_section={
-          "logo_field" : {
-            "override_inherited_src" : false,
-            "suppress_company_name" : true
-          }
-        },
-        menu=[ ],
-        top_section={}
-      %}
-
-	</header>
+<div class="header-section lp-header-section">
+  <header class="header lp-header">
+    {% module "lp_header" path="../../modules/u4m-header-section", offset=0,
+    width=12, button_group={ "select_button_type" : "" }, logo_section={
+    "logo_field" : { "alt" : "Vandis", "height" : 84, "override_inherited_src" :
+    true, "src" : "{{ get_asset_url('../../templates/images/Logo.png') }}",
+    "suppress_company_name" : true, "width" : 378 } }, top_section={ "menu" : [
+    ] }, menu=[ ] %}
+  </header>
 </div>

@@ -1,0 +1,47 @@
+<!--
+templateType: global_partial
+label: Footer no navigation
+-->
+
+<footer class="footer lp-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div class="copyright">
+          {% module "copyright" path="@hubspot/text" value="© {{year}} Vandis
+          Inc., All Rights Reserved." label="Copyright" %}
+        </div>
+        <div class="social-icons">
+          {% module "social_share" label="Social Share"
+          path="../../modules/u4m-social-share", offset=0, width=12, items=[ {
+          "icon_field" : { "name" : "LinkedIn", "type" : "REGULAR", "unicode" :
+          "f08c" }, "image_field" : { "loading" : "lazy", "size_type" : "auto",
+          "src" : "" }, "link_field" : { "no_follow" : false, "open_in_new_tab"
+          : false, "url" : { "href" : "https://in.linkedin.com/", "type" :
+          "EXTERNAL" } }, "select_icon_type" : "icon" }, { "icon_field" : {
+          "name" : "Facebook", "type" : "REGULAR", "unicode" : "f09a" },
+          "image_field" : { "loading" : "lazy", "size_type" : "auto", "src" : ""
+          }, "link_field" : { "no_follow" : false, "open_in_new_tab" : false,
+          "url" : { "href" : "https://www.facebook.com/", "type" : "EXTERNAL" }
+          }, "select_icon_type" : "icon" }, { "icon_field" : { "name" : "X
+          Twitter", "type" : "REGULAR", "unicode" : "e61b" }, "image_field" : {
+          "loading" : "lazy", "size_type" : "auto", "src" : "" }, "link_field" :
+          { "no_follow" : false, "open_in_new_tab" : false, "url" : { "href" :
+          "https://x.com/?lang=en", "type" : "EXTERNAL" } }, "select_icon_type"
+          : "icon" }, { "icon_field" : { "name" : "YouTube", "type" : "REGULAR",
+          "unicode" : "f167" }, "image_field" : { "loading" : "lazy",
+          "size_type" : "auto", "src" : "" }, "link_field" : { "no_follow" :
+          false, "open_in_new_tab" : false, "url" : { "href" :
+          "https://www.youtube.com/", "type" : "EXTERNAL" } },
+          "select_icon_type" : "icon" } ] %}
+        </div>
+        <div class="legal-link">
+          {% module_block module "legal" path="@hubspot/rich_text", label="Legal
+          Content" %} {% module_attribute "html" %}
+          <p><a href="#">Terms of Use</a><a href="#">Privacy Policy</a></p>
+          {% end_module_attribute %} {% end_module_block %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
