@@ -124,12 +124,12 @@
                     left: 50%;
                     background-color: $gray1;
                     padding: 24px;
-                    border-radius: 12px;
+                    border-radius: $border3;
                     min-width: 268px;
                     opacity: 0;
                     visibility: hidden;
                     transform: translateX(-50%);
-                    box-shadow: 0 4px 24px rgb(0, 0, 0, 0.24);
+                    box-shadow: 0 4px 24px rgb($black, 0.24);
                     z-index: 9;
                     @include tabvert {
                       opacity: 1;
