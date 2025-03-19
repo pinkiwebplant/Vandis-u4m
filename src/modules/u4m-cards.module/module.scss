@@ -26,6 +26,11 @@
   }
   .page-center {
     .innerContainer {
+      .intro_content {
+        &.nobtn {
+          margin-bottom: 60px;
+        }
+      }
       .cards-items-wrapper {
         .cards-items-inner {
           display: flex;
@@ -190,7 +195,9 @@
         }
       }
       .intro_content {
-        margin-bottom: 60rem;
+        &.nobtn {
+          margin-bottom: 80rem;
+        }
       }
     }
   }
