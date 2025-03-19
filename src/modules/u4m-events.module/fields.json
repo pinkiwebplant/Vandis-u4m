@@ -307,6 +307,17 @@
     "type" : "hubdbtable",
     "display_width" : null,
     "default" : 111777943
+  }, {
+    "id" : "a3f66ce6-7855-33a4-263b-d9ff08426629",
+    "name" : "count",
+    "label" : "Count",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "step" : 1,
+    "type" : "number",
+    "display_width" : null,
+    "default" : 4
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -314,7 +325,8 @@
   "type" : "group",
   "display_width" : null,
   "default" : {
-    "select_hubdb_table" : 111777943
+    "select_hubdb_table" : 111777943,
+    "count" : 4
   }
 }, {
   "id" : "fbc58b2b-b6db-82a2-8422-e7f6861ce34b",

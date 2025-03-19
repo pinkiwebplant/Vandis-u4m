@@ -90,7 +90,7 @@
     
     {% macro introGroup(group, settings, overrides)%}
     {% if group.include_eyebrow_text or group.include_heading or group.include_content or  group.include_button%}
-    <div class="intro_content {% if settings %}{{settings.intro_content_alignment}}{% endif %}" {% if module.module_settings.intro_content_width %}style="max-width:{{ module.module_settings.intro_content_width }}px;"{% endif %}>
+    <div class="intro_content {% if settings %}{{settings.intro_content_alignment}}{% endif %} {% if not group.include_button %}nobtn{% endif %}" {% if module.module_settings.intro_content_width %}style="max-width:{{ module.module_settings.intro_content_width }}px;"{% endif %}>
     
         <div class="intro__inner " >
             <div class="intCnt">
