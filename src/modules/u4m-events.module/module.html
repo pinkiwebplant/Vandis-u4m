@@ -4,7 +4,7 @@
 {{ macros.introGroup(module.intro_content, module.module_settings) }} 
 
 {% set table = module.events.select_hubdb_table %}
-{% set limit = 6 %} {# Number of events per page #}
+{% set limit = module.events.count %} {# Number of events per page #} 
 
 {# Get current page from URL query parameter #}
 {% set current_page = request.query_dict.page|default(1)|int %}
@@ -15,16 +15,18 @@
 {% set total_rows = all_data|length %}
 {% set total_pages = (total_rows / limit)|round(method='ceil')|int %}
 
-{% set datequery =  '&end_date__gte=' ~ local_dt|unixtimestamp  %}
+
 
 {# Fetch only the rows for the current page #}
 {% set query = 'orderBy=start_date&limit=' ~ limit ~ '&offset=' ~ offset %}
-{% set featuredquery = 'orderBy=start_date&featured=true' ~ datequery %}
 
 
+
+{% set datequery =  '&end_date__gte=' ~ local_dt|unixtimestamp  %}
 
  
 {% set queryparam = query ~ datequery %}
+{% set featuredquery = 'orderBy=start_date&featured=true' ~ datequery %}
 {% set data = hubdb_table_rows(table, queryparam) %}
 {% set featureddata = hubdb_table_rows(table, featuredquery) %}
 
@@ -100,3 +102,33 @@
 
 </style>
 {% end_require_css %}
+
+
+{% require_js %}
+<script>
+document.addEventListener("click", function (e) {
+	var target = e.target.closest(".{{ name }}.u4m-events .pagination a");
+
+	if (target) {
+		e.preventDefault();
+		var loadUrl = target.getAttribute("data-href");
+		console.log("Loading:", loadUrl);
+
+		fetch(loadUrl)
+			.then(response => response.text())
+			.then(html => {
+			let parser = new DOMParser();
+			let doc = parser.parseFromString(html, "text/html");
+			let newContent = doc.querySelector(".{{ name }}.u4m-events .postCardsInr");
+
+			if (newContent) {
+				document.querySelector(".{{ name }}.u4m-events .postCardsWrap").innerHTML = newContent.innerHTML;
+				console.log("Content loaded successfully");
+			}
+		})
+			.catch(error => console.error("Error loading content:", error));
+	}
+});
+
+</script>
+{% end_require_js %}
