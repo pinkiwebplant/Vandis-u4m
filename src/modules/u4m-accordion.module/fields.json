@@ -457,7 +457,7 @@
     }, {
       "id" : "33ff966e-f930-da93-e44a-2d267b1c0541",
       "name" : "active_items_settings",
-      "label" : "Active Items Settings",
+      "label" : "Active Item Settings",
       "required" : false,
       "locked" : false,
       "children" : [ {
