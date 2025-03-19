@@ -47,7 +47,7 @@
 	<div class="pagination">
 		<ul>
 			{% if current_page > 1 %}
-			<li><a class="prev page-numbers" data-href="?page={{ current_page - 1 }}">
+			<li><a class="prev page-numbers" data-href="{{ content.absolute_url }}?page={{ current_page - 1 }}">
 				<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"></path>
 				</svg>
@@ -56,16 +56,16 @@
 
 			{% for i in range(1, total_pages + 1) %}
 			<li class="nav-links" >
-				<a class="{% if i == current_page %}active{% endif %} page-numbers"  data-href="?page={{ i }}">{{ i }}</a>
+				<a class="{% if i == current_page %}active{% endif %} page-numbers"  data-href="{{ content.absolute_url }}?page={{ i }}">{{ i }}</a>
 			</li>
 			{% endfor %}
 
 			{% if current_page < total_pages %}
-			<li><a class="next page-numbers"  data-href="?page={{ current_page + 1 }}" >
+			<li><a class="next page-numbers"  data-href="{{ content.absolute_url }}?page={{ current_page + 1 }}" >
 				<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"></path>
 				</svg>
-				</a></li>
+				</a></li> 
 			{% endif %}
 		</ul>
 	</div>

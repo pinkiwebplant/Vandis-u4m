@@ -64,6 +64,7 @@
         display: block;
         width: 32px;
         height: 32px;
+        cursor: pointer;
         &:hover {
           color: $lightgreen;
           border-bottom: 2px $lightgreen inset;
