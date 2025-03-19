@@ -10,6 +10,12 @@
         .itemCnWrap .itemTags {
           margin-bottom: 16rem;
         }
+        .itemCnWrap {
+          padding: 24rem;
+          .btn_item a {
+            margin: 0;
+          }
+        }
       }
     }
   }

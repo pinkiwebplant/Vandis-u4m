@@ -33,6 +33,9 @@
       }
     }
     .cardItem {
+      @include tabletMin {
+        width: calc(25% - 18px);
+      }
       .itemInr {
         @include blogpostCard;
         .itemCnWrap {
