@@ -1470,7 +1470,7 @@
       "preset" : null,
       "type" : "choice",
       "display_width" : null,
-      "default" : "lightgray_bg"
+      "default" : "Gray_bg"
     }, {
       "id" : "0f1d99f5-31a8-7b34-766a-1f40497d8b7c",
       "name" : "custom_color",
@@ -1588,7 +1588,7 @@
         "opacity" : null
       },
       "opacity" : 0.5,
-      "select_color" : "lightgray_bg",
+      "select_color" : "Gray_bg",
       "custom_color" : {
         "color" : null,
         "opacity" : null
@@ -1725,7 +1725,7 @@
         "opacity" : null
       },
       "opacity" : 0.5,
-      "select_color" : "lightgray_bg",
+      "select_color" : "Gray_bg",
       "custom_color" : {
         "color" : null,
         "opacity" : null
