@@ -333,7 +333,7 @@
   "children" : [ {
     "id" : "d83b06f3-749c-8484-18e0-f8aee2fd26a3",
     "name" : "tab",
-    "label" : "Tab",
+    "label" : "Tab Title",
     "required" : false,
     "locked" : false,
     "validation_regex" : "",
@@ -800,7 +800,7 @@
     }, {
       "id" : "601dbe7f-e565-517e-39bf-e901df11187e",
       "name" : "number_of_items",
-      "label" : "Number of Items",
+      "label" : "Card Column",
       "required" : false,
       "locked" : false,
       "display" : "select",
