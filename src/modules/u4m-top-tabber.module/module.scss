@@ -1,6 +1,7 @@
 @import "../../css/_module-imports";
 
 .u4m-top-tabber {
+  padding-top: 120px;
   .page-center {
     .innerContainer {
       .intro_content {
@@ -90,9 +91,14 @@
             }
             .tab-cnt-inner {
               max-width: 700px;
+              color: $action2;
+              h3 {
+                color: $action1;
+              }
               a.hs-arrow-btn {
                 margin-top: 0;
                 margin-bottom: 0;
+                color: $action1;
               }
               .tab_btn_wrap {
                 margin-top: 40px;
@@ -143,6 +149,9 @@
                       height: 100%;
                       display: flex;
                       flex-direction: column;
+                      h5 {
+                        color: $action1;
+                      }
                       .tab-icon {
                         margin-bottom: 24px;
                         .tab-icon-inner {
@@ -170,11 +179,15 @@
                           }
                         }
                       }
+                      .tab-card-cnt-inn {
+                        color: $action2;
+                      }
                       .card_btn_wrap {
                         margin-top: auto;
                         .btn_item {
                           a.hs-arrow-btn {
                             margin: 0;
+                            color: $action1;
                           }
                         }
                       }
