@@ -418,7 +418,7 @@ code {
   border-radius: 0;
 }
 
-pre>code {
+pre > code {
   display: block;
   padding: 1rem 15rem;
   white-space: pre;
@@ -594,7 +594,7 @@ section[class*="u4m-"] {
   position: relative;
 }
 
-.bg_overlay~*:not(.bg_overlay) {
+.bg_overlay ~ *:not(.bg_overlay) {
   position: relative;
   z-index: 2;
 }
@@ -846,8 +846,6 @@ section[class*="u4m-"] {
   }
 }
 
-
-
 .left_items .green_clr {
   box-shadow: -24px 24px 0px $green;
 
@@ -960,17 +958,53 @@ section[class*="u4m-"] {
   }
 }
 
-
-
 .CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemMeta,
 .CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5,
 .CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5 a,
+.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemDes,
 .CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemTags,
-.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .intro_btn_wrap .btn_item .hs-arrow-btn {
+.CardWrap
+  .cardItems.color
+  .cardItem
+  .itemInr
+  .itemCnWrap
+  .intro_btn_wrap
+  .btn_item
+  .hs-arrow-btn,
+.topCards.cardItems.color .cardItem .itemInr .itemCnWrap .itemMeta,
+.topCards.cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5,
+.topCards.cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5 a,
+.topCards.cardItems.color .cardItem .itemInr .itemCnWrap .itemDes,
+.topCards.cardItems.color .cardItem .itemInr .itemCnWrap .itemTags,
+.topCards.cardItems.color
+  .cardItem
+  .itemInr
+  .itemCnWrap
+  .intro_btn_wrap
+  .btn_item
+  .hs-arrow-btn {
   color: inherit;
 }
 
-.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .intro_btn_wrap .btn_item .hs-arrow-btn svg path {
+.CardWrap
+  .cardItems.color
+  .cardItem
+  .itemInr
+  .itemCnWrap
+  .intro_btn_wrap
+  .btn_item
+  .hs-arrow-btn
+  svg
+  path,
+.topCards.cardItems.color
+  .cardItem
+  .itemInr
+  .itemCnWrap
+  .intro_btn_wrap
+  .btn_item
+  .hs-arrow-btn
+  svg
+  path {
   fill: currentColor;
 }
 

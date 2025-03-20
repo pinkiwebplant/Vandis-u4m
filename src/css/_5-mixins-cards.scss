@@ -332,6 +332,9 @@
     .itemTitle {
       margin-bottom: 24rem;
     }
+    .itemDes {
+      color: $action1;
+    }
     .itemTags {
       @include eyebrow;
       background-color: rgba($lightblue, 0.1);
