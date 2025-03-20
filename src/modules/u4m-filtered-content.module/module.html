@@ -1,0 +1,160 @@
+{% set moduleName = 'u4m-filtered-content' %} 
+{% include "../partials/u4-module-includes.html" %}
+
+{{ macros.introGroup(module.intro_content, module.module_settings) }} 
+
+{% set table = module.resource.select_hubdb_table %}
+{% set limit = module.resource.count %} {# Number of events per page #} 
+
+{# Get current page from URL query parameter #}
+{% set current_page = request.query_dict.page|default(1)|int %}
+{% set offset = (current_page - 1) * limit %}
+
+{# Fetch all rows to get total count #}
+{% set all_data = hubdb_table_rows(table, 'orderBy=start_date') %}
+{% set total_rows = all_data|length %}
+{% set total_pages = (total_rows / limit)|round(method='ceil')|int %}
+
+
+
+{# Fetch only the rows for the current page #}
+{% set query = 'orderBy=hs_created_at&limit=' ~ limit ~ '&offset=' ~ offset %}
+{% if request.query_dict.type %}
+{% set query = query ~ '&type__in=' ~ request.query_dict.type|urlencode %}
+{% endif %} 
+
+{% if request.query_dict.topic %}
+{% set query = query  ~ '&topic__in=' ~ request.query_dict.topic|urlencode %}
+{% endif %}
+
+
+{% set featuredquery = 'orderBy=hs_created_at&featured=true' %}
+{% set data = hubdb_table_rows(table, query) %}
+{% set featureddata = hubdb_table_rows(table, featuredquery) %}
+
+<div class="topCards cardItems {% if module.module_settings.card_content_color.color %}color{% endif %}">
+
+	{% for row in featureddata %}
+	{% if loop.first %} 
+	<div class="topcard">
+		{{ macros.hubDBCards(row)}}
+	</div>
+	{% endif %}
+	{% endfor %}
+
+</div>
+
+<div class="postCardsWrap">
+	<div class="filtersDrop">
+		<form method="get" name="" class="filterform hs-form">
+			<fieldset class="topic input" data-val="&all">
+				<select name="topic" class="hs-input" placeholder="Select Topic">
+					<option value="all">Select Topic</option>
+					{% for topic in hubdb_table_column(table, 'topic').options %}
+					<option value="{{ topic.name|urlencode }}">{{ topic.label }}</option>
+					{% endfor %}
+				</select>
+			</fieldset>
+			<fieldset class="type input" data-val="&all">
+				<select name="type" class="hs-input" placeholder="Select Type">
+					<option value="all">Select Topic</option>
+					{% for type in hubdb_table_column(table, 'type').options %}
+					<option value="{{ type.name|urlencode }}">{{ type.label }}</option>
+					{% endfor %}
+				</select>
+			</fieldset>
+		</form>
+	</div>
+	<div class="postCardsInr">
+		<div class="CardWrap">
+			<div class="flex_row cardItems {% if module.module_settings.card_content_color.color %}color{% endif %}">  
+				{% for row in data %}
+				{{ macros.hubDBCards(row)}}
+				{% endfor %}
+			</div>
+			{# Pagination #}
+			{% if total_pages > 1 %}
+			<div class="pagination">
+				<ul>
+					{% if current_page > 1 %}
+					<li><a class="prev page-numbers" data-href="{{ content.absolute_url }}?page={{ current_page - 1 }}">
+						<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"></path>
+						</svg>
+						</a></li>
+					{% endif %}
+
+					{% for i in range(1, total_pages + 1) %}
+					<li class="nav-links" >
+						<a class="{% if i == current_page %}active{% endif %} page-numbers"  data-href="{{ content.absolute_url }}?page={{ i }}">{{ i }}</a>
+					</li>
+					{% endfor %}
+
+					{% if current_page < total_pages %}
+					<li><a class="next page-numbers"  data-href="{{ content.absolute_url }}?page={{ current_page + 1 }}" >
+						<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"></path>
+						</svg>
+						</a></li> 
+					{% endif %}
+				</ul>
+			</div>
+			{% endif %}
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+</section>
+
+
+{% require_css %}
+<style>
+	.{{ name }}.u4m-filtered-content .cardItems .cardItem .itemInr .itemCnWrap{
+		background-color:{{ module.module_settings.card_background_color.rgba }};
+		color:{{ module.module_settings.card_content_color.rgba }};
+	}
+
+</style>
+{% end_require_css %}
+
+
+{% require_js %}
+<script>
+	document.addEventListener("click", function (e) {
+		var target = e.target.closest(".{{ name }}.u4m-events .pagination a");
+
+																	if (target) {
+			e.preventDefault();
+			var loadUrl = target.getAttribute("data-href");
+			console.log("Loading:", loadUrl);
+
+			fetch(loadUrl)
+				.then(response => response.text())
+				.then(html => {
+				let parser = new DOMParser();
+				let doc = parser.parseFromString(html, "text/html");
+				let newContent = doc.querySelector(".{{ name }}.u4m-events .postCardsInr");
+
+																					 if (newContent) {
+					document.querySelector(".{{ name }}.u4m-events .postCardsWrap").innerHTML = newContent.innerHTML;
+																 console.log("Content loaded successfully");
+				}
+			})
+				.catch(error => console.error("Error loading content:", error));
+		}
+	});
+
+</script>
+{% end_require_js %}
