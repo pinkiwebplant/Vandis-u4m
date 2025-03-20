@@ -117,13 +117,13 @@
                   justify-content: space-between;
                   .tab-card-item {
                     max-width: 272px;
-                    width: 23%;
+                    width: calc((100% - 72px) / 4);
                     &.two-col {
-                      width: calc(50% - 24px);
+                      width: calc((100% - 24px) / 2);
                       max-width: 100%;
                     }
                     &.three-col {
-                      width: calc(33.333% - 24px);
+                      width: calc((100% - 48px) / 3);
                       max-width: 100%;
                       @include navbreak {
                         width: calc(50% - 24px);

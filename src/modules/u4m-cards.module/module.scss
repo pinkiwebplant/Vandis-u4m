@@ -1,6 +1,28 @@
 @import "../../css/_module-imports";
 
 .u4m-cards {
+  .cards-items-inner {
+    gap: 24px;
+    .card-item {
+      &.col-four {
+        width: calc((100% - 72px) / 4);
+      }
+      &.col-three {
+        width: calc((100% - 48px) / 3);
+        padding: 0 !important;
+      }
+      &.col-two {
+        width: calc((100% - 24px) / 2);
+      }
+
+      @include tablet {
+        width: calc((100% - 24px) / 2) !important;
+      }
+      @include tabletvert {
+        width: 100% !important;
+      }
+    }
+  }
   &.style-type_one {
     padding-bottom: 120px;
     padding-top: 150px;
@@ -42,17 +64,7 @@
           @include tabletvert {
             margin: 0;
           }
-          .card-item.col-four {
-            width: 25%;
-            padding: 0 12px;
-            @include tablet {
-              width: 50%;
-            }
-            @include tabletvert {
-              width: 100%;
-              padding: 0;
-            }
-          }
+
           .card-item {
             .card-item-inner {
               padding: 40px 24px;
@@ -87,12 +99,9 @@
                 .card-content {
                   color: $action2;
                   .eyebrow_text {
-                    @include b5;
-                    color: $action2;
-                    font-weight: 700;
-                    letter-spacing: 0.05em;
-                    margin-bottom: 8rem;
-                    text-transform: uppercase;
+                    @include eyebrow;
+                    background-color: $gray1 !important;
+                    color: $lightblue !important;
                   }
                   .card-title {
                     color: $action1;
@@ -132,14 +141,7 @@
 }
 .u4m-cards.style-type_two {
   padding-bottom: 140px;
-  .card-item.col-two {
-    width: 50%;
-    padding: 0 12px;
-    @include tabletvert {
-      width: 100%;
-      padding: 0;
-    }
-  }
+
   .page-center {
     .innerContainer {
       .cards-items-wrapper {
@@ -212,17 +214,6 @@
     .innerContainer {
       .cards-items-wrapper {
         .cards-items-inner {
-          .card-item.col-three {
-            width: 33.333%;
-            padding: 0 12px;
-            @include tablet {
-              width: 50%;
-            }
-            @include tabletvert {
-              width: 100%;
-              padding: 0;
-            }
-          }
           .card-item {
             .card-item-inner {
               padding: 24px;
