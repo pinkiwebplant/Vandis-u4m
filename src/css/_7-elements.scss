@@ -518,14 +518,7 @@ section[class*="u4m-"] {
 
 .reverse-text {
   .hs-button {
-    background-color: $white;
-    color: $Black;
-
-    &:hover,
-    &:focus {
-      background: rgba($White, 0.8);
-      color: $Black;
-    }
+    @include button;
   }
 
   .hs-arrow-btn {

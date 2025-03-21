@@ -27,10 +27,9 @@ section.u4m-accordion {
         }
       }
 
-
       .title {
         font-size: 20rem;
-        font-weight: 400;
+        font-weight: bold;
         margin: 0;
         position: relative;
         list-style: none;
@@ -54,9 +53,7 @@ section.u4m-accordion {
             fill: currentColor;
           }
         }
-
       }
-
 
       .cmInnerContent {
         transition: all 0.3s ease;
@@ -67,12 +64,10 @@ section.u4m-accordion {
           padding-top: 12rem;
         }
 
-
         p:last-of-type {
           margin-bottom: 0;
         }
       }
-
     }
   }
 }

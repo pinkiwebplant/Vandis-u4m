@@ -19,7 +19,7 @@
 {% set limit = "&limit=" ~ batch_num ~ "&offset=" ~ offset_num %}
 
 
-{% set query =  "orderBy=hs_created_at" %}
+{% set query =  "orderBy=-hs_created_at" %}
 
 {% if request.query_dict.type %}
 {% set query = query ~ '&type__in=' ~ request.query_dict.type|urlencode %}

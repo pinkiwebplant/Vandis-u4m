@@ -6,9 +6,9 @@
 
 {% set table = module.resource.resource_table %}
 {% set count = module.resource.count %}
-{% set recent_query = 'orderBy=hs_created_at&limit=' ~ count %}
-{% set category = module.resource.category_name %}
-{% set category_query = 'orderBy=-hs_created_at&topic__in=' ~ category ~ '&limit=' ~ count %}
+{% set recent_query = 'orderBy=-hs_created_at&limit=' ~ count %}
+{% set category = module.resource.select_category %}
+{% set category_query = 'orderBy=-hs_created_at&type__in=' ~ category ~ '&limit=' ~ count %}
 
 
 {% if module.resource.resource_type == "recent" %}
@@ -16,7 +16,7 @@
 {% elif module.resource.resource_type == "category" %}
 {% set data = hubdb_table_rows(table,category_query) %}
 {% endif %}
- 
+  
 
 <div class="postCardsWrap">
 	<div class="CardWrap">
@@ -40,7 +40,6 @@
 
 </div>
 
-  
 
 
  

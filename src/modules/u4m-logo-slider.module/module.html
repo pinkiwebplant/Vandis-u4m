@@ -9,15 +9,13 @@
 {% set table = module.logo_slider.select_hubdb_table %}
 {% set count = module.logo_slider.count %}
 {% set recent_query = 'orderBy=hs_created_at&limit=' ~ count %}
-{% set category = module.logo_slider.category_name %}
-{% set category_query = 'orderBy=-hs_created_at&category__in=' ~ category ~ '&limit=' ~ count %}
-
+{% set category = module.logo_slider.select_category %} 
+{% set category_query = 'orderBy=-hs_created_at&topic__in=' ~ category ~ '&limit=' ~ count %}
 {% if module.logo_slider.slider_type == "recent" %}
 {% set data = hubdb_table_rows(table,recent_query) %}
 {% elif module.logo_slider.slider_type == "category" %}
 {% set data = hubdb_table_rows(table,category_query) %}
-{% endif %}
-
+{% endif %}  
 <div class="logoSlider">
 	<div class="logoItems">
 
@@ -46,13 +44,13 @@
 			{% endif %}
 		</div>
 		{% endfor %}
-		{% elif module.logo_slider.slider_type == "individual" %} 
-
+		{% elif module.logo_slider.slider_type == "individual" %}  
 		{% for item in module.logo_slider.add_logos %}
 		{% set row = item.select_logo.columns %}  
+
 		<div class="logoItem"> 
 			<a href="{{ row.url }}">
-				<img src="{{ row.logo.url }}" alt="{{ row.title }}" >
+					<img src="{{ row.logos.url }}" alt="{{ row.title }}" >
 			</a>
 		</div>
 		{% endfor %}
@@ -61,7 +59,7 @@
 		{% for row in data %} 
 		<div class="logoItem"> 
 			<a href="{{ row.url }}">
-				<img src="{{ row.logo.url }}" alt="{{ row.title }}" >
+				<img src="{{ row.logos.url }}" alt="{{ row.title }}" >
 			</a>
 		</div>
 		{% endfor %}

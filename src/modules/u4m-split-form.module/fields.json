@@ -329,13 +329,13 @@
         "label" : "Image",
         "required" : false,
         "locked" : false,
-        "responsive" : true,
-        "resizable" : false,
+        "responsive" : false,
+        "resizable" : true,
         "show_loading" : false,
         "type" : "image",
         "display_width" : null,
         "default" : {
-          "size_type" : "auto",
+          "size_type" : "exact",
           "src" : "",
           "alt" : null,
           "loading" : "lazy"
@@ -367,7 +367,7 @@
       "display_width" : null,
       "default" : [ {
         "image" : {
-          "size_type" : "auto",
+          "size_type" : "exact",
           "src" : "",
           "alt" : null,
           "loading" : "lazy"
@@ -392,7 +392,7 @@
       "partnership_text" : "In partnership with ",
       "brand_logo" : [ {
         "image" : {
-          "size_type" : "auto",
+          "size_type" : "exact",
           "src" : "",
           "alt" : null,
           "loading" : "lazy"
@@ -455,7 +455,7 @@
       "partnership_text" : "In partnership with ",
       "brand_logo" : [ {
         "image" : {
-          "size_type" : "auto",
+          "size_type" : "exact",
           "src" : "",
           "alt" : null,
           "loading" : "lazy"

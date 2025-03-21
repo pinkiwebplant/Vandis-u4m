@@ -102,7 +102,7 @@
 	  {% endif %}
 	  >
 		{% endif %}
-	  <img src="{{ item.image.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }}>
+	  <img src="{{ item.image.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }} style="width:{{ item.image.width }}px">
 		{% if href %}
 	</a>
 {% endif %}
