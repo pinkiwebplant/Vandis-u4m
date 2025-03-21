@@ -52,10 +52,13 @@
             flex-direction: column;
             width: 100%;
             padding: 20px;
-            display: none;
+            display: block;
             width: calc(100% + 40px);
             margin: 0 -20px;
-            z-index: 1;
+            z-index: 9;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
           }
           .nav {
             @include tabvert {
@@ -140,7 +143,8 @@
                       position: static;
                       transform: none;
                       min-width: 100%;
-                      padding: 10px;
+                      overflow: hidden;
+                      padding: 0;
                       display: none;
                     }
                     &.enable-mega-menu {
@@ -165,6 +169,7 @@
                       display: flex;
                       flex-wrap: wrap;
                       width: 100%;
+                      padding: 10px;
                       .submenu-items {
                         li.submenu-item {
                           margin-bottom: 0;
@@ -262,6 +267,20 @@
     }
     .site_logo {
       max-width: 209px;
+    }
+  }
+}
+
+.mobile-open {
+  .header-section {
+    .main-section {
+      .container {
+        .main-inner {
+          .nav-wrap {
+            transform: scale(1);
+          }
+        }
+      }
     }
   }
 }

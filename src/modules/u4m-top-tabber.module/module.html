@@ -391,16 +391,56 @@
 		infinite:false,
 		});
 
-	$(".{{name}} .mobile_tab .tab_ttl").click(function () {
-		var getId = $(this).parent().attr('data-tab-id');
 
-	$(this).parent().siblings().removeClass("active");
-	$(this).parent().siblings().find('.tabber_cnt').slideUp();
-	$(this).parent().toggleClass("active");
-	$(this).next().slideToggle();
-
-	});
-
+		document.addEventListener("DOMContentLoaded", function () {
+		const triggers = document.querySelectorAll(".{{name}} .mobile_tab .tab_ttl");
+	  
+		triggers.forEach((trigger) => {
+		  trigger.addEventListener("click", function () {
+			const parentMenuItem = this.closest(".tab_acc_item");
+			const subMenu = parentMenuItem.querySelector(".tabber_cnt");
+	  
+			// Close all sibling menu items and slide them up
+			const allMenuItems = document.querySelectorAll(".tab_acc_item");
+			allMenuItems.forEach((menuItem) => {
+			  if (menuItem !== parentMenuItem) {
+				menuItem.classList.remove("active");
+				const siblingSubMenu = menuItem.querySelector(".tabber_cnt");
+				if (siblingSubMenu) {
+				  slideUp(siblingSubMenu);
+				}
+			  }
+			});
+	  
+			// Toggle current menu item
+			parentMenuItem.classList.toggle("active");
+			if (subMenu.style.display === "block") {
+			  slideUp(subMenu);
+			} else {
+			  slideDown(subMenu);
+			}
+		  });
+		});
+	  
+		function slideDown(element) {
+		  element.style.display = "block"; // Ensure the element is visible
+		  let height = element.scrollHeight + "px"; // Get the actual height of the content
+		  element.style.height = "0px"; // Start the transition from 0
+		  element.offsetHeight; // Trigger reflow to ensure transition happens
+		  element.style.transition = "height 1s ease"; // Smooth transition
+		  element.style.height = height; // Set the target height to reveal the content
+		}
+	  
+		function slideUp(element) {
+		  element.style.transition = "height 1s ease"; // Smooth transition
+		  element.style.height = "0px"; // Animate height to 0
+		  setTimeout(function () {
+			element.style.display = "none"; // Hide the element after transition
+			element.style.height = ""; // Reset height property
+		  }, 1000); // Match the duration of the transition
+		}
+	  });
+	  
 
 </script>
 {% end_require_js %}

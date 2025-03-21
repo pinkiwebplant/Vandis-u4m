@@ -45,7 +45,7 @@
               justify-content: center;
               width: 100%;
               @include tabletvert {
-                margin-bottom: 20px;
+                margin-bottom: 0;
               }
               .tab_txt {
                 padding: 20px 28px;
@@ -75,6 +75,7 @@
         .tabber_cnt {
           @include tabletvert {
             display: none;
+            overflow: hidden;
           }
           .tabber_cnt_inr {
             padding: 60px;
@@ -85,6 +86,7 @@
             }
             @include tabletvert {
               padding: 40px;
+              margin-top: 20px;
             }
             @include phone {
               padding: 20px;
