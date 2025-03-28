@@ -59,15 +59,27 @@
                 align-items: center;
                 width: 100%;
                 justify-content: center;
-                h5 {
+                &:hover {
+                  color: $green;
+                }
+                span {
+                  @include h5;
                   margin-bottom: 0;
                   color: $action1;
+                }
+                &:hover {
+                  span {
+                    color: $green;
+                  }
                 }
               }
             }
             .tab_ttl.slick-current {
               .tab_txt {
                 background-color: $gray3;
+                span {
+                  color: $action1;
+                }
               }
             }
           }
@@ -203,6 +215,49 @@
       }
       .tabber_inr.mobile_tab {
         display: none;
+        .tabs {
+          .tab {
+            .tab_ttl {
+              .tab_txt {
+                align-items: center;
+                cursor: pointer;
+                display: flex;
+                gap: 8px;
+                justify-content: space-between;
+                @include h5;
+                color: $action2;
+                margin: 0;
+                .plus {
+                  display: flex;
+                }
+                &:hover {
+                  color: $action2;
+                }
+              }
+            }
+            .tab_acc_item {
+              &.active {
+                .tab_txt {
+                  color: $white;
+                  background-color: $lightblue;
+                  &:hover {
+                    color: $white;
+                  }
+                  .plus {
+                    transform: rotate(180deg);
+                    svg {
+                      path {
+                        fill: $white;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .tab_acc_item {
+        }
         @include tabletvert {
           display: block;
         }

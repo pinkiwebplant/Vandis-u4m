@@ -10,9 +10,9 @@
 				{% for item in module.tabber %}
 				<div class="tab_ttl" tab-title="tab-{{loop.index}}">
 					<div class="tab_txt">
-						<h5>
+						<span>
 							{{ item.tab }}
-						</h5>
+						</span>
 					</div>
 				</div>
 				{% endfor %}
@@ -175,6 +175,10 @@
 					<div class="tab_ttl ">
 						<div class="tab_txt">
 							{{ item.tab }}
+						<span class="plus"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M6.37894 7.61255C6.16963 7.82837 5.83035 7.82837 5.62104 7.61255L0.156971 1.97832C-0.0523238 1.7625 -0.0523238 1.41264 0.156971 1.19682L0.409621 0.936279C0.618916 0.720459 0.958252 0.720459 1.16755 0.936279L5.99999 5.91922L10.8325 0.936279C11.0418 0.720459 11.381 0.720459 11.5903 0.936279L11.843 1.19682C12.0523 1.41264 12.0523 1.7625 11.843 1.97832L6.37894 7.61255Z" fill="#052A50"></path>
+								</svg>
+							</span>
 						</div>
 					</div>
 
@@ -340,7 +344,7 @@
 		background-color:rgba({{ module.module_settings.tabber_custom_style.tab_content_background_color.color|convert_rgb }},{{ module.module_settings.tabber_custom_style.tab_content_background_color.opacity*0.01 }});
 	}
 
-	.{{name}} .page-center .tabber_wrap .tabber_inr .tabs .tab .tab_ttl .tab_txt h5,
+	.{{name}} .page-center .tabber_wrap .tabber_inr .tabs .tab .tab_ttl .tab_txt span,
 	.{{name}} .page-center .tabber_wrap .tabber_inr .tabber_cnt .tabber_cnt_inr .tab-cnt-inner a.hs-arrow-btn,
 	.{{name}} .page-center .tabber_wrap .tabber_inr .tabber_cnt .tabber_cnt_inr .tab-cnt-inner h3,
 	.{{name}} .page-center .tabber_wrap .tabber_inr .tabber_cnt .tabber_cnt_inr .tab-cnt-inner{
