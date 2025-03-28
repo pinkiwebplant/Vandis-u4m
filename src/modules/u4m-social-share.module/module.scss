@@ -12,10 +12,20 @@
     width: 24px;
     height: 24px;
     padding: 2px;
+    &.items-4 {
+      position: relative;
+      top: 2px;
+    }
     a {
       display: block;
       font-size: 0;
       line-height: 0;
+      &:hover {
+        svg {
+          color: $green;
+          fill: $green;
+        }
+      }
     }
     svg {
       color: $action1;
