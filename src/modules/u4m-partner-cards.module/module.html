@@ -38,12 +38,12 @@
 			<form class="filterForm">
 				<ul class="categories">
 					<li>
-						<input type="radio" id="all" name="category" value="" checked>
+						<input type="radio" id="all" name="category" value="" checked data-filter="all">
 						<label for="all">All Partners</label>
 					</li>
 					{% for cat in category %}
 					<li>
-						<input type="radio" id="{{cat.name|lower}}" name="category" value="{{cat.name}}">
+						<input type="radio" id="{{cat.name|lower}}" name="category" value="{{cat.name}}" data-filter="{{cat.name|lower}}">
 						<label for="{{cat.name}}">{{cat.name|capitalize}}</label>
 					</li>
 					{% endfor %}
@@ -54,7 +54,7 @@
 		<div class="filter-content">
 			<div class="content-list">
 				{% for row in dataRows %}
-				<div class="content-item">
+				<div class="content-item" data-cat="{% for cat in row.category %}{{cat.name|lower}}{% if not loop.last %},{% endif %}{% endfor %}">
 					<div class="content-item-inner">
 						{% if row.logo.url %}
 						<div class="item-logo">
@@ -183,6 +183,7 @@
 
 <script>
 $(document).ready(function() {
+
         // Handle form submission for filter (on submit, prevent page reload and update content)
         $('.{{name}} .filterForm').on('submit', function(e) {
             e.preventDefault();
@@ -233,6 +234,7 @@ $(document).ready(function() {
             $('.{{name}} .filter-content .content-list').load(selectUrl + " .{{name}} .filter-content .content-list > .content-item", function() {
                 // After loading content, also load the pagination
                 $('.{{name}} .pagination').load(selectUrl + " .hbdb_pagination");
+				$('.{{name}} .content-item').addClass('active');
             });
 
             console.log('Loading URL: ' + selectUrl);
@@ -280,7 +282,4 @@ $(document).ready(function() {
 
 
 {% end_require_js %}
-
-
-
 
