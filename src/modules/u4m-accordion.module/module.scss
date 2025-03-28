@@ -28,13 +28,13 @@ section.u4m-accordion {
       }
 
       .title {
-        font-size: 20rem;
+        @include h5;
+        color: $action2;
         font-weight: bold;
         margin: 0;
         position: relative;
         list-style: none;
         padding-right: 25rem;
-
         .cmMinusIcon {
           display: none;
         }
