@@ -48,7 +48,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: $white;
+            background: $gray1;
             flex-direction: column;
             width: 100%;
             padding: 20px;
@@ -82,6 +82,41 @@
                     display: none;
                   }
                   @include tabvert {
+                    background: $white;
+                    border-radius: $border3;
+                    padding: 20px 28px;
+                    margin-bottom: 12px;
+                    overflow: hidden;
+                    &:hover {
+                      > .child-trigger {
+                        color: $lightgreen;
+                        transform: rotate(360deg);
+                      }
+                    }
+                    &.childOpen {
+                      background-color: $lightblue;
+                      color: $white;
+                      > a {
+                        color: $white;
+                        > .dropdown-icon {
+                          @include tabvert {
+                            transform: rotate(180deg);
+                          }
+                        }
+                      }
+                      > .child-trigger {
+                        color: $lightgreen;
+                        transform: rotate(360deg);
+                      }
+                      &:hover {
+                        > a {
+                          color: $white;
+                          > .dropdown-icon {
+                            transform: rotate(180deg);
+                          }
+                        }
+                      }
+                    }
                     .child-trigger {
                       position: absolute;
                       right: 0;
@@ -91,16 +126,26 @@
                       top: 0;
                       cursor: pointer;
                       display: block;
-                      i {
-                        margin-top: 50%;
-                        transform: translateY(-50%);
-                      }
+                      min-height: 64px;
+                      width: 100%;
+                      opacity: 0;
                     }
-                    &.childOpen {
+                  }
+                  &:hover {
+                    > a {
+                      color: $lightgreen;
+                      > .dropdown-icon {
+                        transform: rotate(360deg);
+                        @include tabvert {
+                          transform: none;
+                        }
+                      }
+                      @include tabvert {
+                        color: $action1;
+                      }
                       .child-trigger {
-                        i {
-                          transform: rotate(180deg);
-                          margin-top: 33%;
+                        @include tabvert {
+                          transform: none;
                         }
                       }
                     }
@@ -108,16 +153,31 @@
                   a {
                     font-weight: bold;
                     padding: 12px 0;
+                    @include tabvert {
+                      padding: 0;
+                      @include h5;
+                      display: flex;
+                      gap: 8px;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 0;
+                    }
                     .dropdown-icon {
                       width: 24px;
                       height: 24px;
                       display: inline-block;
                       text-align: center;
+                      transition: all 0.5s ease;
                       @include tabvert {
-                        display: none;
+                        width: auto;
+                        height: auto;
                       }
                       i {
                         font-size: 14px;
+                        @include tabvert {
+                          margin-top: 0;
+                          display: block;
+                        }
                       }
                     }
                   }
@@ -146,6 +206,7 @@
                       overflow: hidden;
                       padding: 0;
                       display: none;
+                      background-color: transparent;
                     }
                     &.enable-mega-menu {
                       min-width: 508px;
@@ -169,7 +230,11 @@
                       display: flex;
                       flex-wrap: wrap;
                       width: 100%;
-                      padding: 10px;
+                      white-space: nowrap;
+                      @include tabvert {
+                        white-space: normal;
+                        padding-top: 15px;
+                      }
                       .submenu-items {
                         li.submenu-item {
                           margin-bottom: 0;
@@ -180,6 +245,14 @@
                             &:hover {
                               color: $lightgreen;
                             }
+                            @include tabvert {
+                              @include h6;
+                              color: $white;
+                              margin-bottom: 10px;
+                              &:last-child {
+                                margin-bottom: 0;
+                              }
+                            }
                           }
                           &:not(:last-child) {
                             margin-bottom: 8px;
@@ -189,7 +262,7 @@
                           margin-bottom: 20px;
                           color: $action2;
                           @include tabvert {
-                            margin-bottom: 10px;
+                            color: $white;
                           }
                         }
                       }
@@ -204,6 +277,9 @@
                       .dropdown-icon {
                         i {
                           transform: rotate(180deg);
+                          @include tabvert {
+                            transform: none;
+                          }
                         }
                       }
                     }
@@ -229,6 +305,7 @@
           text-transform: uppercase;
           border-radius: 4px;
           color: $black;
+          transition: all 0.3s ease;
           @include tabvert {
             display: inline-block;
           }
@@ -250,6 +327,7 @@
               background-color: $black;
               display: inline-block;
               top: -6px;
+              transition: all 0.3s ease;
             }
             &:after {
               position: absolute;
@@ -260,6 +338,7 @@
               background-color: $black;
               display: inline-block;
               top: 6px;
+              transition: all 0.3s ease;
             }
           }
         }
@@ -278,6 +357,19 @@
         .main-inner {
           .nav-wrap {
             transform: scale(1);
+          }
+          .mobile-trigger {
+            > i {
+              background-color: transparent;
+              &:after {
+                top: 0;
+                transform: rotate(-45deg);
+              }
+              &:before {
+                top: 0;
+                transform: rotate(45deg);
+              }
+            }
           }
         }
       }
