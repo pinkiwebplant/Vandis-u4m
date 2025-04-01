@@ -1,167 +1,162 @@
 @import "../../css/_module-imports";
 
 .u4m-split-form {
-    .innerContainer {
-        overflow: visible;
+  .innerContainer {
+    overflow: visible;
+  }
+
+  .intro_content {
+    margin-bottom: 0;
+
+    .cmPartnerShipWrap {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20rem;
+
+      .cmPartnerText {
+        font-size: 23rem;
+        font-weight: 700;
+      }
     }
-
-    .intro_content {
-        margin-bottom: 0;
-
-        .cmPartnerShipWrap {
-            margin-top: 24px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 20rem;
-
-
-            .cmPartnerText {
-                font-size: 23rem;
-                font-weight: 700;
-            }
-        }
-
-
-    }
-
+  }
 }
 
 .cmSplitFormWrap {
-    overflow: visible !important;
-    z-index: 99;
+  overflow: visible !important;
+  z-index: 99;
+
+  @include tabletvert {
+    padding-top: 0;
+  }
+
+  .cmSplitFormInner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60rem;
+    justify-content: space-between;
 
     @include tabletvert {
-        padding-top: 0;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 40rem;
+    }
+  }
+
+  .cmLeftSection {
+    flex: 1;
+
+    .cmContent {
+      margin-bottom: 20rem;
+
+      p {
+        &:last-of-type {
+          margin: 0;
+        }
+      }
     }
 
-    .cmSplitFormInner {
+    &.cmDarkTheme {
+      .featureWrap {
+        * {
+          color: $White;
+        }
+      }
+
+      * {
+        color: $White;
+      }
+    }
+
+    @include tabletvert {
+      width: 100%;
+    }
+
+    .cmFtureTitle {
+      @include h5;
+      color: $action1;
+      margin-bottom: 20px;
+    }
+
+    .featureWrap {
+      ul {
+        padding: 0;
         display: flex;
-        flex-wrap: wrap;
-        gap: 60rem;
-        justify-content: space-between;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 0;
+        gap: 8px;
+        list-style: none;
 
-        @include tabletvert {
-            flex-direction: column;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            justify-content: flex-start;
-            gap: 40rem;
+        li {
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: nowrap;
+          color: $action2;
+
+          .cmCheckIcon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+
+            svg {
+              color: currentColor;
+              fill: currentColor;
+            }
+          }
         }
+      }
     }
 
-    .cmLeftSection {
-        flex: 1;
+    .bottomImageWrap {
+      margin-top: 40px;
+      max-width: 400rem;
 
-        .cmContent {
-            margin-bottom: 20rem;
+      img {
+        border-radius: 12px;
+        width: 100%;
+      }
+    }
+  }
 
-            p {
-                &:last-of-type {
-                    margin: 0;
-                }
-            }
-        }
+  .cmRightSection {
+    flex: 1;
 
-        &.cmDarkTheme {
-            .featureWrap {
-                * {
-                    color: $White;
-                }
-            }
-
-            * {
-                color: $White;
-            }
-        }
-
-        @include tabletvert {
-            width: 100%;
-        }
-
-        .cmFtureTitle {
-            color: $action1;
-            margin-bottom: 20px;
-        }
-
-        .featureWrap {
-            ul {
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                margin-bottom: 0;
-                gap: 8px;
-                list-style: none;
-
-                li {
-                    margin: 0;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                    flex-wrap: nowrap;
-                    color: $action2;
-
-                    .cmCheckIcon {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 24px;
-                        height: 24px;
-
-                        svg {
-                            color: currentColor;
-                            fill: currentColor;
-                        }
-                    }
-                }
-            }
-        }
-
-
-        .bottomImageWrap {
-            margin-top: 40px;
-            max-width: 400rem;
-
-
-            img {
-                border-radius: 12px;
-                width: 100%;
-            }
-        }
+    @include tabletvert {
+      width: 100%;
     }
 
-    .cmRightSection {
-        flex: 1;
-
-        @include tabletvert {
-            width: 100%;
-        }
-
-        .form-title {
-            &:empty {
-                margin: 0;
-            }
-        }
-
-        .cmFormWrap {
-            max-width: 100%;
-            width: 100%;
-            margin-bottom: 0;
-            margin-top: -233rem;
-
-            form {
-                margin: 0;
-
-                .hs_submit {
-                    display: flex;
-                    justify-content: center;
-                }
-            }
-
-            @include tabletvert {
-                margin-top: 0;
-            }
-        }
+    .form-title {
+      &:empty {
+        margin: 0;
+      }
     }
+
+    .cmFormWrap {
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 0;
+      margin-top: -233rem;
+
+      form {
+        margin: 0;
+
+        .hs_submit {
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      @include tabletvert {
+        margin-top: 0;
+      }
+    }
+  }
 }
