@@ -177,9 +177,7 @@
 	}
 	{% endfor %}
 
-	.{{name}}.style-type_one:before {
-	background-image: url({{get_asset_url("../templates/images/curved-shape.png")}});
-	}
+ 
 
 	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner{
 		background-color:rgba({{ module.module_settings.cards_style.background_color.color|convert_rgb }},{{ module.module_settings.cards_style.background_color.opacity*0.01 }});

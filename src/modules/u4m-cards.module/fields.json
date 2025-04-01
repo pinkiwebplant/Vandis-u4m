@@ -560,6 +560,117 @@
         "opacity" : null
       }
     }
+  }, {
+    "icon_field" : { },
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "image_area" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "include_eyebrow_text" : false,
+    "eyebrow_text" : "EYEBROW TEXT",
+    "heading" : "Focus on strategic objectives and less on management",
+    "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+    "link_field" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "icon_settings" : {
+      "background_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "color" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }
+  }, {
+    "icon_field" : { },
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "image_area" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "include_eyebrow_text" : false,
+    "eyebrow_text" : "EYEBROW TEXT",
+    "heading" : "Focus on strategic objectives and less on management",
+    "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+    "link_field" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "icon_settings" : {
+      "background_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "color" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }
+  }, {
+    "icon_field" : { },
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "image_area" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "include_eyebrow_text" : false,
+    "eyebrow_text" : "EYEBROW TEXT",
+    "heading" : "Focus on strategic objectives and less on management",
+    "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+    "link_field" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "icon_settings" : {
+      "background_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "color" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }
   } ]
 }, {
   "id" : "fbc58b2b-b6db-82a2-8422-e7f6861ce34b",
@@ -986,8 +1097,8 @@
       "required" : false,
       "locked" : false,
       "display" : "checkbox",
-      "display_width" : null,
       "type" : "boolean",
+      "display_width" : null,
       "default" : false
     }, {
       "id" : "48d33633-bcd1-f95d-02ce-284a60606bf3",
@@ -1394,6 +1505,7 @@
     "type" : "group",
     "display_width" : null,
     "default" : {
+      "apply_corner_radius" : false,
       "top_padding" : 0,
       "right_padding" : 0,
       "bottom_padding" : 0,
@@ -1728,6 +1840,26 @@
       "type" : "choice",
       "display_width" : null,
       "default" : "center center"
+    }, {
+      "id" : "0412643c-1db9-1712-5e5d-5817e5ed0358",
+      "name" : "add_top_curve",
+      "label" : "Add Top Curve",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : true
+    }, {
+      "id" : "431a7450-cfab-c87a-6cf2-38553a3d9fb1",
+      "name" : "add_bottom_curve",
+      "label" : "Add Bottom Curve",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : true
     } ],
     "tab" : "CONTENT",
     "expanded" : true,
@@ -1765,7 +1897,9 @@
           "opacity" : null
         }
       },
-      "background_image_position" : "center center"
+      "background_image_position" : "center center",
+      "add_top_curve" : true,
+      "add_bottom_curve" : true
     }
   }, {
     "id" : "fc248331-90d9-cb7e-66f6-4b85de179aa9",
@@ -1829,6 +1963,7 @@
     "custom_bottom_padding" : 100,
     "custom_bottom_padding_mobile" : 50,
     "inner_container_spacing_group" : {
+      "apply_corner_radius" : false,
       "top_padding" : 0,
       "right_padding" : 0,
       "bottom_padding" : 0,
@@ -1903,7 +2038,9 @@
           "opacity" : null
         }
       },
-      "background_image_position" : "center center"
+      "background_image_position" : "center center",
+      "add_top_curve" : true,
+      "add_bottom_curve" : true
     },
     "container_size" : "theme",
     "custom_container_size" : 870

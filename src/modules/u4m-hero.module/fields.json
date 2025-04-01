@@ -892,8 +892,8 @@
       "required" : false,
       "locked" : false,
       "display" : "checkbox",
-      "display_width" : null,
       "type" : "boolean",
+      "display_width" : null,
       "default" : false
     }, {
       "id" : "48d33633-bcd1-f95d-02ce-284a60606bf3",
@@ -1300,6 +1300,7 @@
     "type" : "group",
     "display_width" : null,
     "default" : {
+      "apply_corner_radius" : false,
       "top_padding" : 0,
       "right_padding" : 0,
       "bottom_padding" : 0,
@@ -1626,6 +1627,26 @@
       "type" : "choice",
       "display_width" : null,
       "default" : "center bottom"
+    }, {
+      "id" : "427dfd24-8377-82b0-ca1a-133a9d26c7db",
+      "name" : "add_top_curve",
+      "label" : "Add Top Curve",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : false
+    }, {
+      "id" : "f00b1c5c-32fe-5741-c386-663628c75fa8",
+      "name" : "add_bottom_curve",
+      "label" : "Add Bottom Curve",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : false
     } ],
     "tab" : "CONTENT",
     "expanded" : true,
@@ -1663,7 +1684,9 @@
           "opacity" : null
         }
       },
-      "background_image_position" : "center bottom"
+      "background_image_position" : "center bottom",
+      "add_top_curve" : false,
+      "add_bottom_curve" : false
     }
   }, {
     "id" : "fc248331-90d9-cb7e-66f6-4b85de179aa9",
@@ -1727,6 +1750,7 @@
     "custom_bottom_padding" : 135,
     "custom_bottom_padding_mobile" : 50,
     "inner_container_spacing_group" : {
+      "apply_corner_radius" : false,
       "top_padding" : 0,
       "right_padding" : 0,
       "bottom_padding" : 0,
@@ -1801,7 +1825,9 @@
           "opacity" : null
         }
       },
-      "background_image_position" : "center bottom"
+      "background_image_position" : "center bottom",
+      "add_top_curve" : false,
+      "add_bottom_curve" : false
     },
     "container_size" : "theme",
     "custom_container_size" : 870

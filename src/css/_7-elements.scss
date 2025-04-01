@@ -1057,3 +1057,28 @@ section[class*="u4m-"] {
 section.u4m-subscribe div.inner .left h3 {
   color: inherit;
 }
+
+.top_curved {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  min-height: 100px;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  top: 0;
+  background-size: cover;
+}
+.bt_curved {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  min-height: 100px;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  bottom: 0;
+  background-size: cover;
+}
