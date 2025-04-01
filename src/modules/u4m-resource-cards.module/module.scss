@@ -7,6 +7,9 @@
     .cardItem {
       .itemInr {
         @include blogpostCard;
+        .itemImgin {
+          min-height: 170px;
+        }
         .itemCnWrap .itemTags {
           margin-bottom: 16rem;
         }
@@ -16,6 +19,14 @@
             margin: 0;
           }
         }
+      }
+    }
+    .cardItems {
+      @include tablet {
+        justify-content: center;
+      }
+      .cmCol3.cardItem {
+        width: 302px;
       }
     }
   }

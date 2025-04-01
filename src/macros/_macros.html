@@ -331,7 +331,8 @@
     
                     {% if row.start_date || row.end_date %}
                     <div class="itemTags"> 
-                        {{ row.start_date|datetimeformat('%B %d, %Y') }} - {{ row.end_date|datetimeformat('%B %d, %Y') }}
+                        
+                        {{ row.start_date|datetimeformat('%b %d') }}{% if row.start_date|datetimeformat('%Y') != row.end_date|datetimeformat('%Y') %}, {{ row.start_date|datetimeformat('%Y') }}{% endif %} - {{ row.end_date|datetimeformat('%b %d, %Y') }}
                     </div>
                     {% endif %}  
     

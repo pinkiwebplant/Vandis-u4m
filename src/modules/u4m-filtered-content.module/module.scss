@@ -4,6 +4,9 @@
     @include arrowbutton;
   }
   .topCards.cardItems {
+    .topcard .cmCol3.cardItem {
+      margin: 0 auto;
+    }
     @include tabletvertMin {
       .topcard {
         width: 100%;
@@ -68,13 +71,27 @@
       }
       .itemInr {
         @include blogpostCard;
+        .itemImgin {
+          min-height: 170px;
+        }
         .itemCnWrap {
           padding: 24rem;
           .itemTags {
             margin-bottom: 16rem;
           }
+          .intro_btn_wrap a {
+            margin-bottom: 0;
+          }
         }
       }
+    }
+  }
+  .cardItems {
+    @include tablet {
+      justify-content: center;
+    }
+    .cmCol3.cardItem {
+      width: 302px;
     }
   }
   .pagination {
