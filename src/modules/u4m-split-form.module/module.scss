@@ -3,11 +3,11 @@
 .u4m-split-form {
   .innerContainer {
     overflow: visible;
+    margin: 0 -20px;
   }
 
   .intro_content {
     margin-bottom: 0;
-
     .cmPartnerShipWrap {
       margin-top: 24px;
       display: flex;
@@ -144,10 +144,22 @@
       width: 100%;
       margin-bottom: 0;
       margin-top: -233rem;
-
       form {
         margin: 0;
-
+        .hs-form-field {
+          > label {
+            @include b4;
+            margin-bottom: 3rem;
+            display: inline-block;
+          }
+        }
+        .legal-consent-container {
+          .hs-richtext {
+            @include b5;
+            margin-bottom: 4px;
+            color: #59616d;
+          }
+        }
         .hs_submit {
           display: flex;
           justify-content: center;

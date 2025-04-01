@@ -724,7 +724,7 @@
     "step" : 1,
     "type" : "number",
     "display_width" : null,
-    "default" : 800
+    "default" : 842
   }, {
     "id" : "101d38b6-d508-418e-dfc5-5a576744d3d1",
     "name" : "form_section",
@@ -907,7 +907,7 @@
   "display_width" : null,
   "default" : {
     "intro_content_alignment" : "left",
-    "intro_content_width" : 800,
+    "intro_content_width" : 842,
     "form_section" : {
       "select_bg_color" : "White_bg",
       "custom_color" : {
