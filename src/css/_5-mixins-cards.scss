@@ -333,7 +333,12 @@
   .itemCnWrap {
     background: $white;
     padding: 40rem 24rem;
-    height: 100%;
+    height: calc(100% - 170px);
+    display: flex;
+    flex-direction: column;
+    .intro_btn_wrap {
+      margin-top: auto;
+    }
     .itemMeta {
       @include b5;
       margin-bottom: 16rem;

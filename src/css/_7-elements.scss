@@ -549,19 +549,6 @@ section[class*="u4m-"] {
       }
     }
   }
-
-  .hs-sec-btn {
-    border-color: $White;
-    color: $White;
-    background-color: transparent;
-
-    &:hover,
-    &:focus {
-      background: $White;
-      color: $Black;
-      border-color: $White;
-    }
-  }
 }
 
 .bg_overlay {
