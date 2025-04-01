@@ -178,7 +178,9 @@
         <div class="itemInr ">
             {% if item.featured_image %}
             <div class="itemImg">
-                <div class="itemImgin" style="background-image:url({{ item.featured_image }})">	<a class="absltLink" href="{{ item.absolute_url }}"></a></div>
+                <a href="{{ item.absolute_url }}">
+                    <div class="itemImgin" style="background-image:url({{ item.featured_image }})">	</div>
+                </a>
             </div>
             {% endif %}
             <div class="itemCnWrap">
@@ -199,7 +201,8 @@
                     <div class="itemTags">
                         {% set included_topics = item.topic_list | rejectattr("slug", "equalto", "featured") | list %}
                         {% for topic in included_topics %}
-                        <a class="{{ topic.slug }}" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name|capitalize }}</a>{% if not loop.last %}, {% endif %}
+                        {% if loop.first %}
+                        <a class="{{ topic.slug }}" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name|capitalize }}</a>{% endif %}
                         {% endfor %}
                     </div>
                     {% endif %}
@@ -218,7 +221,7 @@
         <div class="itemInr ">
             {% if row.image.url %}
             <div class="itemImg">
-                <div class="itemImgin" style="background-image:url({{ row.image.url }})">	<a class="absltLink" href="{{ row.link }}"></a></div>
+                <div class="itemImgin" style="background-image:url({{ row.image.url }})"> </div>
             </div>
             {% endif %}
             <div class="itemCnWrap">
@@ -266,7 +269,7 @@
         <div class="itemInr ">
             {% if row.image.url %}
             <div class="itemImg">
-                <div class="itemImgin" style="background-image:url({{ row.image.url }})">	<a class="absltLink" href="{{ row.link }}"></a></div>
+                <div class="itemImgin" style="background-image:url({{ row.image.url }})"> </div>
             </div>
             {% endif %}
             <div class="itemCnWrap">
@@ -287,7 +290,7 @@
                         </h5>
                     </div>  
                     {% endif %}
-                    
+    
                     {% if row.description %}
                     <div class="itemDes"> 
                         {{ row.description }} 
@@ -320,7 +323,7 @@
         <div class="itemInr ">
             {% if row.image.url %}
             <div class="itemImg">
-                <div class="itemImgin" style="background-image:url({{ row.image.url }})">	<a class="absltLink" href="{{ row.link }}"></a></div>
+                <div class="itemImgin" style="background-image:url({{ row.image.url }})">	 </div>
             </div>
             {% endif %}
             <div class="itemCnWrap">

@@ -1006,10 +1006,11 @@ section[class*="u4m-"] {
 
 .innerContainer {
   position: relative;
+}
+.innerContainer.cornertrue {
   border-radius: $border3;
   overflow: hidden;
 }
-
 .topIntro .intro_content {
   max-width: 100%;
   padding: 0;

@@ -314,6 +314,12 @@
   border-radius: $border3;
   overflow: hidden;
   height: 100%;
+  &:hover {
+    box-shadow: $shadow2;
+  }
+  .itemImg a {
+    display: block;
+  }
   .itemImgin {
     min-height: 225px;
     display: block;
@@ -328,6 +334,9 @@
     .itemMeta {
       @include b5;
       margin-bottom: 16rem;
+      .itemDate {
+        text-transform: uppercase;
+      }
     }
     .itemTitle {
       margin-bottom: 24rem;
@@ -337,6 +346,7 @@
     }
     .itemTags {
       @include eyebrow;
+      padding: 8px 12px;
       background-color: rgba($lightblue, 0.1);
       margin-bottom: 0;
       a {
