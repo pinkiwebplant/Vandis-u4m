@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="tab-section">
 				{% for item in module.tabber %}
-				<div class="tab-item {% if loop.first %}acc-open{% endif %}" data-id="tab{{ loop.index }}">
+				<div class="tab-item {% if loop.first %}acc-open active{% endif %}" data-id="tab{{ loop.index }}">
 					<div class="tab-ttl">
 						<div class="tab-inner">
 							{% if item.tab_title %}
@@ -24,7 +24,9 @@
 							{% endif %} 
 							{% if item.tab_description %}
 							<div class="content">
+								<div class="content_inner">
 								{{ item.tab_description }}
+								</div>
 							</div>
 							{% endif %} 
 						</div>

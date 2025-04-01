@@ -19,6 +19,7 @@
               background: $white;
               padding: 20px 28px;
               border-radius: $border3;
+              cursor: pointer;
               .slider_tab_title {
                 color: $action1;
                 margin: 0;
@@ -34,21 +35,25 @@
                 }
               }
               .toggle_content {
-                display: none;
+                height: 0;
+                overflow: hidden;
+                transition: height 0.3s ease;
               }
             }
             .tab-inner {
               .content {
                 @include b5;
-                // display: none;
-                margin-top: 8px;
                 color: inherit;
                 margin-bottom: 0;
-                transform: scaleY(0);
-                transform-origin: top;
+                // visibility: hidden;
+                // opacity: 0;
+                // transition: visibility 0s 0.3s, opacity 0.3s ease;
                 height: 0;
-                transition: transform 0.5s ease;
                 overflow: hidden;
+                transition: height 0.3s ease; /* Add smooth transition for height change */
+                .content_inner {
+                  margin-top: 8px;
+                }
               }
             }
             &:last-child {
@@ -57,7 +62,7 @@
             &.acc-open {
               .tab-ttl {
                 h5.slider_tab_title {
-                  color: inherit;
+                  color: $white;
                   .plus {
                     transform: rotate(180deg);
                     svg path {
@@ -67,18 +72,26 @@
                 }
                 .tab-inner .content {
                   // display: block;
-                  height: auto;
-                  opacity: 1;
-                  transform: scaleY(1);
+                  // height: auto;
+                  // opacity: 1;
+                  // transform: scaleY(1);
                 }
                 .toggle_content {
-                  display: block;
+                  height: auto;
                 }
+              }
+              .content {
+                height: auto;
+              }
+            }
+            &.active {
+              .content {
+                height: auto;
               }
             }
           }
           @include tabletvertMin {
-            .mobile_cnnt.tab-content-section {
+            .toggle_content {
               display: none;
             }
           }
