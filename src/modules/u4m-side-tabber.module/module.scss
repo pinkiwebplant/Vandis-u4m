@@ -29,13 +29,26 @@
                 cursor: pointer;
                 .plus {
                   display: flex;
+                  max-width: 12px;
+                  width: 100%;
                 }
+              }
+              .toggle_content {
+                display: none;
               }
             }
             .tab-inner {
               .content {
-                display: none;
+                @include b5;
+                // display: none;
                 margin-top: 8px;
+                color: inherit;
+                margin-bottom: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+                height: 0;
+                transition: transform 0.5s ease;
+                overflow: hidden;
               }
             }
             &:last-child {
@@ -53,6 +66,12 @@
                   }
                 }
                 .tab-inner .content {
+                  // display: block;
+                  height: auto;
+                  opacity: 1;
+                  transform: scaleY(1);
+                }
+                .toggle_content {
                   display: block;
                 }
               }
@@ -89,6 +108,7 @@
             padding: 60px;
             border-radius: $border3;
             overflow: hidden;
+            animation: fadeIn 1s ease-in forwards;
             .cnt {
               margin-bottom: 40px;
             }
@@ -107,6 +127,15 @@
           }
         }
       }
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 }
