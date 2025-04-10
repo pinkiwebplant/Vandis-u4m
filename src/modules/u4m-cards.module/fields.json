@@ -512,6 +512,26 @@
         "color" : null,
         "opacity" : null
       }
+    }, {
+      "id" : "e1ed10d5-7548-8ff6-b3dd-c0f8cbb559e8",
+      "name" : "border_color",
+      "label" : "Border Color",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "module_settings.select_content_type",
+        "controlling_value_regex" : "type_two",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
     } ],
     "tab" : "CONTENT",
     "expanded" : false,
@@ -524,6 +544,10 @@
         "opacity" : null
       },
       "color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "border_color" : {
         "color" : null,
         "opacity" : null
       }
@@ -735,6 +759,14 @@
     "label" : "Cards Per Row",
     "required" : false,
     "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "module_settings.select_content_type",
+      "controlling_value_regex" : "type_one|type_three",
+      "property" : null,
+      "operator" : "MATCHES_REGEX",
+      "access" : null
+    },
     "display" : "select",
     "choices" : [ [ "two", "Two" ], [ "three", "Three" ], [ "four", "Four" ] ],
     "multiple" : false,

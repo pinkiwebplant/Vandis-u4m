@@ -11,7 +11,7 @@
 <div class="cards-items-wrapper content_{{ module.module_settings.select_content_type }}">
 	<div class="cards-items-inner">
 		{% for item in module.card_group %}
-		<div class="card-item card{{loop.index}} col-{{ module.module_settings.cards_per_row }}">
+		<div class="card-item card{{loop.index}} {% if module.module_settings.select_content_type == "type_three" or module.module_settings.select_content_type == "type_one" %}col-{{ module.module_settings.cards_per_row }}{% else %}col-two{% endif %}">
 			<div class="card-item-inner item{{ module.module_settings.cards_style.bg_color }} color{{ module.module_settings.cards_style.content_color }}">
 
 				{% if module.module_settings.select_content_type == "type_three" or module.module_settings.select_content_type == "type_one" %}
@@ -177,7 +177,7 @@
 	}
 
 	.{{name}}.style-type_two .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner{
-		border-bottom-color:rgba({{ item.icon_settings.color.color|convert_rgb }},{{ item.icon_settings.color.opacity*0.01 }});
+		border-bottom-color:rgba({{ item.icon_settings.border_color.color|convert_rgb }},{{ item.icon_settings.border_color.opacity*0.01 }});
 	}
 	{% endfor %}
 
