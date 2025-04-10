@@ -27,6 +27,9 @@
           font-size: $baseFontSize;
           font-weight: bold;
           line-height: $baseLineHeight;
+          &:hover {
+            color: $lightgreen;
+          }
         }
       }
     }

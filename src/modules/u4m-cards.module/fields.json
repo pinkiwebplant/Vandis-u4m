@@ -464,6 +464,17 @@
       "no_follow" : false
     }
   }, {
+    "id" : "db6037e1-8caf-0ee4-50d1-cc7fc3399caf",
+    "name" : "link_text",
+    "label" : "Link Text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null
+  }, {
     "id" : "45d7d097-db3c-7a6a-7d2d-0fa936e88669",
     "name" : "icon_settings",
     "label" : "Icon Settings",
@@ -739,11 +750,33 @@
     "required" : false,
     "locked" : false,
     "children" : [ {
-      "id" : "da0febf3-a9a2-2acb-3f92-57425671a198",
-      "name" : "background_color",
+      "id" : "34ab7913-89f2-227f-8274-f4a981955f1f",
+      "name" : "bg_color",
       "label" : "Background Color",
       "required" : false,
       "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "green_bg", "Green" ], [ "shakespeare_bg", "Shakespeare" ], [ "black_bg", "Black" ], [ "Blue_bg", "Blue" ], [ "lightblue_bg", "LightBlue" ], [ "orange_bg", "Orange" ], [ "Purple_bg", "Purple" ], [ "Gray_bg", "Gray" ], [ "lightgray_bg", "Light Gray" ], [ "solitudegray_bg", "Solitude Gray" ], [ "darkgray_bg", "Dark Gray" ], [ "shuttlegray_bg", "Shuttle Grey" ], [ "bluishgray_bg", "Bluish Gray" ], [ "White_bg", "White" ], [ "custom", "Custom" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : ""
+    }, {
+      "id" : "da0febf3-a9a2-2acb-3f92-57425671a198",
+      "name" : "background_color",
+      "label" : "Custom Background Color",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "module_settings.cards_style.bg_color",
+        "controlling_value_regex" : "custom",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
       "type" : "color",
       "display_width" : null,
       "default" : {
@@ -751,11 +784,33 @@
         "opacity" : null
       }
     }, {
-      "id" : "0694192b-a1ca-f8f8-2b58-74fdc73a91fe",
+      "id" : "a8ae41f7-43e3-df62-d6d9-1ccb57f464e9",
       "name" : "content_color",
       "label" : "Content Color",
       "required" : false,
       "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "green_bg", "Green" ], [ "shakespeare_bg", "Shakespeare" ], [ "black_bg", "Black" ], [ "Blue_bg", "Blue" ], [ "lightblue_bg", "LightBlue" ], [ "orange_bg", "Orange" ], [ "Purple_bg", "Purple" ], [ "Gray_bg", "Gray" ], [ "lightgray_bg", "Light Gray" ], [ "solitudegray_bg", "Solitude Gray" ], [ "darkgray_bg", "Dark Gray" ], [ "shuttlegray_bg", "Shuttle Grey" ], [ "bluishgray_bg", "Bluish Gray" ], [ "White_bg", "White" ], [ "custom", "Custom" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : ""
+    }, {
+      "id" : "0694192b-a1ca-f8f8-2b58-74fdc73a91fe",
+      "name" : "custom_content_color",
+      "label" : "Custom Content Color",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "module_settings.cards_style.content_color",
+        "controlling_value_regex" : "custom",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
       "type" : "color",
       "display_width" : null,
       "default" : {
@@ -769,11 +824,13 @@
     "type" : "group",
     "display_width" : null,
     "default" : {
+      "bg_color" : "",
       "background_color" : {
         "color" : null,
         "opacity" : null
       },
-      "content_color" : {
+      "content_color" : "",
+      "custom_content_color" : {
         "color" : null,
         "opacity" : null
       }
@@ -789,11 +846,13 @@
     "select_content_type" : "type_one",
     "cards_per_row" : "four",
     "cards_style" : {
+      "bg_color" : "",
       "background_color" : {
         "color" : null,
         "opacity" : null
       },
-      "content_color" : {
+      "content_color" : "",
+      "custom_content_color" : {
         "color" : null,
         "opacity" : null
       }

@@ -12,10 +12,10 @@
 	<div class="cards-items-inner">
 		{% for item in module.card_group %}
 		<div class="card-item card{{loop.index}} col-{{ module.module_settings.cards_per_row }}">
-			<div class="card-item-inner">
+			<div class="card-item-inner item{{ module.module_settings.cards_style.bg_color }} color{{ module.module_settings.cards_style.content_color }}">
 
 				{% if module.module_settings.select_content_type == "type_three" or module.module_settings.select_content_type == "type_one" %}
-					{% if item.select_icon_type or item.image_area.src %}
+				{% if item.select_icon_type or item.image_area.src %}
 				<div class="card-media">
 					<div class="card-media-inner media_{{ module.module_settings.select_content_type }}">
 						{% if module.module_settings.select_content_type == "type_one" %}
@@ -41,7 +41,7 @@
 						{% endif %}
 					</div>
 				</div>
-			{% endif %}
+				{% endif %}
 				<div class="card-content-row">
 					<div class="card-content">	
 						{% if item.include_eyebrow_text %}
@@ -61,21 +61,23 @@
 						{% if item.link_field.url.type is equalto "EMAIL_ADDRESS" %}
 						{% set href = "mailto:" + href %}
 						{% endif %}
-						{% if href %}
-						<a class="card-link" 
-							 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
-							 href="{{ href }}"
-							 {% else %}
-							 href="{{ href }}"
-							 {% endif %}
-							 {% if item.link_field.open_in_new_tab %}
-							 target="_blank"
-							 {% endif %}
-							 {% if item.link_field.rel %}
-							 rel="{{ item.link_field.rel|escape_attr }}"
-							 {% endif %}
-							 >
-						</a>
+						{% if item.link_text %}
+						<div class="linkWrap">
+							<a class="card-link" 
+								 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
+								 href="{{ href }}"
+								 {% else %}
+								 href="{{ href }}"
+								 {% endif %}
+								 {% if item.link_field.open_in_new_tab %}
+								 target="_blank"
+								 {% endif %}
+								 {% if item.link_field.rel %}
+								 rel="{{ item.link_field.rel|escape_attr }}"
+								 {% endif %}
+								 >{{ item.link_text }}
+							</a>
+						</div>
 						{% endif %}
 					</div>
 				</div>
@@ -87,19 +89,19 @@
 						<div class="card-top-content">
 							<div class="card-icon-left">
 								<div class="card-media-inner">
-								{% if item.select_icon_type == "icon" %}
-								{% icon
+									{% if item.select_icon_type == "icon" %}
+									{% icon
 											name="{{ item.icon_field.name }}"
 											style="{{ item.icon_field.type }}"
 											unicode="{{ item.icon_field.unicode }}"
 											icon_set="{{ item.icon_field.icon_set }}"
 										%}
-								{% elif item.select_icon_type == "image" %}
-								{% if item.image.src %}
-								{% set loadingAttr = item.image.loading != 'disabled' ? 'loading="{{ item.image.loading }}"' : '' %}
-								<img src="{{ item.image.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }}>
-								{% endif %}
-								{% endif %}
+									{% elif item.select_icon_type == "image" %}
+									{% if item.image.src %}
+									{% set loadingAttr = item.image.loading != 'disabled' ? 'loading="{{ item.image.loading }}"' : '' %}
+									<img src="{{ item.image.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }}>
+									{% endif %}
+									{% endif %}
 								</div>
 							</div>
 							<div class="card-content-right">
@@ -116,29 +118,31 @@
 							</div>
 						</div>
 						{% if item.content %}
-							<div class="card-bottom-content">
-								{{ item.content }}
-							</div>
+						<div class="card-bottom-content">
+							{{ item.content }}
+						</div>
 						{% endif %}
 						{% set href = item.link_field.url.href %}
 						{% if item.link_field.url.type is equalto "EMAIL_ADDRESS" %}
 						{% set href = "mailto:" + href %}
 						{% endif %}
-						{% if href %}
-						<a class="card-link" 
-							 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
-							 href="{{ href }}"
-							 {% else %}
-							 href="{{ href }}"
-							 {% endif %}
-							 {% if item.link_field.open_in_new_tab %}
-							 target="_blank"
-							 {% endif %}
-							 {% if item.link_field.rel %}
-							 rel="{{ item.link_field.rel|escape_attr }}"
-							 {% endif %}
-							 >
-						</a>
+						{% if item.link_text %}
+						<div class="linkWrap">
+							<a class="card-link" 
+								 {% if item.link_field.url.type is equalto "CALL_TO_ACTION"  %}
+								 href="{{ href }}"
+								 {% else %}
+								 href="{{ href }}"
+								 {% endif %}
+								 {% if item.link_field.open_in_new_tab %}
+								 target="_blank"
+								 {% endif %}
+								 {% if item.link_field.rel %}
+								 rel="{{ item.link_field.rel|escape_attr }}"
+								 {% endif %}
+								 >{{ item.link_text }}
+							</a>
+						</div>
 						{% endif %}
 					</div>
 				</div>
@@ -165,7 +169,7 @@
 		background-color:rgba({{ item.icon_settings.background_color.color|convert_rgb }},{{ item.icon_settings.background_color.opacity*0.01 }});
 		color:rgba({{ item.icon_settings.color.color|convert_rgb }},{{ item.icon_settings.color.opacity*0.01 }});
 	}
-	
+
 	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner .card-media .card-media-inner svg,
 	.{{name}}.style-type_two .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item.card{{loop.index}} .card-item-inner .card-content-row .card-content .card-top-content .card-icon-left .card-media-inner svg,
 	.{{name}} .card-item.card{{loop.index}} .card-media-inner svg{
@@ -177,19 +181,24 @@
 	}
 	{% endfor %}
 
- 
+
 
 	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner{
+		{% if module.module_settings.cards_style.bg_color == 'custom' %}
 		background-color:rgba({{ module.module_settings.cards_style.background_color.color|convert_rgb }},{{ module.module_settings.cards_style.background_color.opacity*0.01 }});
-		color:rgba({{ module.module_settings.cards_style.content_color.color|convert_rgb }},{{ module.module_settings.cards_style.content_color.opacity*0.01 }});
+		{% endif %}
+		{% if module.module_settings.cards_style.content_color == 'custom' %}
+		color:rgba({{ module.module_settings.cards_style.custom_content_color.color|convert_rgb }},{{ module.module_settings.cards_style.custom_content_color.opacity*0.01 }});
+		{% endif %}
 	}
-
+ {% if module.module_settings.cards_style.content_color %}
 	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content,
 	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content .eyebrow_text,
-	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content .card-title{
-		color:rgba({{ module.module_settings.cards_style.content_color.color|convert_rgb }},{{ module.module_settings.cards_style.content_color.opacity*0.01 }}) !important;
+	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content .card-title,
+	.{{name}} .page-center .innerContainer .cards-items-wrapper .cards-items-inner .card-item .card-item-inner .card-content-row .card-content .card-link{
+		color: inherit; !important;
 	}
-
+ 	{% endif %}
 
 
 

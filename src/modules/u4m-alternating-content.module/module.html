@@ -83,6 +83,11 @@
 			{% if module.media_group.image_field.src %}
 			<div class="img-col {{ module.module_settings.media_shadow_group.select_color }}">
 				<img src="{{ module.media_group.image_field.src|escape_url }}" alt="{{ module.media_group.image_field.alt|escape_attr }}" {{ loadingAttr }} {{ sizeAttrs }}>
+	{% if module.module_settings.media_shadow_group.add_corner_shadow %} 
+						<svg class="img-overlay play" xmlns="http://www.w3.org/2000/svg" width="111" height="118" viewBox="0 0 111 118">
+			<path d="M111 88.4102L83.1676 118H92.1963L111 99.8489V88.4102ZM111 66.3019L62.3743 118H70.382L111 78.7887V66.3019ZM111 44.2006L41.5861 118H48.589L111 57.7541M111 22.0945L20.7915 118H26.7884L111 36.7142V22.0945ZM111 0L0 118H4.97951L111 15.66"/>
+			</svg>
+				{% endif %}
 			</div>
 			{% endif %}
 			{% endif %}
@@ -102,6 +107,11 @@
 					<img src="{{ module.media_group.video_section.poster_image.src|escape_url }}" alt="{{ module.media_group.video_section.poster_image.alt|escape_attr }}" {{ loadingAttr }} {{ sizeAttrs }}>
 					{% endif %}
 					<svg class="play" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+						{% if module.module_settings.media_shadow_group.add_corner_shadow %} 
+						<svg class="img-overlay play" xmlns="http://www.w3.org/2000/svg" width="111" height="118" viewBox="0 0 111 118">
+			<path d="M111 88.4102L83.1676 118H92.1963L111 99.8489V88.4102ZM111 66.3019L62.3743 118H70.382L111 78.7887V66.3019ZM111 44.2006L41.5861 118H48.589L111 57.7541M111 22.0945L20.7915 118H26.7884L111 36.7142V22.0945ZM111 0L0 118H4.97951L111 15.66"/>
+			</svg>
+				{% endif %}
 				</div> 
 			</div> 
 			{% endif %}
