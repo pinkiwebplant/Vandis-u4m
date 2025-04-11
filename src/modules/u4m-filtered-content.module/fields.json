@@ -294,8 +294,8 @@
   }
 }, {
   "id" : "b560dc8f-d252-9366-edc5-eb683c15e9b4",
-  "name" : "events",
-  "label" : "Events",
+  "name" : "resource",
+  "label" : "Resources",
   "required" : false,
   "locked" : false,
   "children" : [ {

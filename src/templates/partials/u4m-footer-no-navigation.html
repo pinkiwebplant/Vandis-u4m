@@ -1,66 +1,10 @@
 <!--
 templateType: global_partial
-label: Website footer
+label: Footer no navigation
 -->
 
-<footer class="footer">
+<footer class="footer lp-footer">
   <div class="container">
-    <div class="footer-top">
-      <div class="footer-top-inner">
-        <div class="footer-content">
-          <div class="footer-logo">
-            {% set logo_src = get_asset_url('./../images/Logo.png') %} {% module
-            "footer_logo" path="@hubspot/logo", label="Logo", link="/"
-            img={src="{{logo_src}}", width=209, override_inherited_src= true,
-            alt="Vandis"} %}
-          </div>
-          <div class="logo-btm-cnt">
-            {% module_block module "logo_content" path="@hubspot/rich_text",
-            label="Content" %} {% module_attribute "html" %}
-            <p>
-              Tailored security and networking guidance: Building a secure and
-              optimized network for your hybrid environment.
-            </p>
-            {% end_module_attribute %} {% end_module_block %}
-          </div>
-          <div class="footer-contact">
-            <div class="contact-address">
-              {% module_block module "contact_address"
-              path="@hubspot/rich_text", label="Contact Address" %} {%
-              module_attribute "html" %}
-              <p>
-                <strong>Corporate Office</strong><br />
-                1 Albertson Avenue<br />
-                Albertson, NY 11507
-              </p>
-              {% end_module_attribute %} {% end_module_block %}
-            </div>
-            <div class="contact-details">
-              {% module_block module "contact_details"
-              path="@hubspot/rich_text", label="Contact Details" %} {%
-              module_attribute "html" %}
-              <p>
-                <strong
-                  >Phone: <a href="tel:5162812200">(516) 281-2200</a></strong
-                >
-              </p>
-              <p><strong>Toll Free: (800) 397-3146</strong></p>
-              <p>
-                <strong>Fax: (516) 626-9003</strong>
-              </p>
-              {% end_module_attribute %} {% end_module_block %}
-            </div>
-          </div>
-        </div>
-        <div class="footer-menu">
-          <div class="footer-menu-inner">
-            {% menu "footer_menu" label="Menu", flyouts=false, id="187208826695"
-            %}
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="footer-bottom">
       <div class="footer-bottom-inner">
         <div class="copyright">

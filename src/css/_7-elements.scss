@@ -13,6 +13,9 @@ html.menu-open {
 html {
   display: block;
   opacity: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* make html visible after Firefox flash in hack */
@@ -418,7 +421,7 @@ code {
   border-radius: 0;
 }
 
-pre>code {
+pre > code {
   display: block;
   padding: 1rem 15rem;
   white-space: pre;
@@ -518,14 +521,7 @@ section[class*="u4m-"] {
 
 .reverse-text {
   .hs-button {
-    background-color: $white;
-    color: $Black;
-
-    &:hover,
-    &:focus {
-      background: rgba($White, 0.8);
-      color: $Black;
-    }
+    @include button;
   }
 
   .hs-arrow-btn {
@@ -551,19 +547,6 @@ section[class*="u4m-"] {
           fill: rgba($White, 0.8);
         }
       }
-    }
-  }
-
-  .hs-sec-btn {
-    border-color: $White;
-    color: $White;
-    background-color: transparent;
-
-    &:hover,
-    &:focus {
-      background: $White;
-      color: $Black;
-      border-color: $White;
     }
   }
 }
@@ -594,7 +577,7 @@ section[class*="u4m-"] {
   position: relative;
 }
 
-.bg_overlay~*:not(.bg_overlay) {
+.bg_overlay ~ *:not(.bg_overlay) {
   position: relative;
   z-index: 2;
 }
@@ -734,6 +717,117 @@ section[class*="u4m-"] {
   background-color: $white;
 }
 
+.itemgreen_bg {
+  background-color: $green !important;
+}
+
+.itemshakespeare_bg {
+  background-color: $Shakespeare !important;
+}
+
+.itemblack_bg {
+  background-color: $BlueCharcoal !important;
+}
+
+.itemlightblue_bg {
+  background-color: $lightblue !important;
+}
+
+.itemBlue_bg {
+  background-color: $Blue !important;
+}
+
+.itemorange_bg {
+  background-color: $orange !important;
+}
+
+.itemPurple_bg {
+  background-color: $purple !important;
+}
+
+.itemGray_bg {
+  background-color: $gray1 !important;
+}
+
+.itemlightgray_bg {
+  background-color: $gray2 !important;
+}
+
+.itemsolitudegray_bg {
+  background-color: $gray3 !important;
+}
+
+.itemdarkgray_bg {
+  background-color: $darkgray1 !important;
+}
+
+.itemshuttlegray_bg {
+  background-color: $darkgray2 !important;
+}
+
+.itembluishgray_bg {
+  background-color: $darkgray3 !important;
+}
+
+.itemWhite_bg {
+  background-color: $white !important;
+}
+
+.colorgreen_bg {
+  color: $green;
+}
+
+.colorshakespeare_bg {
+  color: $Shakespeare;
+}
+
+.colorblack_bg {
+  color: $BlueCharcoal;
+}
+
+.colorlightblue_bg {
+  color: $lightblue;
+}
+
+.colorBlue_bg {
+  color: $Blue;
+}
+
+.colororange_bg {
+  color: $orange;
+}
+
+.colorPurple_bg {
+  color: $purple;
+}
+
+.colorGray_bg {
+  color: $gray1;
+}
+
+.colorlightgray_bg {
+  color: $gray2;
+}
+
+.colorsolitudegray_bg {
+  color: $gray3;
+}
+
+.colordarkgray_bg {
+  color: $darkgray1;
+}
+
+.colorshuttlegray_bg {
+  color: $darkgray2;
+}
+
+.colorbluishgray_bg {
+  color: $darkgray3;
+}
+
+.colorWhite_bg {
+  color: $white;
+}
 .green_clr {
   box-shadow: 24px 24px 0px $green;
 
@@ -845,8 +939,6 @@ section[class*="u4m-"] {
     fill: $white;
   }
 }
-
-
 
 .left_items .green_clr {
   box-shadow: -24px 24px 0px $green;
@@ -960,26 +1052,63 @@ section[class*="u4m-"] {
   }
 }
 
-
-
 .CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemMeta,
 .CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5,
 .CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5 a,
+.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemDes,
 .CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .itemTags,
-.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .intro_btn_wrap .btn_item .hs-arrow-btn {
+.CardWrap
+  .cardItems.color
+  .cardItem
+  .itemInr
+  .itemCnWrap
+  .intro_btn_wrap
+  .btn_item
+  .hs-arrow-btn,
+.topCards.cardItems.color .cardItem .itemInr .itemCnWrap .itemMeta,
+.topCards.cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5,
+.topCards.cardItems.color .cardItem .itemInr .itemCnWrap .itemTitle h5 a,
+.topCards.cardItems.color .cardItem .itemInr .itemCnWrap .itemDes,
+.topCards.cardItems.color .cardItem .itemInr .itemCnWrap .itemTags,
+.topCards.cardItems.color
+  .cardItem
+  .itemInr
+  .itemCnWrap
+  .intro_btn_wrap
+  .btn_item
+  .hs-arrow-btn {
   color: inherit;
 }
 
-.CardWrap .cardItems.color .cardItem .itemInr .itemCnWrap .intro_btn_wrap .btn_item .hs-arrow-btn svg path {
+.CardWrap
+  .cardItems.color
+  .cardItem
+  .itemInr
+  .itemCnWrap
+  .intro_btn_wrap
+  .btn_item
+  .hs-arrow-btn
+  svg
+  path,
+.topCards.cardItems.color
+  .cardItem
+  .itemInr
+  .itemCnWrap
+  .intro_btn_wrap
+  .btn_item
+  .hs-arrow-btn
+  svg
+  path {
   fill: currentColor;
 }
 
 .innerContainer {
   position: relative;
+}
+.innerContainer.cornertrue {
   border-radius: $border3;
   overflow: hidden;
 }
-
 .topIntro .intro_content {
   max-width: 100%;
   padding: 0;
@@ -1038,4 +1167,29 @@ section[class*="u4m-"] {
 
 section.u4m-subscribe div.inner .left h3 {
   color: inherit;
+}
+
+.top_curved {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  min-height: 100px;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  top: 0;
+  background-size: cover;
+}
+.bt_curved {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  min-height: 150px;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  bottom: 0;
+  background-size: cover;
 }

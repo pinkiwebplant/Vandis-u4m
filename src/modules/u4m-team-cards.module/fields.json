@@ -13,7 +13,7 @@
     "display" : "checkbox",
     "type" : "boolean",
     "display_width" : null,
-    "default" : false
+    "default" : true
   }, {
     "id" : "5baff6ad-02e1-6b84-3429-260a0ded7ef6",
     "name" : "eyebrow_text",
@@ -43,7 +43,7 @@
     "display" : "checkbox",
     "type" : "boolean",
     "display_width" : null,
-    "default" : false
+    "default" : true
   }, {
     "id" : "aef5e961-e297-2654-68e0-6128687770bf",
     "name" : "heading_size",
@@ -65,7 +65,7 @@
     "preset" : null,
     "type" : "choice",
     "display_width" : null,
-    "default" : "h3"
+    "default" : "h2"
   }, {
     "id" : "c7aa6b72-58e0-4caa-9b63-4da765e70069",
     "name" : "heading",
@@ -85,7 +85,7 @@
     "show_emoji_picker" : false,
     "type" : "text",
     "display_width" : null,
-    "default" : "Heading"
+    "default" : "Team Cards"
   }, {
     "id" : "2f10bd6e-cf85-1cf6-5a4f-fa75e1e78238",
     "name" : "include_content",
@@ -95,7 +95,7 @@
     "display" : "checkbox",
     "type" : "boolean",
     "display_width" : null,
-    "default" : false
+    "default" : true
   }, {
     "id" : "0dc03814-a33d-3284-f2d6-b130f633f03d",
     "name" : "content",
@@ -112,7 +112,7 @@
     },
     "type" : "richtext",
     "display_width" : null,
-    "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>"
+    "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>"
   }, {
     "id" : "4a517c8a-8c15-a721-dca5-db7b58a8c2a7",
     "name" : "include_button",
@@ -133,7 +133,7 @@
       "min" : null,
       "max" : null,
       "sorting_label_field" : "43e0936c-b29a-7bd7-61e3-b4671077ba62",
-      "default" : 1
+      "default" : 2
     },
     "visibility" : {
       "controlling_field" : null,
@@ -178,7 +178,7 @@
       "preset" : null,
       "type" : "choice",
       "display_width" : null,
-      "default" : "hs-arrow-btn"
+      "default" : "hs-button"
     }, {
       "id" : "105bbd69-dccc-fd6b-3d3d-3f4063128744",
       "name" : "button_text",
@@ -250,7 +250,20 @@
     "display_width" : null,
     "default" : [ {
       "button_type" : "std",
-      "button_style" : "hs-arrow-btn",
+      "button_style" : "hs-button",
+      "button_text" : "Button",
+      "link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }, {
+      "button_type" : "std",
+      "button_style" : "hs-button",
       "button_text" : "Button",
       "link" : {
         "url" : {
@@ -269,17 +282,30 @@
   "type" : "group",
   "display_width" : null,
   "default" : {
-    "include_eyebrow_text" : false,
+    "include_eyebrow_text" : true,
     "eyebrow_text" : "EYEBROW TEXT",
-    "include_heading" : false,
-    "heading_size" : "h3",
-    "heading" : "Heading",
-    "include_content" : false,
-    "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>",
+    "include_heading" : true,
+    "heading_size" : "h2",
+    "heading" : "Team Cards",
+    "include_content" : true,
+    "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>",
     "include_button" : false,
     "button_group" : [ {
       "button_type" : "std",
-      "button_style" : "hs-arrow-btn",
+      "button_style" : "hs-button",
+      "button_text" : "Button",
+      "link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }, {
+      "button_type" : "std",
+      "button_style" : "hs-button",
       "button_text" : "Button",
       "link" : {
         "url" : {
@@ -293,41 +319,543 @@
     } ]
   }
 }, {
-  "id" : "b560dc8f-d252-9366-edc5-eb683c15e9b4",
-  "name" : "events",
-  "label" : "Events",
+  "id" : "4d0023f7-ee5d-4d07-f537-af168ca2578b",
+  "name" : "cards",
+  "label" : "Cards",
   "required" : false,
   "locked" : false,
+  "occurrence" : {
+    "min" : null,
+    "max" : null,
+    "sorting_label_field" : null,
+    "default" : 6
+  },
   "children" : [ {
-    "id" : "dd98ac92-79d3-a65a-1c59-5d8cdbff7456",
-    "name" : "select_hubdb_table",
-    "label" : "Select Hubdb table",
+    "id" : "fb5a3d2a-fa56-3217-fcba-3ccecefd90c5",
+    "name" : "author_image",
+    "label" : "Author Image",
     "required" : false,
     "locked" : false,
-    "type" : "hubdbtable",
+    "responsive" : true,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
     "display_width" : null,
-    "default" : 111777943
+    "default" : {
+      "src" : ""
+    }
   }, {
-    "id" : "a3f66ce6-7855-33a4-263b-d9ff08426629",
-    "name" : "count",
-    "label" : "Count",
+    "id" : "d5761819-5d04-0ac2-0a36-16942e56792d",
+    "name" : "first_name",
+    "label" : "First Name",
     "required" : false,
     "locked" : false,
-    "display" : "text",
-    "step" : 1,
-    "type" : "number",
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
     "display_width" : null,
-    "default" : 4
+    "default" : "First Name"
+  }, {
+    "id" : "31ddc776-0dd7-5465-0a2e-37f001b5116f",
+    "name" : "last_name",
+    "label" : "Last Name",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Last Name"
+  }, {
+    "id" : "010167d1-9204-648f-a51a-d697570c89dc",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Position Title Goes Here"
+  }, {
+    "id" : "f3038e65-1c53-fe38-f442-4c1cc4397ef0",
+    "name" : "bio_excerpt",
+    "label" : "Bio excerpt",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  }, {
+    "id" : "9c5a25df-e9a2-57b3-3faf-02dc80189af1",
+    "name" : "enable_full_bio",
+    "label" : "Enable Full Bio",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : true
+  }, {
+    "id" : "e19d6b0b-a871-c6a9-9a13-4ea530bbb20c",
+    "name" : "bio_text",
+    "label" : "Bio Text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "cards.enable_full_bio",
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "View Bio"
+  }, {
+    "id" : "197ee56e-872f-4157-7f60-7b949ce8e129",
+    "name" : "enable_social_share",
+    "label" : "Enable Social Share",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : true
+  }, {
+    "id" : "87628df6-bc1d-3deb-a601-54d693afebc9",
+    "name" : "social_items",
+    "label" : "Social Items",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : 2
+    },
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "cards.enable_social_share",
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "children" : [ {
+      "id" : "4800ff5e-b172-7b72-c0f4-b1632955ab7e",
+      "name" : "select_icon_type",
+      "label" : "Select Icon Type",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "img", "Image" ], [ "icon", "Icon" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "icon"
+    }, {
+      "id" : "484cf7db-e86f-ba0a-85e0-2cd808a25336",
+      "name" : "image",
+      "label" : "Image",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "cards.social_items.select_icon_type",
+        "controlling_value_regex" : "img",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "responsive" : true,
+      "resizable" : false,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      }
+    }, {
+      "id" : "0c249299-6337-bdfd-f43f-9c89b192897b",
+      "name" : "icon",
+      "label" : "Icon",
+      "required" : false,
+      "locked" : false,
+      "icon_set" : "fontawesome-6.4.2",
+      "type" : "icon",
+      "display_width" : null,
+      "default" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      }
+    }, {
+      "id" : "63b221ef-0221-1764-b405-d147e93afe29",
+      "name" : "link",
+      "label" : "Link",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "https://x.com/"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
   "type" : "group",
   "display_width" : null,
-  "default" : {
-    "select_hubdb_table" : 111777943,
-    "count" : 4
-  }
+  "default" : [ {
+    "author_image" : {
+      "src" : ""
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
+  }, {
+    "author_image" : {
+      "src" : ""
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
+  }, {
+    "author_image" : {
+      "src" : ""
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
+  }, {
+    "author_image" : {
+      "src" : ""
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
+  }, {
+    "author_image" : {
+      "src" : ""
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
+  }, {
+    "author_image" : {
+      "src" : ""
+    },
+    "first_name" : "First Name",
+    "last_name" : "Last Name",
+    "title" : "Position Title Goes Here",
+    "bio_excerpt" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+    "enable_full_bio" : true,
+    "bio_text" : "View Bio",
+    "enable_social_share" : true,
+    "social_items" : [ {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    }, {
+      "select_icon_type" : "icon",
+      "image" : {
+        "size_type" : "auto",
+        "src" : "https://23543895.fs1.hubspotusercontent-na1.net/hubfs/23543895/Vandis-u4m/images/X-icon.svg",
+        "alt" : "X Icon",
+        "loading" : "lazy",
+        "width" : 20,
+        "height" : 19,
+        "max_width" : 20,
+        "max_height" : 19
+      },
+      "icon" : {
+        "name" : "X Twitter",
+        "unicode" : "e61b",
+        "type" : "REGULAR"
+      },
+      "link" : "https://x.com/"
+    } ]
+  } ]
 }, {
   "id" : "fbc58b2b-b6db-82a2-8422-e7f6861ce34b",
   "name" : "module_settings",
@@ -361,28 +889,68 @@
     "type" : "number",
     "display_width" : null
   }, {
-    "id" : "7ed13921-8027-5e67-f322-62f000e02df4",
-    "name" : "card_background_color",
-    "label" : "Card Background Color",
+    "id" : "8ec40873-1096-cddf-22c8-586883cb4d71",
+    "name" : "cards_settings",
+    "label" : "Cards Settings",
     "required" : false,
     "locked" : false,
-    "type" : "color",
+    "children" : [ {
+      "id" : "212a9d9d-a933-4372-d922-c612af13449b",
+      "name" : "select_bg_color",
+      "label" : "Select Background Color",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "green_bg", "Green" ], [ "shakespeare_bg", "Shakespeare" ], [ "black_bg", "Black" ], [ "Blue_bg", "Blue" ], [ "lightblue_bg", "LightBlue" ], [ "orange_bg", "Orange" ], [ "Purple_bg", "Purple" ], [ "Gray_bg", "Gray" ], [ "lightgray_bg", "Light Gray" ], [ "solitudegray_bg", "Solitude Gray" ], [ "darkgray_bg", "Dark Gray" ], [ "shuttlegray_bg", "Shuttle Grey" ], [ "bluishgray_bg", "Bluish Gray" ], [ "White_bg", "White" ], [ "custom", "Custom" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "White_bg"
+    }, {
+      "id" : "f676e53a-dc88-6d6c-0ab4-f09aaa81384e",
+      "name" : "color",
+      "label" : "Custom Background Color",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "module_settings.cards_settings.select_bg_color",
+        "controlling_value_regex" : "custom",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "3f507ca2-6d6a-770e-831f-accc2b3625f2",
+      "name" : "dark_theme",
+      "label" : "Dark Theme",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : false
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
     "display_width" : null,
     "default" : {
-      "color" : null,
-      "opacity" : null
-    }
-  }, {
-    "id" : "acb1e454-9bbc-33d7-ff9e-1344d9bdab56",
-    "name" : "card_content_color",
-    "label" : "Card Content Color",
-    "required" : false,
-    "locked" : false,
-    "type" : "color",
-    "display_width" : null,
-    "default" : {
-      "color" : null,
-      "opacity" : null
+      "select_bg_color" : "White_bg",
+      "color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "dark_theme" : false
     }
   } ],
   "tab" : "CONTENT",
@@ -392,13 +960,13 @@
   "display_width" : null,
   "default" : {
     "intro_content_alignment" : "center",
-    "card_background_color" : {
-      "color" : null,
-      "opacity" : null
-    },
-    "card_content_color" : {
-      "color" : null,
-      "opacity" : null
+    "cards_settings" : {
+      "select_bg_color" : "White_bg",
+      "color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "dark_theme" : false
     }
   }
 }, {
@@ -692,17 +1260,7 @@
       "operator" : "EQUAL",
       "access" : null
     },
-    "children" : [{
-      "id" : "da9c71c7-0717-0a1c-d12e-951ad1b54897",
-      "name" : "apply_corner_radius",
-      "label" : "Apply Corner Radius",
-      "required" : false,
-      "locked" : false,
-      "display" : "checkbox",
-      "display_width" : null,
-      "type" : "boolean",
-      "default" : false
-    },  {
+    "children" : [ {
       "id" : "48d33633-bcd1-f95d-02ce-284a60606bf3",
       "name" : "top_padding",
       "label" : "Top Padding",

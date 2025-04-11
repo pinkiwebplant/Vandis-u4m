@@ -1,6 +1,7 @@
 @import "../../css/_module-imports";
 
 .u4m-top-tabber {
+  padding-top: 120px;
   .page-center {
     .innerContainer {
       .intro_content {
@@ -44,7 +45,7 @@
               justify-content: center;
               width: 100%;
               @include tabletvert {
-                margin-bottom: 20px;
+                margin-bottom: 0;
               }
               .tab_txt {
                 padding: 20px 28px;
@@ -58,15 +59,27 @@
                 align-items: center;
                 width: 100%;
                 justify-content: center;
-                h5 {
+                &:hover {
+                  color: $green;
+                }
+                span {
+                  @include h5;
                   margin-bottom: 0;
                   color: $action1;
+                }
+                &:hover {
+                  span {
+                    color: $green;
+                  }
                 }
               }
             }
             .tab_ttl.slick-current {
               .tab_txt {
                 background-color: $gray3;
+                span {
+                  color: $action1;
+                }
               }
             }
           }
@@ -74,6 +87,7 @@
         .tabber_cnt {
           @include tabletvert {
             display: none;
+            overflow: hidden;
           }
           .tabber_cnt_inr {
             padding: 60px;
@@ -84,15 +98,21 @@
             }
             @include tabletvert {
               padding: 40px;
+              margin-top: 20px;
             }
             @include phone {
               padding: 20px;
             }
             .tab-cnt-inner {
               max-width: 700px;
+              color: $action2;
+              h3 {
+                color: $action1;
+              }
               a.hs-arrow-btn {
                 margin-top: 0;
                 margin-bottom: 0;
+                color: $action1;
               }
               .tab_btn_wrap {
                 margin-top: 40px;
@@ -111,13 +131,13 @@
                   justify-content: space-between;
                   .tab-card-item {
                     max-width: 272px;
-                    width: 23%;
+                    width: calc((100% - 72px) / 4);
                     &.two-col {
-                      width: calc(50% - 24px);
+                      width: calc((100% - 24px) / 2);
                       max-width: 100%;
                     }
                     &.three-col {
-                      width: calc(33.333% - 24px);
+                      width: calc((100% - 48px) / 3);
                       max-width: 100%;
                       @include navbreak {
                         width: calc(50% - 24px);
@@ -143,6 +163,9 @@
                       height: 100%;
                       display: flex;
                       flex-direction: column;
+                      h5 {
+                        color: $action1;
+                      }
                       .tab-icon {
                         margin-bottom: 24px;
                         .tab-icon-inner {
@@ -170,11 +193,15 @@
                           }
                         }
                       }
+                      .tab-card-cnt-inn {
+                        color: $action2;
+                      }
                       .card_btn_wrap {
                         margin-top: auto;
                         .btn_item {
                           a.hs-arrow-btn {
                             margin: 0;
+                            color: $action1;
                           }
                         }
                       }
@@ -188,6 +215,49 @@
       }
       .tabber_inr.mobile_tab {
         display: none;
+        .tabs {
+          .tab {
+            .tab_ttl {
+              .tab_txt {
+                align-items: center;
+                cursor: pointer;
+                display: flex;
+                gap: 8px;
+                justify-content: space-between;
+                @include h5;
+                color: $action2;
+                margin: 0;
+                .plus {
+                  display: flex;
+                }
+                &:hover {
+                  color: $action2;
+                }
+              }
+            }
+            .tab_acc_item {
+              &.active {
+                .tab_txt {
+                  color: $white;
+                  background-color: $lightblue;
+                  &:hover {
+                    color: $white;
+                  }
+                  .plus {
+                    transform: rotate(180deg);
+                    svg {
+                      path {
+                        fill: $white;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .tab_acc_item {
+        }
         @include tabletvert {
           display: block;
         }

@@ -464,6 +464,17 @@
       "no_follow" : false
     }
   }, {
+    "id" : "db6037e1-8caf-0ee4-50d1-cc7fc3399caf",
+    "name" : "link_text",
+    "label" : "Link Text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null
+  }, {
     "id" : "45d7d097-db3c-7a6a-7d2d-0fa936e88669",
     "name" : "icon_settings",
     "label" : "Icon Settings",
@@ -501,6 +512,26 @@
         "color" : null,
         "opacity" : null
       }
+    }, {
+      "id" : "e1ed10d5-7548-8ff6-b3dd-c0f8cbb559e8",
+      "name" : "border_color",
+      "label" : "Border Color",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "module_settings.select_content_type",
+        "controlling_value_regex" : "type_two",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
     } ],
     "tab" : "CONTENT",
     "expanded" : false,
@@ -515,6 +546,10 @@
       "color" : {
         "color" : null,
         "opacity" : null
+      },
+      "border_color" : {
+        "color" : null,
+        "opacity" : null
       }
     }
   } ],
@@ -524,6 +559,117 @@
   "type" : "group",
   "display_width" : null,
   "default" : [ {
+    "icon_field" : { },
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "image_area" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "include_eyebrow_text" : false,
+    "eyebrow_text" : "EYEBROW TEXT",
+    "heading" : "Focus on strategic objectives and less on management",
+    "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+    "link_field" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "icon_settings" : {
+      "background_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "color" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }
+  }, {
+    "icon_field" : { },
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "image_area" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "include_eyebrow_text" : false,
+    "eyebrow_text" : "EYEBROW TEXT",
+    "heading" : "Focus on strategic objectives and less on management",
+    "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+    "link_field" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "icon_settings" : {
+      "background_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "color" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }
+  }, {
+    "icon_field" : { },
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "image_area" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "include_eyebrow_text" : false,
+    "eyebrow_text" : "EYEBROW TEXT",
+    "heading" : "Focus on strategic objectives and less on management",
+    "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+    "link_field" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "icon_settings" : {
+      "background_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "color" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }
+  }, {
     "icon_field" : { },
     "image" : {
       "size_type" : "auto",
@@ -613,6 +759,14 @@
     "label" : "Cards Per Row",
     "required" : false,
     "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "module_settings.select_content_type",
+      "controlling_value_regex" : "type_one|type_three",
+      "property" : null,
+      "operator" : "MATCHES_REGEX",
+      "access" : null
+    },
     "display" : "select",
     "choices" : [ [ "two", "Two" ], [ "three", "Three" ], [ "four", "Four" ] ],
     "multiple" : false,
@@ -628,11 +782,33 @@
     "required" : false,
     "locked" : false,
     "children" : [ {
-      "id" : "da0febf3-a9a2-2acb-3f92-57425671a198",
-      "name" : "background_color",
+      "id" : "34ab7913-89f2-227f-8274-f4a981955f1f",
+      "name" : "bg_color",
       "label" : "Background Color",
       "required" : false,
       "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "green_bg", "Green" ], [ "shakespeare_bg", "Shakespeare" ], [ "black_bg", "Black" ], [ "Blue_bg", "Blue" ], [ "lightblue_bg", "LightBlue" ], [ "orange_bg", "Orange" ], [ "Purple_bg", "Purple" ], [ "Gray_bg", "Gray" ], [ "lightgray_bg", "Light Gray" ], [ "solitudegray_bg", "Solitude Gray" ], [ "darkgray_bg", "Dark Gray" ], [ "shuttlegray_bg", "Shuttle Grey" ], [ "bluishgray_bg", "Bluish Gray" ], [ "White_bg", "White" ], [ "custom", "Custom" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : ""
+    }, {
+      "id" : "da0febf3-a9a2-2acb-3f92-57425671a198",
+      "name" : "background_color",
+      "label" : "Custom Background Color",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "module_settings.cards_style.bg_color",
+        "controlling_value_regex" : "custom",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
       "type" : "color",
       "display_width" : null,
       "default" : {
@@ -640,11 +816,33 @@
         "opacity" : null
       }
     }, {
-      "id" : "0694192b-a1ca-f8f8-2b58-74fdc73a91fe",
+      "id" : "a8ae41f7-43e3-df62-d6d9-1ccb57f464e9",
       "name" : "content_color",
       "label" : "Content Color",
       "required" : false,
       "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "green_bg", "Green" ], [ "shakespeare_bg", "Shakespeare" ], [ "black_bg", "Black" ], [ "Blue_bg", "Blue" ], [ "lightblue_bg", "LightBlue" ], [ "orange_bg", "Orange" ], [ "Purple_bg", "Purple" ], [ "Gray_bg", "Gray" ], [ "lightgray_bg", "Light Gray" ], [ "solitudegray_bg", "Solitude Gray" ], [ "darkgray_bg", "Dark Gray" ], [ "shuttlegray_bg", "Shuttle Grey" ], [ "bluishgray_bg", "Bluish Gray" ], [ "White_bg", "White" ], [ "custom", "Custom" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : ""
+    }, {
+      "id" : "0694192b-a1ca-f8f8-2b58-74fdc73a91fe",
+      "name" : "custom_content_color",
+      "label" : "Custom Content Color",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "module_settings.cards_style.content_color",
+        "controlling_value_regex" : "custom",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
       "type" : "color",
       "display_width" : null,
       "default" : {
@@ -658,11 +856,13 @@
     "type" : "group",
     "display_width" : null,
     "default" : {
+      "bg_color" : "",
       "background_color" : {
         "color" : null,
         "opacity" : null
       },
-      "content_color" : {
+      "content_color" : "",
+      "custom_content_color" : {
         "color" : null,
         "opacity" : null
       }
@@ -678,11 +878,13 @@
     "select_content_type" : "type_one",
     "cards_per_row" : "four",
     "cards_style" : {
+      "bg_color" : "",
       "background_color" : {
         "color" : null,
         "opacity" : null
       },
-      "content_color" : {
+      "content_color" : "",
+      "custom_content_color" : {
         "color" : null,
         "opacity" : null
       }
@@ -980,6 +1182,16 @@
       "access" : null
     },
     "children" : [ {
+      "id" : "da9c71c7-0717-0a1c-d12e-951ad1b54897",
+      "name" : "apply_corner_radius",
+      "label" : "Apply Corner Radius",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : false
+    }, {
       "id" : "48d33633-bcd1-f95d-02ce-284a60606bf3",
       "name" : "top_padding",
       "label" : "Top Padding",
@@ -1384,6 +1596,7 @@
     "type" : "group",
     "display_width" : null,
     "default" : {
+      "apply_corner_radius" : false,
       "top_padding" : 0,
       "right_padding" : 0,
       "bottom_padding" : 0,
@@ -1718,6 +1931,26 @@
       "type" : "choice",
       "display_width" : null,
       "default" : "center center"
+    }, {
+      "id" : "0412643c-1db9-1712-5e5d-5817e5ed0358",
+      "name" : "add_top_curve",
+      "label" : "Add Top Curve",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : true
+    }, {
+      "id" : "431a7450-cfab-c87a-6cf2-38553a3d9fb1",
+      "name" : "add_bottom_curve",
+      "label" : "Add Bottom Curve",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : true
     } ],
     "tab" : "CONTENT",
     "expanded" : true,
@@ -1755,7 +1988,9 @@
           "opacity" : null
         }
       },
-      "background_image_position" : "center center"
+      "background_image_position" : "center center",
+      "add_top_curve" : true,
+      "add_bottom_curve" : true
     }
   }, {
     "id" : "fc248331-90d9-cb7e-66f6-4b85de179aa9",
@@ -1819,6 +2054,7 @@
     "custom_bottom_padding" : 100,
     "custom_bottom_padding_mobile" : 50,
     "inner_container_spacing_group" : {
+      "apply_corner_radius" : false,
       "top_padding" : 0,
       "right_padding" : 0,
       "bottom_padding" : 0,
@@ -1893,7 +2129,9 @@
           "opacity" : null
         }
       },
-      "background_image_position" : "center center"
+      "background_image_position" : "center center",
+      "add_top_curve" : true,
+      "add_bottom_curve" : true
     },
     "container_size" : "theme",
     "custom_container_size" : 870

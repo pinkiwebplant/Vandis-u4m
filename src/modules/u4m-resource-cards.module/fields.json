@@ -305,7 +305,7 @@
     "required" : false,
     "locked" : false,
     "display" : "select",
-    "choices" : [ [ "recent", "Recent" ], [ "category", "Category" ], [ "postbytitle", "Post by Title" ] ],
+    "choices" : [ [ "recent", "Recent Posts" ], [ "category", "Post by Category" ], [ "postbytitle", "Post by Title" ] ],
     "multiple" : false,
     "reordering_enabled" : true,
     "preset" : null,
@@ -328,14 +328,13 @@
     },
     "type" : "hubdbtable",
     "display_width" : null,
-    "default" : 105234052
+    "default" : 112216248
   }, {
-    "id" : "5feadd94-183f-9322-6bb7-a30f84007206",
-    "name" : "category_name",
-    "label" : "Category Name",
+    "id" : "35113907-b709-08ce-b065-a7e9b36062bd",
+    "name" : "select_category",
+    "label" : "Select Category",
     "required" : false,
     "locked" : false,
-    "validation_regex" : "",
     "visibility" : {
       "controlling_field" : null,
       "controlling_field_path" : "resource.resource_type",
@@ -344,9 +343,12 @@
       "operator" : "EQUAL",
       "access" : null
     },
-    "allow_new_line" : false,
-    "show_emoji_picker" : false,
-    "type" : "text",
+    "display" : "select",
+    "choices" : [ [ "business", "Business" ], [ "technology", "Technology" ], [ "sports", "Sports" ], [ "automotive", "Automotive" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
     "display_width" : null
   }, {
     "id" : "510aaf58-0fca-bf2d-ac4d-01d7a1aa1a16",
@@ -393,7 +395,7 @@
       "label" : "Select Row",
       "required" : false,
       "locked" : false,
-      "table_name_or_id" : "105234052",
+      "table_name_or_id" : "112216248",
       "columns_to_fetch" : [ "image", "featured", "name", "link", "topic", "description", "type", "read_more_text" ],
       "display_columns" : [ "name" ],
       "type" : "hubdbrow",
@@ -416,7 +418,7 @@
   "display_width" : null,
   "default" : {
     "resource_type" : "recent",
-    "resource_table" : 105234052,
+    "resource_table" : 112216248,
     "count" : 3,
     "resources_items" : [ ]
   }
@@ -784,7 +786,17 @@
       "operator" : "EQUAL",
       "access" : null
     },
-    "children" : [ {
+    "children" : [{
+      "id" : "da9c71c7-0717-0a1c-d12e-951ad1b54897",
+      "name" : "apply_corner_radius",
+      "label" : "Apply Corner Radius",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "display_width" : null,
+      "type" : "boolean",
+      "default" : false
+    },  {
       "id" : "48d33633-bcd1-f95d-02ce-284a60606bf3",
       "name" : "top_padding",
       "label" : "Top Padding",

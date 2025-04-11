@@ -314,6 +314,15 @@
   border-radius: $border3;
   overflow: hidden;
   height: 100%;
+  transition: all 0.2s;
+  position: relative;
+  &:hover {
+    box-shadow: $shadow2;
+    transform: translateY(-10px);
+  }
+  .itemImg a {
+    display: block;
+  }
   .itemImgin {
     min-height: 225px;
     display: block;
@@ -324,16 +333,28 @@
   .itemCnWrap {
     background: $white;
     padding: 40rem 24rem;
-    height: 100%;
+    height: calc(100% - 170px);
+    display: flex;
+    flex-direction: column;
+    .intro_btn_wrap {
+      margin-top: auto;
+    }
     .itemMeta {
       @include b5;
       margin-bottom: 16rem;
+      .itemDate {
+        text-transform: uppercase;
+      }
     }
     .itemTitle {
       margin-bottom: 24rem;
     }
+    .itemDes {
+      color: $action1;
+    }
     .itemTags {
       @include eyebrow;
+      padding: 8px 12px;
       background-color: rgba($lightblue, 0.1);
       margin-bottom: 0;
       a {

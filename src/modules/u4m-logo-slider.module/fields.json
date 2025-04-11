@@ -331,7 +331,7 @@
     "required" : false,
     "locked" : false,
     "display" : "select",
-    "choices" : [ [ "stnd", "Standard" ], [ "recent", "Recent" ], [ "category", "Category" ], [ "individual", "Individual" ] ],
+    "choices" : [ [ "stnd", "Manual logos" ], [ "recent", "All logos" ], [ "category", "Logos by Category" ], [ "individual", "Individual" ] ],
     "multiple" : false,
     "reordering_enabled" : true,
     "preset" : null,
@@ -354,7 +354,7 @@
     },
     "type" : "hubdbtable",
     "display_width" : null,
-    "default" : 111617698
+    "default" : 112216243
   }, {
     "id" : "819cffc9-5851-6027-d85b-01c4684c5eac",
     "name" : "count",
@@ -375,12 +375,11 @@
     "display_width" : null,
     "default" : 10
   }, {
-    "id" : "cfdf9fcb-de42-7b88-4efb-36623abc6f22",
-    "name" : "category_name",
-    "label" : "Category Name",
+    "id" : "345e4e82-0198-7a59-9dbf-70992d342878",
+    "name" : "select_category",
+    "label" : "Select Category",
     "required" : false,
     "locked" : false,
-    "validation_regex" : "",
     "visibility" : {
       "controlling_field" : null,
       "controlling_field_path" : "logo_slider.slider_type",
@@ -389,11 +388,14 @@
       "operator" : "EQUAL",
       "access" : null
     },
-    "allow_new_line" : false,
-    "show_emoji_picker" : false,
-    "type" : "text",
+    "display" : "select",
+    "choices" : [ [ "tag", "Tag" ], [ "tag1", "Tag1" ], [ "tag2", "Tag2" ], [ "tag3", "Tag3" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
     "display_width" : null,
-    "default" : "cloud"
+    "default" : ""
   }, {
     "id" : "809faf89-e6de-445b-140e-9f642a2c63e6",
     "name" : "add_logos",
@@ -420,9 +422,9 @@
       "label" : "Select Logo",
       "required" : false,
       "locked" : false,
-      "table_name_or_id" : "111617698",
-      "columns_to_fetch" : [ "logo", "title", "category", "url" ],
-      "display_columns" : [ "logo" ],
+      "table_name_or_id" : "112216243",
+      "columns_to_fetch" : [ "name", "topic", "type", "logos" ],
+      "display_columns" : [ "logos" ],
       "type" : "hubdbrow",
       "display_width" : null,
       "default" : {
@@ -506,9 +508,9 @@
   "display_width" : null,
   "default" : {
     "slider_type" : "stnd",
-    "select_hubdb_table" : 111617698,
+    "select_hubdb_table" : 112216243,
     "count" : 10,
-    "category_name" : "cloud",
+    "select_category" : "",
     "add_logos" : [ ],
     "logo_items" : [ ]
   }
@@ -1031,7 +1033,17 @@
       "operator" : "EQUAL",
       "access" : null
     },
-    "children" : [ {
+    "children" : [{
+      "id" : "da9c71c7-0717-0a1c-d12e-951ad1b54897",
+      "name" : "apply_corner_radius",
+      "label" : "Apply Corner Radius",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "display_width" : null,
+      "type" : "boolean",
+      "default" : false
+    },  {
       "id" : "48d33633-bcd1-f95d-02ce-284a60606bf3",
       "name" : "top_padding",
       "label" : "Top Padding",

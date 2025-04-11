@@ -328,7 +328,7 @@
     "min" : null,
     "max" : null,
     "sorting_label_field" : "d83b06f3-749c-8484-18e0-f8aee2fd26a3",
-    "default" : 1
+    "default" : 3
   },
   "children" : [ {
     "id" : "d83b06f3-749c-8484-18e0-f8aee2fd26a3",
@@ -504,7 +504,7 @@
         "min" : null,
         "max" : 4,
         "sorting_label_field" : "0d120489-c303-e841-4f52-11cd2dba5709",
-        "default" : 1
+        "default" : 4
       },
       "children" : [ {
         "id" : "963fad79-630e-665f-c154-36896df1e08e",
@@ -786,8 +786,113 @@
             "no_follow" : false
           }
         },
-        "field_group" : {
-          "icon_background_color" : {
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
             "color" : "#E75625",
             "opacity" : 15
           },
@@ -859,8 +964,113 @@
             "no_follow" : false
           }
         },
-        "field_group" : {
-          "icon_background_color" : {
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
             "color" : "#E75625",
             "opacity" : 15
           },
@@ -922,8 +1132,437 @@
             "no_follow" : false
           }
         },
-        "field_group" : {
-          "icon_background_color" : {
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      } ],
+      "number_of_items" : "four-col"
+    }
+  }, {
+    "tab" : "Cloud Architecture",
+    "tab_content" : {
+      "heading" : "This is a Headline for this Specific Selected Tab",
+      "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+      "button_group" : {
+        "button_type" : "std",
+        "button_style" : "hs-arrow-btn",
+        "button_text" : "Tertiary Button",
+        "link" : {
+          "url" : {
+            "content_id" : null,
+            "type" : "EXTERNAL",
+            "href" : ""
+          },
+          "open_in_new_tab" : false,
+          "no_follow" : false
+        }
+      },
+      "card_items" : [ {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      } ],
+      "number_of_items" : "four-col"
+    }
+  }, {
+    "tab" : "Cloud Architecture",
+    "tab_content" : {
+      "heading" : "This is a Headline for this Specific Selected Tab",
+      "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+      "button_group" : {
+        "button_type" : "std",
+        "button_style" : "hs-arrow-btn",
+        "button_text" : "Tertiary Button",
+        "link" : {
+          "url" : {
+            "content_id" : null,
+            "type" : "EXTERNAL",
+            "href" : ""
+          },
+          "open_in_new_tab" : false,
+          "no_follow" : false
+        }
+      },
+      "card_items" : [ {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
+            "color" : "#E75625",
+            "opacity" : 15
+          },
+          "color" : {
+            "color" : "#E75625",
+            "opacity" : 100
+          }
+        }
+      }, {
+        "select_icon_type" : "img",
+        "icon_field" : { },
+        "image_field" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "heading" : "Important Thing We Want People To Know About CA ",
+        "content" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>",
+        "button_group" : {
+          "button_type" : "std",
+          "button_style" : "hs-arrow-btn",
+          "button_text" : "Optional Link",
+          "link" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        },
+        "icon_settings" : {
+          "background_color" : {
             "color" : "#E75625",
             "opacity" : 15
           },
@@ -983,7 +1622,7 @@
       "type" : "color",
       "display_width" : null,
       "default" : {
-       "color" : null,
+        "color" : null,
         "opacity" : null
       }
     }, {
@@ -1052,8 +1691,8 @@
     "display_width" : null,
     "default" : {
       "tab_content_background_color" : {
-        "color" : "#B5BFCD",
-        "opacity" : 100
+        "color" : null,
+        "opacity" : null
       },
       "content_color" : {
         "color" : null,
@@ -1080,8 +1719,8 @@
     "intro_content_alignment" : "center",
     "tabber_custom_style" : {
       "tab_content_background_color" : {
-        "color" : "#B5BFCD",
-        "opacity" : 100
+        "color" : null,
+        "opacity" : null
       },
       "content_color" : {
         "color" : null,

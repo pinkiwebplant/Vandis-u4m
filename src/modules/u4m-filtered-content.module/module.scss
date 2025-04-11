@@ -1,9 +1,12 @@
 @import "../../css/_module-imports";
-.u4m-events {
+.u4m-filtered-content {
   &.reverse-text .cardItem .hs-arrow-btn {
     @include arrowbutton;
   }
-  .CardWrap {
+  .topCards.cardItems {
+    .topcard .cmCol3.cardItem {
+      margin: 0 auto;
+    }
     @include tabletvertMin {
       .topcard {
         width: 100%;
@@ -32,7 +35,36 @@
         width: 100%;
       }
     }
-
+  }
+  .filtersDrop {
+    form.filterform {
+      display: flex;
+      flex-wrap: wrap;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      max-width: 100%;
+      justify-content: center;
+      margin: 40px 0;
+      gap: 20px;
+      fieldset {
+        border: 0;
+        padding: 0;
+        @include phone {
+          width: 100%;
+        }
+        select.hs-input {
+          margin: 0;
+          width: 330px;
+          cursor: pointer;
+          @include phone {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .cardItems {
     .cardItem {
       @include tabletMin {
         width: calc(25% - 18px);
@@ -47,19 +79,19 @@
           .itemTags {
             margin-bottom: 16rem;
           }
-          .btn_item a {
+          .intro_btn_wrap a {
             margin-bottom: 0;
           }
         }
       }
     }
-    .cardItems {
-      @include tablet {
-        justify-content: center;
-      }
-      .cmCol3.cardItem {
-        width: 302px;
-      }
+  }
+  .cardItems {
+    @include tablet {
+      justify-content: center;
+    }
+    .cmCol3.cardItem {
+      width: 302px;
     }
   }
   .pagination {

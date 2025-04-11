@@ -803,11 +803,11 @@
     "children" : [ {
       "id" : "efdfe781-55bf-0b96-c788-8c6222d62cf2",
       "name" : "select_color",
-      "label" : "Select Color",
+      "label" : "Select Shadow Color",
       "required" : false,
       "locked" : false,
       "display" : "select",
-      "choices" : [ [ "green_clr", "Green" ], [ "shakespeare_clr", "Shakespeare" ], [ "black_clr", "Black" ], [ "Blue_clr", "Blue" ], [ "lightblue_clr", "LightBlue" ], [ "orange_clr", "Orange" ], [ "Purple_clr", "Purple" ], [ "Gray_clr", "Gray" ], [ "lightgray_clr", "Light Gray" ], [ "solitudegray_clr", "Solitude Gray" ], [ "darkgray_clr", "Dark Gray" ], [ "shuttlegray_clr", "Shuttle Grey" ], [ "bluishgray_clr", "Bluish Gray" ], [ "White_clr", "White" ], [ "custom", "Custom" ] ],
+      "choices" : [ [ "green_clr", "Green (#6bc077)" ], [ "shakespeare_clr", "Shakespeare (#568fb3)" ], [ "black_clr", "Black (#272a31)" ], [ "Blue_clr", "Blue (#003462)" ], [ "lightblue_clr", "LightBlue (#4c8bb1)" ], [ "orange_clr", "Orange (#e95d2c)" ], [ "Purple_clr", "Purple (#9b68cd)" ], [ "Gray_clr", "Gray (#ecf1f6)" ], [ "lightgray_clr", "Light Gray (#dee5ee)" ], [ "solitudegray_clr", "Solitude Gray (#b5bfcd)" ], [ "darkgray_clr", "Dark Gray (#8993a1)" ], [ "shuttlegray_clr", "Shuttle Grey (#59616d)" ], [ "bluishgray_clr", "Bluish Gray (#353c44)" ], [ "White_clr", "White (#FFFFFF)" ], [ "custom", "Custom" ] ],
       "multiple" : false,
       "reordering_enabled" : true,
       "preset" : null,
@@ -848,6 +848,16 @@
       "type" : "choice",
       "display_width" : null,
       "default" : "right"
+    }, {
+      "id" : "47f60c28-ba4c-92f9-3292-be6cd4bda313",
+      "name" : "add_corner_shadow",
+      "label" : "Add Corner Shadow",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : true
     } ],
     "tab" : "CONTENT",
     "expanded" : false,
@@ -860,7 +870,8 @@
         "color" : "#052A50",
         "opacity" : 100
       },
-      "media_alignment" : "right"
+      "media_alignment" : "right",
+      "add_corner_shadow" : true
     }
   }, {
     "id" : "f4dfb95f-f50f-f1f2-bb61-bbf408efc177",
@@ -902,7 +913,8 @@
         "color" : "#052A50",
         "opacity" : 100
       },
-      "media_alignment" : "right"
+      "media_alignment" : "right",
+      "add_corner_shadow" : true
     },
     "intro_content_alignment" : "center",
     "intro_content_width" : 700
@@ -1199,6 +1211,16 @@
       "access" : null
     },
     "children" : [ {
+      "id" : "da9c71c7-0717-0a1c-d12e-951ad1b54897",
+      "name" : "apply_corner_radius",
+      "label" : "Apply Corner Radius",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : false
+    }, {
       "id" : "48d33633-bcd1-f95d-02ce-284a60606bf3",
       "name" : "top_padding",
       "label" : "Top Padding",
@@ -1603,6 +1625,7 @@
     "type" : "group",
     "display_width" : null,
     "default" : {
+      "apply_corner_radius" : false,
       "top_padding" : 0,
       "right_padding" : 0,
       "bottom_padding" : 0,
@@ -2030,6 +2053,7 @@
     "custom_bottom_padding" : 135,
     "custom_bottom_padding_mobile" : 50,
     "inner_container_spacing_group" : {
+      "apply_corner_radius" : false,
       "top_padding" : 0,
       "right_padding" : 0,
       "bottom_padding" : 0,

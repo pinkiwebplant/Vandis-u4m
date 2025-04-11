@@ -178,7 +178,9 @@
         <div class="itemInr ">
             {% if item.featured_image %}
             <div class="itemImg">
-                <div class="itemImgin" style="background-image:url({{ item.featured_image }})">	<a class="absltLink" href="{{ item.absolute_url }}"></a></div>
+                <a href="{{ item.absolute_url }}">
+                    <div class="itemImgin" style="background-image:url({{ item.featured_image }})">	</div>
+                </a>
             </div>
             {% endif %}
             <div class="itemCnWrap">
@@ -199,7 +201,8 @@
                     <div class="itemTags">
                         {% set included_topics = item.topic_list | rejectattr("slug", "equalto", "featured") | list %}
                         {% for topic in included_topics %}
-                        <a class="{{ topic.slug }}" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name|capitalize }}</a>{% if not loop.last %}, {% endif %}
+                        {% if loop.first %}
+                        <a class="{{ topic.slug }}" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name|capitalize }}</a>{% endif %}
                         {% endfor %}
                     </div>
                     {% endif %}
@@ -218,15 +221,15 @@
         <div class="itemInr ">
             {% if row.image.url %}
             <div class="itemImg">
-                <div class="itemImgin" style="background-image:url({{ row.image.url }})">	<a class="absltLink" href="{{ row.link }}"></a></div>
+                <div class="itemImgin" style="background-image:url({{ row.image.url }})"> </div>
             </div>
             {% endif %}
             <div class="itemCnWrap">
                 <div class="itemCntSec">
     
-                    {% if row.topic.name %}
+                    {% if row.type.name %}
                     <div class="itemTags"> 
-                        {{ row.topic.name|capitalize }}
+                        {{ row.type.name|capitalize }}
                     </div>
                     {% endif %} 
     
@@ -260,13 +263,67 @@
     {% endif %}
     {% endmacro%}
     
+    {% macro FilteredCard(row) %}
+    {% if row %}
+    <div class="cmCol3 cardItem">
+        <div class="itemInr ">
+            {% if row.image.url %}
+            <div class="itemImg">
+                <div class="itemImgin" style="background-image:url({{ row.image.url }})"> </div>
+            </div>
+            {% endif %}
+            <div class="itemCnWrap">
+                <div class="itemCntSec">
+    
+                    {% if row.type.name %}
+                    <div class="itemTags"> 
+                        {{ row.type.name|capitalize }}
+                    </div>
+                    {% endif %} 
+    
+                    {% if row.name %}
+                    <div class="itemTitle">
+                        <h5>
+                            <a  href="{{ row.link }}">
+                                {{ row.name }}
+                            </a>
+                        </h5>
+                    </div>  
+                    {% endif %}
+    
+                    {% if row.description %}
+                    <div class="itemDes"> 
+                        {{ row.description }} 
+                    </div>  
+                    {% endif %}
+    
+                </div>
+                {% if row.read_more_text %}
+                <div class="intro_btn_wrap">
+                    <div class="btn_item">
+                        <a class="hs-arrow-btn " href="{{ row.link }}">
+                            <span>{{ row.read_more_text }}</span>
+                            <svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+    
+        </div>
+    </div>
+    {% endif %}
+    {% endmacro%}
+    
     {% macro EventCards(row) %}
     {% if row %}
     <div class="cmCol3 cardItem">
         <div class="itemInr ">
             {% if row.image.url %}
             <div class="itemImg">
-                <div class="itemImgin" style="background-image:url({{ row.image.url }})">	<a class="absltLink" href="{{ row.link }}"></a></div>
+                <div class="itemImgin" style="background-image:url({{ row.image.url }})">	 </div>
             </div>
             {% endif %}
             <div class="itemCnWrap">
@@ -274,7 +331,8 @@
     
                     {% if row.start_date || row.end_date %}
                     <div class="itemTags"> 
-                        {{ row.start_date|datetimeformat('%B %d, %Y') }} - {{ row.end_date|datetimeformat('%B %d, %Y') }}
+                        
+                        {{ row.start_date|datetimeformat('%b %d') }}{% if row.start_date|datetimeformat('%Y') != row.end_date|datetimeformat('%Y') %}, {{ row.start_date|datetimeformat('%Y') }}{% endif %} - {{ row.end_date|datetimeformat('%b %d, %Y') }}
                     </div>
                     {% endif %}  
     

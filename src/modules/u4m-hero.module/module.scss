@@ -1,7 +1,5 @@
 @import "../../css/_module-imports";
 
-
-
 .u4m-hero {
   .innerCnt {
     .cardItems {
@@ -28,6 +26,14 @@
             display: flex;
             align-items: center;
             height: 100%;
+            position: relative;
+            .img-overlay {
+              max-width: 150px;
+              width: 100%;
+              position: absolute;
+              right: -5px;
+              bottom: -1px;
+            }
           }
 
           img {
@@ -68,13 +74,27 @@
               left: 46%;
               position: relative;
               width: 50px;
-              transition: all .3s ease;
+              transition: all 0.3s ease;
               position: absolute;
+              &.img-overlay {
+                bottom: -1px;
+                max-width: 150px;
+                position: absolute;
+                right: -5px;
+                width: 100%;
+                max-height: 150px;
+                height: 100%;
+                left: auto;
+                transform: scale(1);
+              }
             }
 
             &:hover {
               .play {
                 transform: scale(1.2);
+                &.img-overlay {
+                  transform: scale(1);
+                }
               }
             }
           }
@@ -98,6 +118,12 @@
 
           .intro_btn_wrap {
             justify-content: flex-start;
+            row-gap: 0;
+            margin-bottom: 20px;
+            .hs-button,
+            .hs-sec-btn {
+              margin-bottom: 0;
+            }
           }
         }
       }
@@ -124,7 +150,7 @@
   right: 0;
   top: 0;
   z-index: 99999;
-  background: rgba($black, .5);
+  background: rgba($black, 0.5);
 
   .small_container {
     align-items: center;
@@ -180,11 +206,9 @@
       }
     }
   }
-
 }
 
 @include tabvert {
-
   .u4m-hero {
     .innerCnt {
       .cardItems {
@@ -196,6 +220,13 @@
 
             .intro_btn_wrap {
               justify-content: center;
+              row-gap: 0;
+              margin-bottom: 20rem;
+              .btn_item {
+                a {
+                  margin-bottom: 0;
+                }
+              }
             }
           }
         }
@@ -207,7 +238,7 @@
             height: auto;
             display: block;
             width: 100%;
-
+            max-width: 600px;
             .cardVideoPoster {
               .play {
                 left: 50%;
@@ -229,5 +260,4 @@
       }
     }
   }
-
 }

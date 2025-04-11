@@ -1,0 +1,196 @@
+{% set moduleName = 'u4m-filtered-content' %} 
+{% include "../partials/u4-module-includes.html" %}
+
+{{ macros.introGroup(module.intro_content, module.module_settings) }} 
+
+{% set table = module.resource.select_hubdb_table %}
+{% set query = "" %}
+{% set batch_num = module.resource.count %} {# Number of events per page #} 
+
+{% if not request.query_dict.page_num %}
+{% set page_num = 1 %}
+{% set offset_num = 0 %}
+{% elif request.query_dict.page_num %}
+{% set page_num = request.query_dict.page_num %}
+{% set offset_num = page_num|add(-1) * batch_num %}
+{% endif %}
+
+
+{% set limit = "&limit=" ~ batch_num ~ "&offset=" ~ offset_num %}
+
+
+{% set query =  "orderBy=-hs_created_at" %}
+
+{% if request.query_dict.type %}
+{% set query = query ~ '&type__in=' ~ request.query_dict.type|urlencode %}
+{% endif %} 
+
+{% if request.query_dict.topic %}
+{% set query = query  ~ '&topic__in=' ~ request.query_dict.topic|urlencode %}
+{% endif %}
+
+{% set data = hubdb_table_rows(table, query ~ limit) %}
+
+{% set featuredquery = 'orderBy=hs_created_at&featured=true' %}
+{% set featureddata = hubdb_table_rows(table, featuredquery) %}
+
+<div class="topCards cardItems {% if module.module_settings.card_content_color.color %}color{% endif %}">
+
+	{% for row in featureddata %}
+	{% if loop.first %} 
+	<div class="topcard">
+		{{ macros.FilteredCard(row)}}
+	</div>
+	{% endif %}
+	{% endfor %}
+
+</div>
+
+<div class="postCardsWrap">
+	<div class="filtersDrop">
+		<form method="get" name="" class="filterform hs-form">
+			<fieldset class="topic input" data-val="">
+				<select name="topic" class="hs-input" placeholder="Select Topic"> 
+					<option value="">Select Topic</option>
+					{% for topic in hubdb_table_column(table, 'topic').options %}
+					<option value="{{ topic.name|urlencode }}">{{ topic.label }}</option>
+					{% endfor %}
+				</select>
+			</fieldset>
+			<fieldset class="type input" data-val="">
+				<select name="type" class="hs-input" placeholder="Select Type"> 
+					<option value="" >Select Type</option>
+					{% for type in hubdb_table_column(table, 'type').options %}
+					<option value="{{ type.name|urlencode }}">{{ type.label }}</option>
+					{% endfor %}
+				</select>
+			</fieldset>
+		</form>
+	</div>
+	<div class="postCardsInr CardfilWrap">
+		<div class="CardWrap Cardfil">
+			<div class="flex_row cardItems {% if module.module_settings.card_content_color.color %}color{% endif %}">  
+				{% for row in data %}
+				{{ macros.FilteredCard(row)}}
+				{% endfor %}
+			</div>
+			{# Pagination #} 
+			{% set nav = hubdb_table_rows(table, query) %}
+			{% set total_pages = (nav|length/batch_num)|round(0, 'ceil') %} 
+			{% set more_pages = nav|length % batch_num %}
+
+			{% if total_pages > 1 %}
+			<div class="pagination">
+				<ul>
+					{% if page_num > 1 %} 
+					<li><a class="prev page-numbers" data-href="{{ content.absolute_url }}?topic={{request.query_dict.topic|urlencode}}&type={{request.query_dict.type|urlencode}}&page_num={{ page_num|add(-1) }}">
+						<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"></path>
+						</svg>
+						</a></li>
+					{% endif %}
+
+					{% for i in range(1, total_pages + 1) %}
+					<li class="nav-links" >
+						<a class="{% if i == page_num %}active{% endif %} page-numbers"  data-href="{{ content.absolute_url }}?topic={{request.query_dict.topic|urlencode}}&type={{request.query_dict.type|urlencode}}&page_num={{ i }}">{{ i }}</a>
+					</li>
+					{% endfor %}
+
+
+					{% if total_pages > page_num %}
+					<li><a class="next page-numbers"  data-href="{{ content.absolute_url }}?topic={{request.query_dict.topic|urlencode}}&type={{request.query_dict.type|urlencode}}&page_num={{ page_num|add(1) }}" >
+						<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M6.83814 6.39548C7.05396 6.60478 7.05396 6.94407 6.83814 7.15337L1.2039 12.6174C0.988082 12.8267 0.638231 12.8267 0.422411 12.6174L0.161865 12.3648C-0.053955 12.1555 -0.053955 11.8162 0.161865 11.6069L5.14481 6.77442L0.161865 1.94196C-0.0539548 1.73266 -0.0539548 1.39337 0.161865 1.18407L0.422411 0.931391C0.638231 0.722089 0.988082 0.722089 1.2039 0.931391L6.83814 6.39548Z" fill="#052A50"></path>
+						</svg>
+						</a></li> 
+					{% endif %}
+				</ul>
+			</div>
+			{% endif %}
+
+		</div>
+
+
+	</div> 
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+</section>
+
+
+{% require_css %}
+<style>
+	.{{ name }}.u4m-filtered-content .cardItems .cardItem .itemInr .itemCnWrap{
+		background-color:{{ module.module_settings.card_background_color.rgba }};
+		color:{{ module.module_settings.card_content_color.rgba }};
+	}
+
+</style>
+{% end_require_css %}
+
+
+{% require_js %}
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		document.querySelector(".u4m-filtered-content .filterform").addEventListener("change", function (event) {
+			if (event.target.tagName === "SELECT") {
+				let topic = document.querySelector(".topic select").value;
+				let type = document.querySelector(".type select").value;
+
+				let dataUrl = window.location.pathname + "?topic=" + topic + "&type=" + type;
+				console.log(dataUrl);
+
+				// Update URL without reloading the page
+				window.history.pushState({ path: dataUrl }, "", dataUrl);
+
+				// Fetch filtered content and update the page
+				fetch(dataUrl)
+					.then(response => response.text())
+					.then(data => {
+					let parser = new DOMParser();
+					let doc = parser.parseFromString(data, "text/html");
+					let newContent = doc.querySelector(".Cardfil");
+
+					if (newContent) {
+						document.querySelector(".CardfilWrap").innerHTML = newContent.innerHTML;
+					}
+				})
+					.catch(error => console.error("Error loading data:", error));
+			}
+		});
+	});
+
+
+	document.addEventListener("click", function (e) {
+		var target = e.target.closest(".{{ name }}.u4m-filtered-content .pagination a");
+
+																	if (target) {
+			e.preventDefault();
+			var loadUrl = target.getAttribute("data-href");
+			console.log("Loading:", loadUrl);
+
+			fetch(loadUrl)
+				.then(response => response.text())
+				.then(html => {
+				let parser = new DOMParser();
+				let doc = parser.parseFromString(html, "text/html");
+				let newContent = doc.querySelector(".{{ name }}.u4m-filtered-content .CardWrap");
+
+																					 if (newContent) {
+					document.querySelector(".{{ name }}.u4m-filtered-content .postCardsInr").innerHTML = newContent.innerHTML;
+																 console.log("Filtered Pagination Content loaded successfully");
+				}
+			})
+				.catch(error => console.error("Error loading content:", error));
+		}
+	});
+
+</script>
+{% end_require_js %}

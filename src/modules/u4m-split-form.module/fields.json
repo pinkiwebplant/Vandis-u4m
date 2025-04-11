@@ -329,13 +329,13 @@
         "label" : "Image",
         "required" : false,
         "locked" : false,
-        "responsive" : true,
-        "resizable" : false,
+        "responsive" : false,
+        "resizable" : true,
         "show_loading" : false,
         "type" : "image",
         "display_width" : null,
         "default" : {
-          "size_type" : "auto",
+          "size_type" : "exact",
           "src" : "",
           "alt" : null,
           "loading" : "lazy"
@@ -367,7 +367,7 @@
       "display_width" : null,
       "default" : [ {
         "image" : {
-          "size_type" : "auto",
+          "size_type" : "exact",
           "src" : "",
           "alt" : null,
           "loading" : "lazy"
@@ -392,7 +392,7 @@
       "partnership_text" : "In partnership with ",
       "brand_logo" : [ {
         "image" : {
-          "size_type" : "auto",
+          "size_type" : "exact",
           "src" : "",
           "alt" : null,
           "loading" : "lazy"
@@ -455,7 +455,7 @@
       "partnership_text" : "In partnership with ",
       "brand_logo" : [ {
         "image" : {
-          "size_type" : "auto",
+          "size_type" : "exact",
           "src" : "",
           "alt" : null,
           "loading" : "lazy"
@@ -724,7 +724,7 @@
     "step" : 1,
     "type" : "number",
     "display_width" : null,
-    "default" : 800
+    "default" : 842
   }, {
     "id" : "101d38b6-d508-418e-dfc5-5a576744d3d1",
     "name" : "form_section",
@@ -907,7 +907,7 @@
   "display_width" : null,
   "default" : {
     "intro_content_alignment" : "left",
-    "intro_content_width" : 800,
+    "intro_content_width" : 842,
     "form_section" : {
       "select_bg_color" : "White_bg",
       "custom_color" : {
@@ -1215,6 +1215,16 @@
       "access" : null
     },
     "children" : [ {
+      "id" : "da9c71c7-0717-0a1c-d12e-951ad1b54897",
+      "name" : "apply_corner_radius",
+      "label" : "Apply Corner Radius",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "display_width" : null,
+      "type" : "boolean",
+      "default" : false
+    }, {
       "id" : "48d33633-bcd1-f95d-02ce-284a60606bf3",
       "name" : "top_padding",
       "label" : "Top Padding",

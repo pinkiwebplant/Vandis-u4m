@@ -4,18 +4,33 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   gap: 23px;
   @include tabletvert {
     justify-content: center;
   }
   .cmIcon {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     padding: 2px;
+    &.items-1 {
+      position: relative;
+      top: -1px;
+    }
+    &.items-4 {
+      position: relative;
+      top: 2px;
+    }
     a {
       display: block;
       font-size: 0;
       line-height: 0;
+      &:hover {
+        svg {
+          color: $green;
+          fill: $green;
+        }
+      }
     }
     svg {
       color: $action1;

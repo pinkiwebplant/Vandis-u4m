@@ -12,9 +12,14 @@
       gap: 80px;
       row-gap: 30px;
       align-items: center;
-
+      &.left_items .rightCnt .media-col .img-col .img-overlay {
+        right: auto;
+        bottom: -5px;
+        transform: rotate(90deg);
+        left: 0;
+      }
       .rightCnt {
-        width: calc(45.31200% - 40px);
+        width: calc(45.312% - 40px);
 
         .media-col {
           margin: 0 auto;
@@ -32,6 +37,14 @@
             display: flex;
             align-items: center;
             height: 100%;
+            position: relative;
+            .img-overlay {
+              max-width: 150px;
+              width: 100%;
+              position: absolute;
+              right: -5px;
+              bottom: -1px;
+            }
           }
 
           img {
@@ -76,7 +89,17 @@
               transition: all 0.3s ease;
               position: absolute;
             }
-
+            .play.img-overlay {
+              bottom: -1px;
+              max-width: 150px;
+              position: absolute;
+              right: -5px;
+              width: 100%;
+              max-height: 150px;
+              height: 100%;
+              left: auto;
+              transform: scale(1) !important;
+            }
             &:hover {
               .play {
                 transform: scale(1.2);
@@ -140,7 +163,7 @@
   right: 0;
   top: 0;
   z-index: 99999;
-  background: rgba($black, .5);
+  background: rgba($black, 0.5);
 
   .small_container {
     align-items: center;
@@ -196,11 +219,9 @@
       }
     }
   }
-
 }
 
 @include tabletvert {
-
   .u4m-alternating-content {
     .innerCnt {
       .cardItems {
@@ -245,5 +266,4 @@
       }
     }
   }
-
 }

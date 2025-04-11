@@ -1,28 +1,56 @@
 .footer {
+  background-color: $white;
+  &.lp-footer {
+    padding: 40px 0;
+  }
+  &.lp-footer {
+    .container {
+      .footer-bottom {
+        border: none;
+
+        .footer-bottom-inner {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+
   padding-top: 80px;
   padding-bottom: 80px;
+  a {
+    &:hover {
+      color: $green;
+    }
+  }
   @include tabletvert {
     padding-top: 40px;
     padding-bottom: 40px;
   }
+
   .container {
     .footer-top {
       margin-bottom: 40px;
+
       .footer-top-inner {
         display: flex;
         flex-wrap: wrap;
+
         @include tabvert {
           flex-direction: column;
           gap: 30px;
         }
+
         .footer-menu {
           width: calc(100% - 498px);
+
           @include navbreak {
             width: 66.666%;
           }
+
           @include tabvert {
             width: 100%;
           }
+
           .footer-menu-inner {
             .hs-menu-wrapper {
               > ul {
@@ -31,23 +59,29 @@
                 flex-wrap: wrap;
                 gap: 40px;
                 justify-content: space-between;
+
                 @include laptop {
                   gap: 20px;
                 }
+
                 @include navbreak {
                   gap: 15px;
                 }
+
                 @include tablet {
                   gap: 10px;
                 }
+
                 @include tabletvert {
                   flex-direction: column;
                   text-align: center;
                   gap: 20px;
                 }
+
                 > li {
                   letter-spacing: normal;
                   margin-bottom: 0;
+
                   > a {
                     font-family: $font1;
                     @include b1;
@@ -56,15 +90,19 @@
                     padding: 0;
                     margin-bottom: 20px;
                     pointer-events: none;
+
                     @include tabletvert {
                       margin-bottom: 10px;
                     }
                   }
+
                   > ul.hs-menu-children-wrapper {
                     position: static;
+
                     > li {
                       letter-spacing: normal;
                       margin-bottom: 8px;
+
                       > a {
                         width: 100%;
                         text-overflow: inherit;
@@ -79,13 +117,18 @@
                         white-space: normal;
                         margin-bottom: 0;
                         color: $action1;
+                        &:hover {
+                          color: $green;
+                        }
                       }
                     }
                   }
                 }
+
                 &:after {
                   display: none;
                 }
+
                 &:before {
                   display: none;
                 }
@@ -93,66 +136,84 @@
             }
           }
         }
+
         .footer-content {
           max-width: 498px;
+
           @include navbreak {
             width: 33.333%;
             padding-right: 20px;
           }
+
           @include tabvert {
             width: 100%;
             padding-right: 0;
             max-width: 100%;
           }
+
           .footer-logo {
             margin-bottom: 20px;
+
             @include tabletvert {
               text-align: center;
             }
           }
+
           .logo-btm-cnt {
             margin-bottom: 20px;
+
             @include tabletvert {
               text-align: center;
             }
+
             p {
               &:last-child {
                 margin-bottom: 0;
               }
             }
           }
+
           .footer-contact {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: space-between;
+
             @include navbreak {
               gap: 0;
             }
+
             @include tabvert {
               flex-direction: column;
               gap: 15px;
             }
+
             > div {
               max-width: 239px;
               width: 100%;
+
               @include navbreak {
                 max-width: 100%;
                 width: 50%;
               }
+
               @include tabletvert {
                 width: 100%;
                 text-align: center;
               }
+
               p {
                 &:last-child {
                   margin-bottom: 0;
                 }
               }
             }
+
             > .contact-details {
               p {
                 @include b5;
+                margin: 0;
+                margin-bottom: 4px;
                 font-weight: bold;
                 color: $action1;
               }
@@ -162,6 +223,7 @@
               @include navbreak {
                 padding-right: 20px;
               }
+
               @include tabletvert {
                 padding-right: 0;
               }
@@ -176,35 +238,44 @@
         }
       }
     }
+
     .footer-bottom {
       border-top: $lightgreen2 1px solid;
+
       .footer-bottom-inner {
         padding-top: 40px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+
         @include tabletvert {
           flex-direction: column;
           gap: 20px;
           text-align: center;
         }
+
         .copyright {
           @include b5;
           margin-bottom: 4px;
+
           @include tabletvert {
             margin-bottom: 0;
           }
         }
+
         .legal-link {
           margin-bottom: 8px;
+
           p {
             @include b5;
             font-weight: 500;
             line-height: 1.2;
+
             &:last-child {
               margin-bottom: 0;
             }
           }
+
           a {
             &:not(:last-child) {
               margin-right: 20px;
