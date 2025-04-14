@@ -1,0 +1,474 @@
+{
+  "id": "111777943",
+  "name": "events_vandis_u4m",
+  "portalId": 23543895,
+  "createdAt": "2025-03-18T10:09:42.133Z",
+  "archivedAt": "1970-01-01T00:00:00Z",
+  "publishedAt": "2025-04-01T09:55:41.494Z",
+  "assignedCount": 12,
+  "updatedAt": "2025-04-01T09:55:36.795Z",
+  "label": "Events - Vandis-u4m",
+  "hasUnpublishedRowChanges": false,
+  "columns": [
+    {
+      "name": "name",
+      "label": "Name",
+      "id": "1",
+      "archived": false,
+      "limit": 10000,
+      "createdAt": "2024-12-30T10:20:37.829Z",
+      "type": "TEXT",
+      "createdByUserId": 9970123,
+      "createdBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      },
+      "updatedAt": "2024-12-30T10:20:37.829Z",
+      "updatedByUserId": 9970123,
+      "updatedBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      }
+    },
+    {
+      "name": "image",
+      "label": "Image",
+      "id": "2",
+      "archived": false,
+      "description": "",
+      "createdAt": "2024-12-30T10:21:00.754Z",
+      "type": "IMAGE",
+      "createdByUserId": 9970123,
+      "createdBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      },
+      "updatedAt": "2024-12-30T10:21:00.754Z",
+      "updatedByUserId": 9970123,
+      "updatedBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      }
+    },
+    {
+      "name": "topic",
+      "label": "Topic",
+      "id": "3",
+      "archived": false,
+      "options": [
+        {
+          "id": "1",
+          "name": "tag",
+          "label": "Tag",
+          "type": "option",
+          "createdAt": "2024-12-30T10:22:36.930Z",
+          "createdByUserId": 9970123,
+          "createdBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "updatedAt": "2025-03-21T05:53:58.018Z",
+          "updatedByUserId": 9970123,
+          "updatedBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "order": null
+        },
+        {
+          "id": "2",
+          "name": "tag1",
+          "label": "Tag1",
+          "type": "option",
+          "createdAt": "2024-12-30T10:22:36.930Z",
+          "createdByUserId": 9970123,
+          "createdBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "updatedAt": "2025-01-02T09:42:10.139Z",
+          "updatedByUserId": 9970123,
+          "updatedBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "order": null
+        },
+        {
+          "id": "3",
+          "name": "tag2",
+          "label": "Tag2",
+          "type": "option",
+          "createdAt": "2024-12-30T10:22:36.930Z",
+          "createdByUserId": 9970123,
+          "createdBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "updatedAt": "2025-01-02T09:42:10.139Z",
+          "updatedByUserId": 9970123,
+          "updatedBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "order": null
+        },
+        {
+          "id": "4",
+          "name": "tag3",
+          "label": "Tag3",
+          "type": "option",
+          "createdAt": "2024-12-30T10:22:36.930Z",
+          "createdByUserId": 9970123,
+          "createdBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "updatedAt": "2025-03-21T05:53:58.018Z",
+          "updatedByUserId": 9970123,
+          "updatedBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "order": null
+        }
+      ],
+      "description": "",
+      "createdAt": "2024-12-30T10:22:36.930Z",
+      "type": "SELECT",
+      "optionCount": 4,
+      "createdByUserId": 9970123,
+      "createdBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      },
+      "updatedAt": "2025-03-21T05:53:58.018Z",
+      "updatedByUserId": 9970123,
+      "updatedBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      }
+    },
+    {
+      "name": "type",
+      "label": "Type",
+      "id": "4",
+      "archived": false,
+      "options": [
+        {
+          "id": "1",
+          "name": "business",
+          "label": "Business",
+          "type": "option",
+          "createdAt": "2024-12-30T10:23:20.127Z",
+          "createdByUserId": 9970123,
+          "createdBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "updatedAt": "2025-03-21T06:54:12.774Z",
+          "updatedByUserId": 9970123,
+          "updatedBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "order": null
+        },
+        {
+          "id": "2",
+          "name": "technology",
+          "label": "Technology",
+          "type": "option",
+          "createdAt": "2024-12-30T10:23:20.127Z",
+          "createdByUserId": 9970123,
+          "createdBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "updatedAt": "2025-03-21T06:54:12.774Z",
+          "updatedByUserId": 9970123,
+          "updatedBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "order": null
+        },
+        {
+          "id": "3",
+          "name": "sports",
+          "label": "Sports",
+          "type": "option",
+          "createdAt": "2024-12-30T10:23:20.127Z",
+          "createdByUserId": 9970123,
+          "createdBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "updatedAt": "2025-03-21T06:54:12.774Z",
+          "updatedByUserId": 9970123,
+          "updatedBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "order": null
+        },
+        {
+          "id": "4",
+          "name": "automotive",
+          "label": "Automotive",
+          "type": "option",
+          "createdAt": "2024-12-30T10:23:20.127Z",
+          "createdByUserId": 9970123,
+          "createdBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "updatedAt": "2025-03-21T06:54:12.774Z",
+          "updatedByUserId": 9970123,
+          "updatedBy": {
+            "id": "9970123",
+            "email": "ashokk@thewebplant.in",
+            "firstName": "Ashok Kumar",
+            "lastName": "Barsila"
+          },
+          "order": null
+        }
+      ],
+      "description": "",
+      "createdAt": "2024-12-30T10:23:20.127Z",
+      "type": "SELECT",
+      "optionCount": 4,
+      "createdByUserId": 9970123,
+      "createdBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      },
+      "updatedAt": "2025-03-21T06:54:12.774Z",
+      "updatedByUserId": 9970123,
+      "updatedBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      }
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "id": "8",
+      "archived": false,
+      "description": "",
+      "limit": 65000,
+      "createdAt": "2024-12-30T10:28:04.111Z",
+      "type": "RICHTEXT",
+      "createdByUserId": 9970123,
+      "createdBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      },
+      "updatedAt": "2024-12-30T10:28:04.111Z",
+      "updatedByUserId": 9970123,
+      "updatedBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      }
+    },
+    {
+      "name": "featured",
+      "label": "Featured",
+      "id": "9",
+      "archived": false,
+      "description": "",
+      "createdAt": "2024-12-30T10:31:32.853Z",
+      "type": "BOOLEAN",
+      "createdByUserId": 9970123,
+      "createdBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      },
+      "updatedAt": "2024-12-30T10:31:32.853Z",
+      "updatedByUserId": 9970123,
+      "updatedBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      }
+    },
+    {
+      "name": "link",
+      "label": "Link",
+      "id": "6",
+      "archived": false,
+      "description": "",
+      "limit": 10000,
+      "createdAt": "2024-12-30T10:24:49.691Z",
+      "type": "TEXT",
+      "createdByUserId": 9970123,
+      "createdBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      },
+      "updatedAt": "2024-12-30T10:24:49.691Z",
+      "updatedByUserId": 9970123,
+      "updatedBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      }
+    },
+    {
+      "name": "read_more_text",
+      "label": "Read More Text",
+      "id": "7",
+      "archived": false,
+      "description": "",
+      "limit": 10000,
+      "createdAt": "2024-12-30T10:25:13.072Z",
+      "type": "TEXT",
+      "createdByUserId": 9970123,
+      "createdBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      },
+      "updatedAt": "2024-12-30T10:25:13.072Z",
+      "updatedByUserId": 9970123,
+      "updatedBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      }
+    },
+    {
+      "name": "start_date",
+      "label": "Start Date",
+      "id": "10",
+      "archived": false,
+      "description": "",
+      "createdAt": "2025-03-18T10:10:08.531Z",
+      "type": "DATETIME",
+      "createdByUserId": 9970123,
+      "createdBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      },
+      "updatedAt": "2025-03-18T10:10:08.531Z",
+      "updatedByUserId": 9970123,
+      "updatedBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      }
+    },
+    {
+      "name": "end_date",
+      "label": "End Date",
+      "id": "12",
+      "archived": false,
+      "width": 450,
+      "description": "",
+      "createdAt": "2025-03-18T10:10:46.699Z",
+      "type": "DATETIME",
+      "createdByUserId": 9970123,
+      "createdBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      },
+      "updatedAt": "2025-03-18T10:10:46.699Z",
+      "updatedByUserId": 9970123,
+      "updatedBy": {
+        "id": "9970123",
+        "email": "ashokk@thewebplant.in",
+        "firstName": "Ashok Kumar",
+        "lastName": "Barsila"
+      }
+    }
+  ],
+  "partitioningSettings": {
+    "teamIds": [],
+    "userIds": []
+  },
+  "published": true,
+  "cosObjectType": "HUBDB_TABLE",
+  "columnCount": 10,
+  "createdById": 0,
+  "archived": false,
+  "updated": 1743501336795,
+  "updatedById": 9970123,
+  "cdnPurgeEmbargoTime": null,
+  "rowCount": 13,
+  "updatedBy": {
+    "id": "9970123",
+    "email": "ashokk@thewebplant.in",
+    "firstName": "Ashok Kumar",
+    "lastName": "Barsila"
+  },
+  "useForPages": false,
+  "allowChildTables": false,
+  "enableChildTablePages": false,
+  "crmObjectTypeId": 0,
+  "isOrderedManually": true,
+  "dynamicMetaTags": {},
+  "allowPublicApiAccess": false
+}

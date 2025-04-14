@@ -16,7 +16,7 @@ hs init
 #### Create a HubDB table
 
 ```
-hs hubdb create u4-resource-library.json
+hs hubdb create --path events_vandis.json
 ```
 
 #### Upload entire project
@@ -54,7 +54,7 @@ hs watch --account=hug_vt src vandis-u4m
 #### Fetch a HubDB table (the numbers are the ID of the table)
 
 ```
-hs hubdb fetch --account=hugvt 3411413 u4-resource-library.json
+hs hubdb fetch 3411413 u4-resource-library.json
 ```
 
 ## Theme fields
