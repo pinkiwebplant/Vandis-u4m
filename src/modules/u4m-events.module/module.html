@@ -11,7 +11,11 @@
 {% set offset = (current_page - 1) * limit %}
 
 {# Fetch all rows to get total count #}
+{% if table %}
 {% set all_data = hubdb_table_rows(table, 'orderBy=start_date') %}
+{% else %}	
+{% set all_data = [] %}
+{% endif %}
 {% set total_rows = all_data|length %}
 {% set total_pages = (total_rows / limit)|round(method='ceil')|int %}
 
@@ -27,8 +31,16 @@
  
 {% set queryparam = query ~ datequery %}
 {% set featuredquery = 'orderBy=start_date&featured=true' ~ datequery %}
+{% if table %}
 {% set data = hubdb_table_rows(table, queryparam) %}
+{% else %}	
+{% set data = [] %}
+{% endif %}
+{% if table %}
 {% set featureddata = hubdb_table_rows(table, featuredquery) %}
+{% else %}	
+{% set featureddata = [] %}
+{% endif %}
 
 <div class="postCardsWrap">
 	<div class="postCardsInr">

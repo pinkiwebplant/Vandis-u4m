@@ -328,7 +328,7 @@
     },
     "type" : "hubdbtable",
     "display_width" : null,
-    "default" : 112216248
+    "default" : ""
   }, {
     "id" : "35113907-b709-08ce-b065-a7e9b36062bd",
     "name" : "select_category",
@@ -395,7 +395,7 @@
       "label" : "Select Row",
       "required" : false,
       "locked" : false,
-      "table_name_or_id" : "112216248",
+      "table_name_or_id" : "",
       "columns_to_fetch" : [ "image", "featured", "name", "link", "topic", "description", "type", "read_more_text" ],
       "display_columns" : [ "name" ],
       "type" : "hubdbrow",
@@ -418,7 +418,7 @@
   "display_width" : null,
   "default" : {
     "resource_type" : "recent",
-    "resource_table" : 112216248,
+    "resource_table" : "",
     "count" : 3,
     "resources_items" : [ ]
   }

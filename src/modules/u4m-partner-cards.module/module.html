@@ -7,7 +7,12 @@
 {% set query = 'orderBy=-hs_created_at' %}
 
 {# filter #}
-{% set category = hubdb_table_column(module.select_hubdb_table, "category").options %}
+{% set table = module.select_hubdb_table %}
+{% if table %}
+{% set category = hubdb_table_column(table, "category").options %}
+{% else %}	
+{% set category = [] %}
+{% endif %}
 {% if request.query_dict.category and request.query_dict.category != "all" %}
 {% set query = query ~ '&category__in=' ~ request.query_dict.category %}
 {% if module.disable_pagination == false %}
@@ -26,9 +31,17 @@
 {% set offset_num = page_num|add(-1) * batch_num %}
 {% endif %}
 {% set limit = "&limit="~batch_num ~ "&offset=" ~ offset_num %}
-{% set dataRows = hubdb_table_rows(module.select_hubdb_table,query ~ limit ) %}
+	{% if table %}
+{% set dataRows = hubdb_table_rows(table,query ~ limit ) %}
+	{% else %}	
+		{% set dataRows = [] %}
+		{% endif %}
 {% else %}
-{% set dataRows = hubdb_table_rows(module.select_hubdb_table,query ) %}
+	{% if table %}
+{% set dataRows = hubdb_table_rows(table,query ) %}
+	{% else %}	
+		{% set dataRows = [] %}
+		{% endif %}
 {% endif %}
 
 <div class="hubdb-content"> 
@@ -90,7 +103,11 @@
 			{# pagination html #}
 			{% if module.disable_pagination == false %}
 				<div class="pagination">
-					{% set nav = hubdb_table_rows(module.select_hubdb_table, paginationQuery) %}   
+					{% if table %}
+					{% set nav = hubdb_table_rows(table, paginationQuery) %}  
+					{% else %}	
+					{% set nav = [] %}
+					{% endif %} 
 					{% set total_pages = (nav|length/batch_num)|round(0, 'ceil') %}
 					{% set more_pages = total_pages - page_num %}
 					{% set last = total_pages %}
@@ -165,15 +182,17 @@
 	.{{name}}.u4m-partner-cards .page-center .innerContainer .hubdb-content .hubdb-content-inner .filter-category form.filterForm ul.categories li input[type=radio]:checked{
 		background: url({{get_asset_url("../templates/images/radio_Icon.png")}});
 	}
-
+	{% if module.module_settings.card_settings.background_color.color %}
 	.{{name}} .page-center .innerContainer .hubdb-content .hubdb-content-inner .filter-content .content-list .content-item{
 		background-color:rgba({{ module.module_settings.card_settings.background_color.color|convert_rgb }},{{ module.module_settings.card_settings.background_color.opacity*0.01 }});
 	}
-
+{% endif %}
+	{% if module.module_settings.card_settings.content_color.color %}
 	.{{name}} .page-center .innerContainer .hubdb-content .hubdb-content-inner .filter-content .content-list .content-item .content-item-inner .item-category ul.category-list li,
 	.{{name}} .page-center .innerContainer .hubdb-content .hubdb-content-inner .filter-content .content-list .content-item .content-item-inner .item-title h5{
 		color:rgba({{ module.module_settings.card_settings.content_color.color|convert_rgb }},{{ module.module_settings.card_settings.content_color.opacity*0.01 }});
 	}
+	{% endif %}
 
 
 </style>

@@ -326,7 +326,7 @@
   "locked" : false,
   "type" : "hubdbtable",
   "display_width" : null,
-  "default" : 111617698
+  "default" : ""
 }, {
   "id" : "4f58d77a-20a1-0bce-f18c-e35aafcd68eb",
   "name" : "disable_pagination",

@@ -11,11 +11,15 @@
 {% set recent_query = 'orderBy=hs_created_at&limit=' ~ count %}
 {% set category = module.logo_slider.select_category %} 
 {% set category_query = 'orderBy=-hs_created_at&topic__in=' ~ category ~ '&limit=' ~ count %}
+{% if table %}
 {% if module.logo_slider.slider_type == "recent" %}
 {% set data = hubdb_table_rows(table,recent_query) %}
 {% elif module.logo_slider.slider_type == "category" %}
 {% set data = hubdb_table_rows(table,category_query) %}
-{% endif %}  
+{% endif %} 
+{% else %}   
+{% set data = [] %}
+{% endif %}   
 <div class="logoSlider">
 	<div class="logoItems">
 

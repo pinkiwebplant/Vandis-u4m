@@ -10,11 +10,15 @@
 {% set category = module.resource.select_category %}
 {% set category_query = 'orderBy=-hs_created_at&type__in=' ~ category ~ '&limit=' ~ count %}
 
-
+{% if table %}
 {% if module.resource.resource_type == "recent" %}
+
 {% set data = hubdb_table_rows(table,recent_query) %}
 {% elif module.resource.resource_type == "category" %}
 {% set data = hubdb_table_rows(table,category_query) %}
+{% endif %}
+{% else %}
+	{% set data = [] %}
 {% endif %}
   
 

@@ -28,12 +28,18 @@
 {% if request.query_dict.topic %}
 {% set query = query  ~ '&topic__in=' ~ request.query_dict.topic|urlencode %}
 {% endif %}
-
+{% if table %}
 {% set data = hubdb_table_rows(table, query ~ limit) %}
+{% else %}	
+{% set data = [] %}
+{% endif %}
 
 {% set featuredquery = 'orderBy=hs_created_at&featured=true' %}
+{% if table %}
 {% set featureddata = hubdb_table_rows(table, featuredquery) %}
-
+{% else %}	
+{% set featureddata = [] %}
+{% endif %}
 <div class="topCards cardItems {% if module.module_settings.card_content_color.color %}color{% endif %}">
 
 	{% for row in featureddata %}
@@ -52,17 +58,21 @@
 			<fieldset class="topic input" data-val="">
 				<select name="topic" class="hs-input" placeholder="Select Topic"> 
 					<option value="">Select Topic</option>
-					{% for topic in hubdb_table_column(table, 'topic').options %}
-					<option value="{{ topic.name|urlencode }}">{{ topic.label }}</option>
-					{% endfor %}
+					{% if table %}
+							{% for topic in hubdb_table_column(table, 'topic').options %}
+							<option value="{{ topic.name|urlencode }}">{{ topic.label }}</option>
+							{% endfor %}
+						{% endif %}
 				</select>
 			</fieldset>
 			<fieldset class="type input" data-val="">
 				<select name="type" class="hs-input" placeholder="Select Type"> 
 					<option value="" >Select Type</option>
+					{% if table %}
 					{% for type in hubdb_table_column(table, 'type').options %}
 					<option value="{{ type.name|urlencode }}">{{ type.label }}</option>
 					{% endfor %}
+				{% endif %}
 				</select>
 			</fieldset>
 		</form>
@@ -75,7 +85,11 @@
 				{% endfor %}
 			</div>
 			{# Pagination #} 
+			{% if table %}
 			{% set nav = hubdb_table_rows(table, query) %}
+			{% else %}	
+			{% set nav = [] %}
+			{% endif %}
 			{% set total_pages = (nav|length/batch_num)|round(0, 'ceil') %} 
 			{% set more_pages = nav|length % batch_num %}
 
